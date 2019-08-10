@@ -7,7 +7,9 @@
 </head>
 
 <body>
-  <p>Hello World!</p>
+  <p>{{ $data['name'] }}さん</p>
+  <p>{{ $data['message'] }}</p>
+  <p>現在は {{ $today }} です</p>
 </body>
 
 </html>
