@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/web/liveinfo', 'Web\LiveInfoWebController@get');
+
 Route::get('hello', 'HelloController@index');
 Route::get('sample/model/{type?}', 'SampleController@model');
 Route::get('react', 'ReactController@index');
