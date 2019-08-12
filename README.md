@@ -1,3 +1,6 @@
 # livebook
 for sample app
-* PHP / Laravel
+* PHP
+* Laravel
+* ReactJS
+* Bootstrap
