@@ -45,7 +45,7 @@ export default class LiveInfo extends Component {
       self.setState({foo:d.getSeconds().toString()});
     }, 500);
 
-    fetch('/api/lives')
+    fetch(process.env.MIX_APP_BASE_PATH + '/api/lives')
     .then(response => {
         return response.json();
     })

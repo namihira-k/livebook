@@ -29343,7 +29343,7 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container bg-info"
+        className: "container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -29375,7 +29375,7 @@ function (_Component) {
           foo: d.getSeconds().toString()
         });
       }, 500);
-      fetch('/api/lives').then(function (response) {
+      fetch("/liveshare" + '/api/lives').then(function (response) {
         return response.json();
       }).then(function (objects) {
         _this2.setState({
