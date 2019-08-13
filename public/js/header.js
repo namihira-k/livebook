@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -29287,16 +29287,16 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./resources/js/components/LiveInfo.js":
-/*!*********************************************!*\
-  !*** ./resources/js/components/LiveInfo.js ***!
-  \*********************************************/
+/***/ "./resources/js/components/Header.js":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Header.js ***!
+  \*******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return LiveInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Header; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
@@ -29322,88 +29322,48 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var LiveInfo =
+var Header =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(LiveInfo, _Component);
+  _inherits(Header, _Component);
 
-  function LiveInfo() {
-    var _this;
+  function Header() {
+    _classCallCheck(this, Header);
 
-    _classCallCheck(this, LiveInfo);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(LiveInfo).call(this));
-    _this.state = {
-      lives: []
-    };
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(Header).apply(this, arguments));
   }
 
-  _createClass(LiveInfo, [{
+  _createClass(Header, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-8 col-md-offset-2"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "panel panel-default"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "panel-heading"
-      }, "Example Component"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "panel-body"
-      }, this.renderLives())))));
-    }
-  }, {
-    key: "renderLives",
-    value: function renderLives() {
-      return this.state.lives.map(function (live) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "\u540D\u524D : ", live.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "\u5834\u6240 : ", live.place));
-      });
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      var self = this;
-      setInterval(function () {
-        var d = new Date();
-        self.setState({
-          foo: d.getSeconds().toString()
-        });
-      }, 500);
-      fetch("" + '/api/lives').then(function (response) {
-        return response.json();
-      }).then(function (objects) {
-        _this2.setState({
-          lives: objects
-        });
-      });
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+        className: "navbar navbar-dark bg-dark"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "navbar-brand",
+        href: "#"
+      }, "Live Share"));
     }
   }]);
 
-  return LiveInfo;
+  return Header;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
 
-if (document.getElementById('id-live-info')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(LiveInfo, null), document.getElementById('id-live-info'));
+if (document.getElementById('id-header')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Header, null), document.getElementById('id-header'));
 }
 
 /***/ }),
 
-/***/ 3:
-/*!***************************************************!*\
-  !*** multi ./resources/js/components/LiveInfo.js ***!
-  \***************************************************/
+/***/ 1:
+/*!*************************************************!*\
+  !*** multi ./resources/js/components/Header.js ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/namihira/work/project/vscode/livebook/resources/js/components/LiveInfo.js */"./resources/js/components/LiveInfo.js");
+module.exports = __webpack_require__(/*! /Users/namihira/work/project/vscode/livebook/resources/js/components/Header.js */"./resources/js/components/Header.js");
 
 
 /***/ })

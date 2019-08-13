@@ -10,6 +10,6 @@ class LiveInfoWebController extends Controller
     public function get(Request $request)
     {
       $uuid = $request->input('uuid');      
-      return view('liveinfo.body', ['uuid' => $uuid]);
+      return view('liveinfo.view', ['uuid' => $uuid]);
     }
 }
