@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -29287,10 +29287,10 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./resources/js/components/LiveInfo.js":
-/*!*********************************************!*\
-  !*** ./resources/js/components/LiveInfo.js ***!
-  \*********************************************/
+/***/ "./resources/js/components/LiveComment.js":
+/*!************************************************!*\
+  !*** ./resources/js/components/LiveComment.js ***!
+  \************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -29328,15 +29328,9 @@ function (_Component) {
   _inherits(LiveInfo, _Component);
 
   function LiveInfo() {
-    var _this;
-
     _classCallCheck(this, LiveInfo);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(LiveInfo).call(this));
-    _this.state = {
-      lives: []
-    };
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(LiveInfo).call(this));
   }
 
   _createClass(LiveInfo, [{
@@ -29344,76 +29338,23 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "\u30E9\u30A4\u30D6\u60C5\u5831"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "\u30B3\u30E1\u30F3\u30C8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        id: "id-comment",
+        "class": "form-control",
+        placeholder: "\u516C\u958B\u30B3\u30E1\u30F3\u30C8\u3092\u5165\u529B..."
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "card bg-light mb-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-body"
+        "class": "card-header"
+      }, "Header"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "card-body"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        className: "card-title"
-      }, "\u4E43\u6728\u574246 \u771F\u590F\u306E\u5168\u56FD\u30C4\u30A2\u30FC2019 \uFF1C\u6771\u4EAC\uFF1E\u660E\u6CBB\u795E\u5BAE\u91CE\u7403\u5834"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-2"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u51FA\u6F14\u8005")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-10"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "\u4E43\u6728\u574246"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-2"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u90FD\u9053\u5E9C\u770C")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-10"
-      }, "\u6771\u4EAC")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-2"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u958B\u50AC\u5834\u6240")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-10"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "\u660E\u6CBB\u795E\u5BAE\u91CE\u7403\u5834"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-2"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u65E5\u6642")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-10"
-      }, "2019-08-30\u30012019-08-31\u30012019-09-01")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-2"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u60C5\u5831\u5143")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-10"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "http://www.nogizaka46.com"
-      }, "http://www.nogizaka46.com"))))));
-    }
-  }, {
-    key: "renderLives",
-    value: function renderLives() {
-      return this.state.lives.map(function (live) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "\u540D\u524D : ", live.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "\u5834\u6240 : ", live.place));
-      });
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      var self = this;
-      setInterval(function () {
-        var d = new Date();
-        self.setState({
-          foo: d.getSeconds().toString()
-        });
-      }, 500);
-      fetch("" + '/api/lives').then(function (response) {
-        return response.json();
-      }).then(function (objects) {
-        _this2.setState({
-          lives: objects
-        });
-      });
+        "class": "card-title"
+      }, "Light card title"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        "class": "card-text"
+      }, "Some quick example text to build on the card title and make up the bulk of the card's content."))));
     }
   }]);
 
@@ -29422,20 +29363,20 @@ function (_Component) {
 
 
 
-if (document.getElementById('id-live-info')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(LiveInfo, null), document.getElementById('id-live-info'));
+if (document.getElementById('id-live-comment')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(LiveInfo, null), document.getElementById('id-live-comment'));
 }
 
 /***/ }),
 
-/***/ 3:
-/*!***************************************************!*\
-  !*** multi ./resources/js/components/LiveInfo.js ***!
-  \***************************************************/
+/***/ 4:
+/*!******************************************************!*\
+  !*** multi ./resources/js/components/LiveComment.js ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/namihira/work/project/vscode/livebook/resources/js/components/LiveInfo.js */"./resources/js/components/LiveInfo.js");
+module.exports = __webpack_require__(/*! /Users/namihira/work/project/vscode/livebook/resources/js/components/LiveComment.js */"./resources/js/components/LiveComment.js");
 
 
 /***/ })

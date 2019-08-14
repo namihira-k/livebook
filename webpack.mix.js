@@ -20,4 +20,5 @@ mix.react('resources/js/components/Header.js', 'public/js/header.js');
 mix.react('resources/js/components/Footer.js', 'public/js/footer.js');
 
 mix.react('resources/js/components/LiveInfo.js', 'public/js/liveinfo.js');
+mix.react('resources/js/components/LiveComment.js', 'public/js/livecomment.js');
 
