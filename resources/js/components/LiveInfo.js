@@ -13,14 +13,36 @@ export default class LiveInfo extends Component {
   render() {
     return (
       <div className="container">
-        <div className="row">
-          <div className="col-md-8 col-md-offset-2">
-            <div className="panel panel-default">
-              <div className="panel-heading">Example Component</div>
-              <div className="panel-body">
-                {this.renderLives()}
-              </div>
+        <h1>ライブ情報</h1>
+        <div className="card">
+          <div className="card-body">
+            <h5 className="card-title">乃木坂46 真夏の全国ツアー2019 ＜東京＞明治神宮野球場</h5>
+
+            <div className="row">
+              <div className="col-2"><strong>出演者</strong></div>
+              <div className="col-10"><a href="#">乃木坂46</a></div>
             </div>
+
+            <div className="row">
+              <div className="col-2"><strong>都道府県</strong></div>
+              <div className="col-10">東京</div>
+            </div>
+
+            <div className="row">
+              <div className="col-2"><strong>開催場所</strong></div>
+              <div className="col-10"><a href="#">明治神宮野球場</a></div>
+            </div>
+
+            <div className="row">
+              <div className="col-2"><strong>日時</strong></div>
+              <div className="col-10">2019-08-30、2019-08-31、2019-09-01</div>
+            </div>
+
+            <div className="row">
+              <div className="col-2"><strong>情報元</strong></div>
+              <div className="col-10"><a href="http://www.nogizaka46.com">http://www.nogizaka46.com</a></div>
+            </div>
+
           </div>
         </div>
       </div>
