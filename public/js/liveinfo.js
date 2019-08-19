@@ -29342,9 +29342,7 @@ function (_Component) {
   _createClass(LiveInfo, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "\u30E9\u30A4\u30D6\u60C5\u5831"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "\u30E9\u30A4\u30D6\u60C5\u5831"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
@@ -29356,9 +29354,7 @@ function (_Component) {
         className: "col-2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u51FA\u6F14\u8005")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-10"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "\u4E43\u6728\u574246"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "\u4E43\u6728\u574246")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-2"
@@ -29370,9 +29366,7 @@ function (_Component) {
         className: "col-2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u958B\u50AC\u5834\u6240")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-10"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "\u660E\u6CBB\u795E\u5BAE\u91CE\u7403\u5834"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "\u660E\u6CBB\u795E\u5BAE\u91CE\u7403\u5834")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-2"

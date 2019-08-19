@@ -12,15 +12,15 @@ export default class LiveInfo extends Component {
 
   render() {
     return (
-      <div className="container">
-        <h1>ライブ情報</h1>
+      <div>
+        <h3>ライブ情報</h3>
         <div className="card">
           <div className="card-body">
             <h5 className="card-title">乃木坂46 真夏の全国ツアー2019 ＜東京＞明治神宮野球場</h5>
 
             <div className="row">
               <div className="col-2"><strong>出演者</strong></div>
-              <div className="col-10"><a href="#">乃木坂46</a></div>
+              <div className="col-10">乃木坂46</div>
             </div>
 
             <div className="row">
@@ -30,7 +30,7 @@ export default class LiveInfo extends Component {
 
             <div className="row">
               <div className="col-2"><strong>開催場所</strong></div>
-              <div className="col-10"><a href="#">明治神宮野球場</a></div>
+              <div className="col-10">明治神宮野球場</div>
             </div>
 
             <div className="row">

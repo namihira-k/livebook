@@ -29336,25 +29336,35 @@ function (_Component) {
   _createClass(LiveInfo, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "\u30B3\u30E1\u30F3\u30C8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "form-group"
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "\u30B3\u30E1\u30F3\u30C8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "form-row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group col-md-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        "class": "form-control",
+        id: "username",
+        placeholder: "\u304A\u540D\u524D\uFF08\u5165\u529B\u81EA\u7531\uFF09"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         id: "id-comment",
-        "class": "form-control",
+        className: "form-control",
         placeholder: "\u516C\u958B\u30B3\u30E1\u30F3\u30C8\u3092\u5165\u529B..."
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "card bg-light mb-3"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit",
+        className: "btn btn-primary"
+      }, "\u6295\u7A3F\u3059\u308B")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "mt-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "card-header"
-      }, "Header"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "card-body"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        "class": "card-title"
-      }, "Light card title"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        "class": "card-text"
-      }, "Some quick example text to build on the card title and make up the bulk of the card's content."))));
+        className: "card bg-light"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
+        className: "card-title"
+      }, "@\u540D\u7121\u3057\u3055\u3093 2019-08-19 22:38"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "card-text"
+      }, "\u4E43\u6728\u5742\u795E\u5BAE\u4E00\u822C\u58F2\u308A\u5207\u308C\u3060\u3088\u30FC")))));
     }
   }]);
 
