@@ -13,8 +13,8 @@
   <div id="id-header"></div>
 
   <div class="container-fluid">
-    <div id="id-live-info" class="mt-3"></div>
-    <div id="id-live-comment" class="mt-3"></div>
+    <div id="id-event-info" class="mt-3"></div>
+    <div id="id-event-comment" class="mt-3"></div>
   </div>
 
   <div id="id-footer"></div>
@@ -22,8 +22,8 @@
   <script src="{{ asset('js/header.js') }}"></script>
   <script src="{{ asset('js/footer.js') }}"></script>
 
-  <script src="{{ asset('js/liveinfo.js') }}"></script>
-  <script src="{{ asset('js/livecomment.js') }}"></script>
+  <script src="{{ asset('js/event-info.js') }}"></script>
+  <script src="{{ asset('js/event-comment.js') }}"></script>
 </body>
 
 </html>

@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/web/liveinfo', 'Web\LiveInfoWebController@get');
+Route::get('/web/eventinfo', 'Web\EventInfoWebController@get');
 
 Route::get('hello', 'HelloController@index');
 Route::get('sample/model/{type?}', 'SampleController@model');
