@@ -9,19 +9,26 @@ export default class LiveInfo extends Component {
 
   render() {
     return (
-      <div className="container">
-        <h3>コメント</h3>
+      <div>
+        <h6>コメント</h6>
         <form>
-          <div class="form-group">
-            <textarea id="id-comment" class="form-control"  placeholder="公開コメントを入力..."></textarea>
+          <div class="form-row">
+            <div className="form-group col-md-4">
+              <input type="text" class="form-control" id="username" placeholder="お名前（入力自由）" />
+            </div>
           </div>
+          <div className="form-group">
+            <textarea id="id-comment" className="form-control"  placeholder="公開コメントを入力..."></textarea>
+          </div>
+          <button type="submit" className="btn btn-primary">投稿する</button>
         </form>
 
-        <div class="card bg-light mb-3">
-          <div class="card-header">Header</div>
-          <div class="card-body">
-            <h5 class="card-title">Light card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="mt-3">
+          <div className="card bg-light">
+            <div className="card-body">
+              <h6 className="card-title">@名無しさん 2019-08-19 22:38</h6>
+              <p className="card-text">乃木坂神宮一般売り切れだよー</p>
+            </div>
           </div>
         </div>
       </div>

@@ -12,8 +12,10 @@
 <body>
   <div id="id-header"></div>
 
-  <div id="id-live-info" class="mt-5"></div>
-  <div id="id-live-comment" class="mt-3"></div>
+  <div class="container-fluid">
+    <div id="id-live-info" class="mt-3"></div>
+    <div id="id-live-comment" class="mt-3"></div>
+  </div>
 
   <div id="id-footer"></div>
 
