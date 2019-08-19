@@ -1,8 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/js/event-comment.js": "/js/event-comment.js",
+    "/js/event-info.js": "/js/event-info.js",
     "/js/footer.js": "/js/footer.js",
-    "/js/header.js": "/js/header.js",
-    "/js/livecomment.js": "/js/livecomment.js",
-    "/js/liveinfo.js": "/js/liveinfo.js"
+    "/js/header.js": "/js/header.js"
 }

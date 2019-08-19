@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -29287,16 +29287,16 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./resources/js/components/Footer.js":
-/*!*******************************************!*\
-  !*** ./resources/js/components/Footer.js ***!
-  \*******************************************/
+/***/ "./resources/js/components/EventInfo.js":
+/*!**********************************************!*\
+  !*** ./resources/js/components/EventInfo.js ***!
+  \**********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Footer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EventInfo; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
@@ -29322,49 +29322,108 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var Footer =
+var EventInfo =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(Footer, _Component);
+  _inherits(EventInfo, _Component);
 
-  function Footer() {
-    _classCallCheck(this, Footer);
+  function EventInfo() {
+    var _this;
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Footer).apply(this, arguments));
+    _classCallCheck(this, EventInfo);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EventInfo).call(this));
+    _this.state = {
+      events: []
+    };
+    return _this;
   }
 
-  _createClass(Footer, [{
+  _createClass(EventInfo, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
-        className: "mt-5 bg-light"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container-fluid"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Made by ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "https://twitter.com/namihira_k"
-      }, "@namihira-k"))));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "\u30E9\u30A4\u30D6\u60C5\u5831"), this.renderEvents());
+    }
+  }, {
+    key: "renderEvents",
+    value: function renderEvents() {
+      return this.state.events.map(function (event) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "card",
+          key: event.name
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "card-body"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+          className: "card-title"
+        }, "\u4E43\u6728\u574246 \u771F\u590F\u306E\u5168\u56FD\u30C4\u30A2\u30FC2019 \uFF1C\u6771\u4EAC\uFF1E\u660E\u6CBB\u795E\u5BAE\u91CE\u7403\u5834"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-2"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u51FA\u6F14\u8005")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-10"
+        }, event.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-2"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u90FD\u9053\u5E9C\u770C")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-10"
+        }, "\u6771\u4EAC")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-2"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u958B\u50AC\u5834\u6240")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-10"
+        }, event.place)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-2"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u65E5\u6642")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-10"
+        }, "2019-08-30\u30012019-08-31\u30012019-09-01")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-2"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u60C5\u5831\u5143")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-10"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "http://www.nogizaka46.com"
+        }, "http://www.nogizaka46.com")))));
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      fetch("/liveshare" + '/api/events').then(function (response) {
+        return response.json();
+      }).then(function (objects) {
+        _this2.setState({
+          events: objects
+        });
+      });
     }
   }]);
 
-  return Footer;
+  return EventInfo;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
 
-if (document.getElementById('id-footer')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Footer, null), document.getElementById('id-footer'));
+if (document.getElementById('id-event-info')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(EventInfo, null), document.getElementById('id-event-info'));
 }
 
 /***/ }),
 
-/***/ 2:
-/*!*************************************************!*\
-  !*** multi ./resources/js/components/Footer.js ***!
-  \*************************************************/
+/***/ 3:
+/*!****************************************************!*\
+  !*** multi ./resources/js/components/EventInfo.js ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/namihira/work/project/vscode/livebook/resources/js/components/Footer.js */"./resources/js/components/Footer.js");
+module.exports = __webpack_require__(/*! /Users/namihira/work/project/vscode/livebook/resources/js/components/EventInfo.js */"./resources/js/components/EventInfo.js");
 
 
 /***/ })

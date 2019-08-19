@@ -17,4 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/lives', 'Api\LiveApiController@get');
+Route::get('/events', 'Api\EventApiController@get');
+Route::post('/comments', 'Api\CommentApiController@post');

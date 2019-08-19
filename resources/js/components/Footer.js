@@ -6,7 +6,7 @@ export default class Footer extends Component {
     return (
       <footer className="mt-5 bg-light">
         <div className="container-fluid">
-          <p>Made by @namihira-k</p>
+          <p>Made by <a href="https://twitter.com/namihira_k">@namihira-k</a></p>
         </div>
       </footer>
     );
