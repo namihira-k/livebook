@@ -31273,9 +31273,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -31291,9 +31291,22 @@ function (_Component) {
   _inherits(EventInfo, _Component);
 
   function EventInfo() {
+    var _this;
+
     _classCallCheck(this, EventInfo);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(EventInfo).call(this));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EventInfo).call(this));
+    _this.state = {
+      eventUuid: '',
+      username: '',
+      seat: '',
+      comment: ''
+    };
+    _this.changeUsername = _this.changeUsername.bind(_assertThisInitialized(_this));
+    _this.changeSeat = _this.changeSeat.bind(_assertThisInitialized(_this));
+    _this.changeComment = _this.changeComment.bind(_assertThisInitialized(_this));
+    _this.post = _this.post.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(EventInfo, [{
@@ -31304,22 +31317,35 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group col-md-4"
+        className: "form-group col-md-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "form-control",
         id: "username",
+        value: this.state.username,
+        onChange: this.changeUsername,
         placeholder: "\u304A\u540D\u524D\uFF08\u5165\u529B\u81EA\u7531\uFF09"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, ":"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group col-md-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "form-control",
+        id: "seat",
+        value: this.state.seat,
+        onChange: this.changeSeat,
+        placeholder: "\u5EA7\u5E2D\uFF08\u5165\u529B\u81EA\u7531\uFF09\u3001\u4F8B\uFF1A1\u5841\u5074 H\u30D6\u30ED\u30C3\u30AF 20\u6BB5 10\u756A"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         id: "id-comment",
         className: "form-control",
+        value: this.state.comment,
+        onChange: this.changeComment,
         placeholder: "\u516C\u958B\u30B3\u30E1\u30F3\u30C8\u3092\u5165\u529B..."
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "btn btn-primary"
-      }, "\u6295\u7A3F\u3059\u308B")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "\u6295\u7A3F\u3059\u308B")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "mt-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card bg-light"
@@ -31332,14 +31358,31 @@ function (_Component) {
       }, "\u4E43\u6728\u5742\u795E\u5BAE\u4E00\u822C\u58F2\u308A\u5207\u308C\u3060\u3088\u30FC")))));
     }
   }, {
+    key: "changeUsername",
+    value: function changeUsername(event) {
+      this.setState({
+        username: event.target.value
+      });
+    }
+  }, {
+    key: "changeSeat",
+    value: function changeSeat(event) {
+      this.setState({
+        seat: event.target.value
+      });
+    }
+  }, {
+    key: "changeComment",
+    value: function changeComment(event) {
+      this.setState({
+        comment: event.target.value
+      });
+    }
+  }, {
     key: "post",
     value: function post(event) {
       event.preventDefault();
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/comments', {
-        eventUuid: '',
-        userName: '',
-        comment: ''
-      });
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/comments', this.state);
     }
   }]);
 
