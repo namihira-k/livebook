@@ -18,4 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/events', 'Api\EventApiController@get');
+
 Route::post('/comments', 'Api\CommentApiController@post');
+Route::get('/comments', 'Api\CommentApiController@get');

@@ -29355,13 +29355,13 @@ function (_Component) {
           className: "card-body"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
           className: "card-title"
-        }, "\u4E43\u6728\u574246 \u771F\u590F\u306E\u5168\u56FD\u30C4\u30A2\u30FC2019 \uFF1C\u6771\u4EAC\uFF1E\u660E\u6CBB\u795E\u5BAE\u91CE\u7403\u5834"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, event.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "row"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-2"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u51FA\u6F14\u8005")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-10"
-        }, event.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, event.performer)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "row"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-2"
@@ -29395,7 +29395,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      fetch("" + '/api/events').then(function (response) {
+      fetch("/liveshare" + '/api/events').then(function (response) {
         return response.json();
       }).then(function (objects) {
         _this2.setState({

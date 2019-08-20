@@ -24,11 +24,11 @@ export default class EventInfo extends Component {
       return (
         <div className="card" key={event.name}>
           <div className="card-body">
-            <h5 className="card-title">乃木坂46 真夏の全国ツアー2019 ＜東京＞明治神宮野球場</h5>
+            <h5 className="card-title">{event.name}</h5>
 
             <div className="row">
               <div className="col-2"><strong>出演者</strong></div>
-              <div className="col-10">{event.name}</div>
+              <div className="col-10">{event.performer}</div>
             </div>
 
             <div className="row">
@@ -65,7 +65,6 @@ export default class EventInfo extends Component {
     .then(objects => {
         this.setState({events:objects});
     });
-
   }
 
 }

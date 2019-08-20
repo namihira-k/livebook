@@ -31256,7 +31256,7 @@ if (false) {} else {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EventInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EventComment; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
@@ -31285,22 +31285,25 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var EventInfo =
+var EventComment =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(EventInfo, _Component);
+  _inherits(EventComment, _Component);
 
-  function EventInfo() {
+  function EventComment() {
     var _this;
 
-    _classCallCheck(this, EventInfo);
+    _classCallCheck(this, EventComment);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(EventInfo).call(this));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EventComment).call(this));
     _this.state = {
-      eventUuid: '',
-      username: '',
-      seat: '',
-      comment: ''
+      new_comment: {
+        event_uuid: '1234',
+        username: '',
+        seat: '',
+        comment: ''
+      },
+      comments: []
     };
     _this.changeUsername = _this.changeUsername.bind(_assertThisInitialized(_this));
     _this.changeSeat = _this.changeSeat.bind(_assertThisInitialized(_this));
@@ -31309,7 +31312,7 @@ function (_Component) {
     return _this;
   }
 
-  _createClass(EventInfo, [{
+  _createClass(EventComment, [{
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "\u30B3\u30E1\u30F3\u30C8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -31322,7 +31325,7 @@ function (_Component) {
         type: "text",
         className: "form-control",
         id: "username",
-        value: this.state.username,
+        value: this.state.new_comment.username,
         onChange: this.changeUsername,
         placeholder: "\u304A\u540D\u524D\uFF08\u5165\u529B\u81EA\u7531\uFF09"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, ":"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -31331,15 +31334,15 @@ function (_Component) {
         type: "text",
         className: "form-control",
         id: "seat",
-        value: this.state.seat,
+        value: this.state.new_comment.seat,
         onChange: this.changeSeat,
-        placeholder: "\u5EA7\u5E2D\uFF08\u5165\u529B\u81EA\u7531\uFF09\u3001\u4F8B\uFF1A1\u5841\u5074 H\u30D6\u30ED\u30C3\u30AF 20\u6BB5 10\u756A"
+        placeholder: "\u5EA7\u5E2D\uFF08\u5165\u529B\u81EA\u7531\uFF09 \u4F8B\uFF1A1\u5841\u5074 H\u30D6\u30ED\u30C3\u30AF 20\u756A"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         id: "id-comment",
         className: "form-control",
-        value: this.state.comment,
+        value: this.state.new_comment.comment,
         onChange: this.changeComment,
         placeholder: "\u516C\u958B\u30B3\u30E1\u30F3\u30C8\u3092\u5165\u529B..."
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -31347,52 +31350,79 @@ function (_Component) {
         className: "btn btn-primary"
       }, "\u6295\u7A3F\u3059\u308B")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "mt-3"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card bg-light"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-body"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
-        className: "card-title"
-      }, "@\u540D\u7121\u3057\u3055\u3093 2019-08-19 22:38"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "card-text"
-      }, "\u4E43\u6728\u5742\u795E\u5BAE\u4E00\u822C\u58F2\u308A\u5207\u308C\u3060\u3088\u30FC")))));
+      }, this.renderComments()));
+    }
+  }, {
+    key: "renderComments",
+    value: function renderComments() {
+      return this.state.comments.map(function (comment) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "card bg-light border-primary mt-1",
+          key: comment.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "card-body"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
+          className: "card-title"
+        }, "by ", comment.username, "  ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, comment.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "card-text"
+        }, comment.comment)));
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      fetch("/liveshare" + '/api/comments').then(function (response) {
+        return response.json();
+      }).then(function (objects) {
+        _this2.setState({
+          comments: objects
+        });
+      });
     }
   }, {
     key: "changeUsername",
     value: function changeUsername(event) {
+      var tmp = this.state.new_comment;
+      tmp.username = event.target.value;
       this.setState({
-        username: event.target.value
+        new_comment: tmp
       });
     }
   }, {
     key: "changeSeat",
     value: function changeSeat(event) {
+      var tmp = this.state.new_comment;
+      tmp.seat = event.target.value;
       this.setState({
-        seat: event.target.value
+        new_comment: tmp
       });
     }
   }, {
     key: "changeComment",
     value: function changeComment(event) {
+      var tmp = this.state.new_comment;
+      tmp.comment = event.target.value;
       this.setState({
-        comment: event.target.value
+        new_comment: tmp
       });
     }
   }, {
     key: "post",
     value: function post(event) {
       event.preventDefault();
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/comments', this.state);
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/comments', this.state.new_comment);
     }
   }]);
 
-  return EventInfo;
+  return EventComment;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
 
 if (document.getElementById('id-event-comment')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(EventInfo, null), document.getElementById('id-event-comment'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(EventComment, null), document.getElementById('id-event-comment'));
 }
 
 /***/ }),
