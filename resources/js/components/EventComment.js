@@ -2,15 +2,18 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
-export default class EventInfo extends Component {
+export default class EventComment extends Component {
 
   constructor() {
     super();
     this.state = {
-      eventUuid: '',
-      username: '',
-      seat: '',
-      comment: ''
+      new_comment: {
+        event_uuid: '1234',
+        username: '',
+        seat: '',
+        comment: '',  
+      },
+      comments: []
     };
 
     this.changeUsername = this.changeUsername.bind(this);
@@ -27,15 +30,15 @@ export default class EventInfo extends Component {
         <form onSubmit={this.post}>
           <div className="form-row">
             <div className="form-group col-md-3">
-              <input type="text" className="form-control" id="username" value={this.state.username} onChange={this.changeUsername} placeholder="お名前（入力自由）" />
+              <input type="text" className="form-control" id="username" value={this.state.new_comment.username} onChange={this.changeUsername} placeholder="お名前（入力自由）" />
             </div>
             <span>:</span>
             <div className="form-group col-md-4">
-              <input type="text" className="form-control" id="seat" value={this.state.seat} onChange={this.changeSeat} placeholder="座席（入力自由）、例：1塁側 Hブロック 20段 10番" />
+              <input type="text" className="form-control" id="seat" value={this.state.new_comment.seat} onChange={this.changeSeat} placeholder="座席（入力自由） 例：1塁側 Hブロック 20番" />
             </div>
           </div>
           <div className="form-group">
-            <textarea id="id-comment" className="form-control" value={this.state.comment} onChange={this.changeComment} placeholder="公開コメントを入力..." />
+            <textarea id="id-comment" className="form-control" value={this.state.new_comment.comment} onChange={this.changeComment} placeholder="公開コメントを入力..." />
           </div>
           <button type="submit" className="btn btn-primary">投稿する</button>
         </form>
@@ -43,36 +46,62 @@ export default class EventInfo extends Component {
         <hr/>
 
         <div className="mt-3">
-          <div className="card bg-light">
-            <div className="card-body">
-              <h6 className="card-title">@名無しさん 2019-08-19 22:38</h6>
-              <p className="card-text">乃木坂神宮一般売り切れだよー</p>
-            </div>
-          </div>
+          {this.renderComments()}
         </div>
       </div>
     );
   }
 
+  renderComments() {
+    return this.state.comments.map(comment => {
+      return (
+        <div className="card bg-light border-primary mt-1" key={comment.id}>
+          <div className="card-body">
+            <h6 className="card-title">by {comment.username}  <small>{comment.created_at}</small></h6>
+            <p className="card-text">{comment.comment}</p>
+          </div>
+        </div>
+      );
+    })
+  } 
+
+  componentDidMount() {
+    fetch(process.env.MIX_APP_BASE_PATH + '/api/comments')
+    .then(response => {
+        return response.json();
+    })
+    .then(objects => {
+        this.setState({
+          comments : objects
+        });
+    });
+  }
+
   changeUsername(event) {
-    this.setState({username: event.target.value});
+    var tmp = this.state.new_comment;
+    tmp.username = event.target.value;
+    this.setState({new_comment : tmp});
   }
 
   changeSeat(event) {
-    this.setState({seat: event.target.value});
+    var tmp = this.state.new_comment;
+    tmp.seat = event.target.value;
+    this.setState({new_comment : tmp});
   }
 
   changeComment(event) {
-    this.setState({comment: event.target.value});
+    var tmp = this.state.new_comment;
+    tmp.comment = event.target.value;
+    this.setState({new_comment : tmp});
   }
 
   post(event){
     event.preventDefault();
-    axios.post(process.env.MIX_APP_BASE_PATH + '/api/comments', this.state);
+    axios.post(process.env.MIX_APP_BASE_PATH + '/api/comments', this.state.new_comment);
   }
 
 }
 
 if (document.getElementById('id-event-comment')) {
-    ReactDOM.render(<EventInfo />, document.getElementById('id-event-comment'));
+    ReactDOM.render(<EventComment />, document.getElementById('id-event-comment'));
 }

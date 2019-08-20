@@ -11,8 +11,10 @@ class EventApiController extends Controller
     {
       $events = collect([
         [
-        'name' => '全国ツアー',
-        'place' => '神宮球場',
+        'name' => '乃木坂46 真夏の全国ツアー2019 ＜東京＞明治神宮野球場',
+        'performer' => '乃木坂46',
+        'place' => '明治神宮野球場',
+        'uuid' => '1234'
         ]
       ]);
       
