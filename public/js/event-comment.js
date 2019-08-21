@@ -31340,7 +31340,7 @@ function (_Component) {
         onChange: this.changeUsername,
         placeholder: "\u304A\u540D\u524D\uFF08\u5165\u529B\u81EA\u7531\uFF09"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group col-md-4"
+        className: "form-group col-md-5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "form-control border-primary",
