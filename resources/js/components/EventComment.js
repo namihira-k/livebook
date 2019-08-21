@@ -44,7 +44,7 @@ export default class EventComment extends Component {
             <div className="form-group col-md-3">
               <input type="text" className="form-control border-primary" id="username" value={this.state.new_comment.username} onChange={this.changeUsername} placeholder="お名前（入力自由）" />
             </div>
-            <div className="form-group col-md-4">
+            <div className="form-group col-md-5">
               <input type="text" className="form-control border-primary" id="seat" value={this.state.new_comment.seat} onChange={this.changeSeat} placeholder="座席（入力自由） 例：1塁側 Hブロック 20番" />
             </div>
           </div>
