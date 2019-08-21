@@ -31303,7 +31303,12 @@ function (_Component) {
         seat: '',
         comment: ''
       },
-      comments: []
+      comments: [],
+      style: {
+        progress: {
+          width: '0%'
+        }
+      }
     };
     _this.changeUsername = _this.changeUsername.bind(_assertThisInitialized(_this));
     _this.changeSeat = _this.changeSeat.bind(_assertThisInitialized(_this));
@@ -31315,7 +31320,13 @@ function (_Component) {
   _createClass(EventComment, [{
     key: "render",
     value: function render() {
+      var style = {
+        progress: {
+          height: '2px'
+        }
+      };
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "\u30B3\u30E1\u30F3\u30C8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "",
         onSubmit: this.post
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-row"
@@ -31323,32 +31334,40 @@ function (_Component) {
         className: "form-group col-md-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        className: "form-control",
+        className: "form-control border-primary",
         id: "username",
         value: this.state.new_comment.username,
         onChange: this.changeUsername,
         placeholder: "\u304A\u540D\u524D\uFF08\u5165\u529B\u81EA\u7531\uFF09"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, ":"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group col-md-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        className: "form-control",
+        className: "form-control border-primary",
         id: "seat",
         value: this.state.new_comment.seat,
         onChange: this.changeSeat,
         placeholder: "\u5EA7\u5E2D\uFF08\u5165\u529B\u81EA\u7531\uFF09 \u4F8B\uFF1A1\u5841\u5074 H\u30D6\u30ED\u30C3\u30AF 20\u756A"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
+        className: "form-group border-primary"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         id: "id-comment",
-        className: "form-control",
+        className: "form-control border-primary",
         value: this.state.new_comment.comment,
         onChange: this.changeComment,
-        placeholder: "\u516C\u958B\u30B3\u30E1\u30F3\u30C8\u3092\u5165\u529B..."
+        placeholder: "\u516C\u958B\u30B3\u30E1\u30F3\u30C8\uFF08\u5165\u529B\u5FC5\u9808\uFF09",
+        required: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "btn btn-primary"
-      }, "\u6295\u7A3F\u3059\u308B")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "\u6295\u7A3F\u3059\u308B"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "progress mt-1",
+        style: style.progress
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "progress-bar",
+        role: "progressbar",
+        style: this.state.style.progress
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "mt-3"
       }, this.renderComments()));
     }
@@ -31357,13 +31376,13 @@ function (_Component) {
     value: function renderComments() {
       return this.state.comments.map(function (comment) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "card bg-light border-primary mt-1",
+          className: "card bg-light border-secondary mt-1",
           key: comment.id
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "card-body"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
           className: "card-title"
-        }, "by ", comment.username, "  ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, comment.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, "by ", comment.username, "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, comment.created_at), "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, comment.seat)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "card-text"
         }, comment.comment)));
       });
@@ -31371,15 +31390,7 @@ function (_Component) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this2 = this;
-
-      fetch("/liveshare" + '/api/comments').then(function (response) {
-        return response.json();
-      }).then(function (objects) {
-        _this2.setState({
-          comments: objects
-        });
-      });
+      this._fetch();
     }
   }, {
     key: "changeUsername",
@@ -31411,8 +31422,54 @@ function (_Component) {
   }, {
     key: "post",
     value: function post(event) {
+      var _this2 = this;
+
       event.preventDefault();
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/comments', this.state.new_comment);
+
+      this._moveProgress('100%');
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/comments', this.state.new_comment).then(function () {
+        _this2._clear();
+
+        _this2._fetch();
+
+        _this2._moveProgress('0%');
+      });
+    }
+  }, {
+    key: "_moveProgress",
+    value: function _moveProgress(percent) {
+      this.setState({
+        style: {
+          progress: {
+            width: percent
+          }
+        }
+      });
+    }
+  }, {
+    key: "_clear",
+    value: function _clear() {
+      var tmp = this.state.new_comment;
+      tmp.username = '';
+      tmp.seat = '';
+      tmp.comment = '';
+      this.setState({
+        new_comment: tmp
+      });
+    }
+  }, {
+    key: "_fetch",
+    value: function _fetch() {
+      var _this3 = this;
+
+      fetch("/liveshare" + '/api/comments').then(function (response) {
+        return response.json();
+      }).then(function (objects) {
+        _this3.setState({
+          comments: objects
+        });
+      });
     }
   }]);
 

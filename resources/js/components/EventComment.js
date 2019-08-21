@@ -11,9 +11,15 @@ export default class EventComment extends Component {
         event_uuid: '1234',
         username: '',
         seat: '',
-        comment: '',  
+        comment: '',
       },
-      comments: []
+      comments: [],
+
+      style: {
+        progress: {
+          width: '0%'
+        }
+      }
     };
 
     this.changeUsername = this.changeUsername.bind(this);
@@ -24,23 +30,31 @@ export default class EventComment extends Component {
   }
 
   render() {
+    const style = {
+      progress: {
+        height: '2px'
+      }
+    }
+
     return (
       <div>
         <h6>コメント</h6>
-        <form onSubmit={this.post}>
+        <form className="" onSubmit={this.post}>
           <div className="form-row">
             <div className="form-group col-md-3">
-              <input type="text" className="form-control" id="username" value={this.state.new_comment.username} onChange={this.changeUsername} placeholder="お名前（入力自由）" />
+              <input type="text" className="form-control border-primary" id="username" value={this.state.new_comment.username} onChange={this.changeUsername} placeholder="お名前（入力自由）" />
             </div>
-            <span>:</span>
             <div className="form-group col-md-4">
-              <input type="text" className="form-control" id="seat" value={this.state.new_comment.seat} onChange={this.changeSeat} placeholder="座席（入力自由） 例：1塁側 Hブロック 20番" />
+              <input type="text" className="form-control border-primary" id="seat" value={this.state.new_comment.seat} onChange={this.changeSeat} placeholder="座席（入力自由） 例：1塁側 Hブロック 20番" />
             </div>
           </div>
-          <div className="form-group">
-            <textarea id="id-comment" className="form-control" value={this.state.new_comment.comment} onChange={this.changeComment} placeholder="公開コメントを入力..." />
+          <div className="form-group border-primary">
+            <textarea id="id-comment" className="form-control border-primary" value={this.state.new_comment.comment} onChange={this.changeComment} placeholder="公開コメント（入力必須）" required />
           </div>
           <button type="submit" className="btn btn-primary">投稿する</button>
+          <div className="progress mt-1" style={style.progress}>
+            <div className="progress-bar" role="progressbar" style={this.state.style.progress}></div>
+          </div>
         </form>
 
         <hr/>
@@ -55,9 +69,9 @@ export default class EventComment extends Component {
   renderComments() {
     return this.state.comments.map(comment => {
       return (
-        <div className="card bg-light border-primary mt-1" key={comment.id}>
+        <div className="card bg-light border-secondary mt-1" key={comment.id}>
           <div className="card-body">
-            <h6 className="card-title">by {comment.username}  <small>{comment.created_at}</small></h6>
+            <h6 className="card-title">by {comment.username}&emsp;<small>{comment.created_at}</small>&emsp;<small>{comment.seat}</small></h6>
             <p className="card-text">{comment.comment}</p>
           </div>
         </div>
@@ -66,15 +80,7 @@ export default class EventComment extends Component {
   } 
 
   componentDidMount() {
-    fetch(process.env.MIX_APP_BASE_PATH + '/api/comments')
-    .then(response => {
-        return response.json();
-    })
-    .then(objects => {
-        this.setState({
-          comments : objects
-        });
-    });
+    this._fetch();
   }
 
   changeUsername(event) {
@@ -95,9 +101,45 @@ export default class EventComment extends Component {
     this.setState({new_comment : tmp});
   }
 
-  post(event){
+  post(event) {
     event.preventDefault();
-    axios.post(process.env.MIX_APP_BASE_PATH + '/api/comments', this.state.new_comment);
+    this._moveProgress('100%');
+    axios.post(process.env.MIX_APP_BASE_PATH + '/api/comments', this.state.new_comment)
+          .then(() => {
+            this._clear();
+            this._fetch();
+            this._moveProgress('0%');
+          })
+  }
+
+  _moveProgress(percent) {
+    this.setState({
+      style: {
+        progress: {
+          width: percent
+        }
+      }
+    });
+  }
+
+  _clear() {
+    var tmp = this.state.new_comment;
+    tmp.username = '';
+    tmp.seat = '';
+    tmp.comment = '';
+    this.setState({new_comment : tmp});
+  }
+
+  _fetch() {
+    fetch(process.env.MIX_APP_BASE_PATH + '/api/comments')
+    .then(response => {
+        return response.json();
+    })
+    .then(objects => {
+        this.setState({
+          comments : objects
+        });
+    });
   }
 
 }
