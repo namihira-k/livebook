@@ -13,7 +13,7 @@ export default class EventInfo extends Component {
   render() {
     return (
       <div>
-        <h3>ライブ情報</h3>
+        <h5>ライブ情報</h5>
         {this.renderEvents()}
       </div>
     );
@@ -27,28 +27,28 @@ export default class EventInfo extends Component {
             <h5 className="card-title">{event.name}</h5>
 
             <div className="row">
-              <div className="col-2"><strong>出演者</strong></div>
-              <div className="col-10">{event.performer}</div>
+              <div className="col-1"><strong>出演者</strong></div>
+              <div className="col-11">{event.performer}</div>
             </div>
 
             <div className="row">
-              <div className="col-2"><strong>都道府県</strong></div>
-              <div className="col-10">東京</div>
+              <div className="col-1"><strong>都道府県</strong></div>
+              <div className="col-11">東京</div>
             </div>
 
             <div className="row">
-              <div className="col-2"><strong>開催場所</strong></div>
-              <div className="col-10">{event.place}</div>
+              <div className="col-1"><strong>開催場所</strong></div>
+              <div className="col-11">{event.place}</div>
             </div>
 
             <div className="row">
-              <div className="col-2"><strong>日時</strong></div>
-              <div className="col-10">2019-08-30、2019-08-31、2019-09-01</div>
+              <div className="col-1"><strong>日時</strong></div>
+              <div className="col-11">2019-08-30、2019-08-31、2019-09-01</div>
             </div>
 
             <div className="row">
-              <div className="col-2"><strong>情報元</strong></div>
-              <div className="col-10"><a href="http://www.nogizaka46.com">http://www.nogizaka46.com</a></div>
+              <div className="col-1"><strong>情報元</strong></div>
+              <div className="col-11"><a href="http://www.nogizaka46.com">http://www.nogizaka46.com</a></div>
             </div>
 
           </div>
