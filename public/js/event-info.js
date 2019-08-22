@@ -29358,33 +29358,33 @@ function (_Component) {
         }, event.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "row"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-2"
+          className: "col-4 col-md-2"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u51FA\u6F14\u8005")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-10"
+          className: "col-8 col-md-10"
         }, event.performer)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "row"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-2"
+          className: "col-4 col-md-2"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u90FD\u9053\u5E9C\u770C")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-10"
+          className: "col-8 col-md-10"
         }, "\u6771\u4EAC")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "row"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-2"
+          className: "col-4 col-md-2"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u958B\u50AC\u5834\u6240")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-10"
+          className: "col-8 col-md-10"
         }, event.place)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "row"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-2"
+          className: "col-4 col-md-2"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u65E5\u6642")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-10"
+          className: "col-8 col-md-10"
         }, "2019-08-30\u30012019-08-31\u30012019-09-01")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "row"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-2"
+          className: "col-4 col-md-2"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u60C5\u5831\u5143")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-10"
+          className: "col-8 col-md-10"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           href: "http://www.nogizaka46.com"
         }, "http://www.nogizaka46.com")))));
