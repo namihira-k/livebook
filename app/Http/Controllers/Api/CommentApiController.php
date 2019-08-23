@@ -12,6 +12,7 @@ class CommentApiController extends Controller
     {
       $comment = new Comment;
       $comment->event_uuid = $request->event_uuid;
+      $comment->parent_comment_id = $request->parent_comment_id;
       $comment->username = empty($request->username) ? "参加者" : $request->username;
       $comment->seat = $request->seat;
       $comment->comment = $request->comment;

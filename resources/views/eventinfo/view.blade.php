@@ -22,7 +22,8 @@
 
   <div class="container-fluid">
     <div id="id-event-info" class="mt-3"></div>
-    <div id="id-event-comment" class="mt-3"></div>
+    <div id="id-event-comment-form" class="mt-3"></div>
+    <div id="id-event-comment-list" class="mt-3"></div>
   </div>
 
   <div id="id-footer"></div>
@@ -31,6 +32,8 @@
   <script src="{{ asset('js/footer.js') }}"></script>
 
   <script src="{{ asset('js/event-info.js') }}"></script>
+  <script src="{{ asset('js/event-comment-form.js') }}"></script>
+  <script src="{{ asset('js/event-comment-list.js') }}"></script>
   <script src="{{ asset('js/event-comment.js') }}"></script>
 </body>
 

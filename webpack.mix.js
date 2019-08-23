@@ -20,5 +20,7 @@ mix.react('resources/js/components/Header.js', 'public/js/header.js');
 mix.react('resources/js/components/Footer.js', 'public/js/footer.js');
 
 mix.react('resources/js/components/EventInfo.js', 'public/js/event-info.js');
+mix.react('resources/js/components/EventCommentForm.js', 'public/js/event-comment-form.js');
+mix.react('resources/js/components/EventCommentList.js', 'public/js/event-comment-list.js');
 mix.react('resources/js/components/EventComment.js', 'public/js/event-comment.js');
 
