@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -31247,16 +31247,16 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./resources/js/components/EventComment.js":
-/*!*************************************************!*\
-  !*** ./resources/js/components/EventComment.js ***!
-  \*************************************************/
+/***/ "./resources/js/components/EventCommentForm.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/EventCommentForm.js ***!
+  \*****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EventComment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EventCommentForm; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
@@ -31285,53 +31285,46 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var EventComment =
+var EventCommentForm =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(EventComment, _Component);
+  _inherits(EventCommentForm, _Component);
 
-  function EventComment(props) {
+  function EventCommentForm() {
     var _this;
 
-    _classCallCheck(this, EventComment);
+    _classCallCheck(this, EventCommentForm);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(EventComment).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EventCommentForm).call(this));
     _this.state = {
-      comment: props.comment,
       new_comment: {
+        event_uuid: '1234',
         username: '',
+        seat: '',
         comment: ''
       },
-      child_comments: [],
-      is_show_response: false,
-      is_processing: false
+      style: {
+        progress: {
+          width: '0%'
+        }
+      }
     };
     _this.changeUsername = _this.changeUsername.bind(_assertThisInitialized(_this));
+    _this.changeSeat = _this.changeSeat.bind(_assertThisInitialized(_this));
     _this.changeComment = _this.changeComment.bind(_assertThisInitialized(_this));
     _this.post = _this.post.bind(_assertThisInitialized(_this));
-    _this.showResponseForm = _this.showResponseForm.bind(_assertThisInitialized(_this));
-    _this._clear = _this._clear.bind(_assertThisInitialized(_this));
     return _this;
   }
 
-  _createClass(EventComment, [{
+  _createClass(EventCommentForm, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card bg-light border-secondary mt-1"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-body"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
-        className: "card-title"
-      }, "by ", this.state.comment.username, "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, this.state.comment.created_at), "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, this.state.comment.seat)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "card-text"
-      }, this.state.comment.comment), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "ml-5"
-      }, this.state.child_comments.map(function (comment) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-          key: comment.id
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "by ", comment.username, "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, comment.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, comment.comment));
-      }), this.state.is_show_response && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      var style = {
+        progress: {
+          height: '2px'
+        }
+      };
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "\u30B3\u30E1\u30F3\u30C8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "",
         onSubmit: this.post
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -31345,6 +31338,15 @@ function (_Component) {
         value: this.state.new_comment.username,
         onChange: this.changeUsername,
         placeholder: "\u304A\u540D\u524D\uFF08\u5165\u529B\u81EA\u7531\uFF09"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group col-md-5"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "form-control border-primary",
+        id: "seat",
+        value: this.state.new_comment.seat,
+        onChange: this.changeSeat,
+        placeholder: "\u5EA7\u5E2D\uFF08\u5165\u529B\u81EA\u7531\uFF09 \u4F8B\uFF1A1\u5841\u5074 H\u30D6\u30ED\u30C3\u30AF 20\u756A"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group border-primary"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
@@ -31356,28 +31358,30 @@ function (_Component) {
         required: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
-        className: "btn btn-primary btn-sm"
-      }, "\u6295\u7A3F\u3059\u308B")), this.state.is_processing ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "spinner-grow spinner-grow-sm text-secondary",
-        role: "status"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "sr-only"
-      }, "Loading...")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "button",
-        className: "btn btn-primary btn-sm",
-        onClick: this.showResponseForm
-      }, ">\u8FD4\u4FE1\u3059\u308B"))));
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this._fetch();
+        className: "btn btn-primary"
+      }, "\u6295\u7A3F\u3059\u308B"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "progress mt-1",
+        style: style.progress
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "progress-bar",
+        role: "progressbar",
+        style: this.state.style.progress
+      }))));
     }
   }, {
     key: "changeUsername",
     value: function changeUsername(event) {
       var tmp = this.state.new_comment;
       tmp.username = event.target.value;
+      this.setState({
+        new_comment: tmp
+      });
+    }
+  }, {
+    key: "changeSeat",
+    value: function changeSeat(event) {
+      var tmp = this.state.new_comment;
+      tmp.seat = event.target.value;
       this.setState({
         new_comment: tmp
       });
@@ -31392,76 +31396,65 @@ function (_Component) {
       });
     }
   }, {
-    key: "showResponseForm",
-    value: function showResponseForm() {
-      this.setState({
-        is_show_response: true
-      });
-    }
-  }, {
     key: "post",
     value: function post(event) {
       var _this2 = this;
 
       event.preventDefault();
-      var req = this.state.new_comment;
-      req.parent_comment_id = this.state.comment.id;
-      req.event_uuid = this.state.comment.event_uuid;
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/comments', req).then(function () {
-        _this2._fetch();
 
+      this._moveProgress('100%');
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/comments', this.state.new_comment).then(function () {
         _this2._clear();
+
+        _this2._moveProgress('0%');
+      }).then(function () {
+        _this2.props.callAfterPost();
+      });
+    }
+  }, {
+    key: "_moveProgress",
+    value: function _moveProgress(percent) {
+      this.setState({
+        style: {
+          progress: {
+            width: percent
+          }
+        }
       });
     }
   }, {
     key: "_clear",
     value: function _clear() {
+      var tmp = this.state.new_comment;
+      tmp.username = '';
+      tmp.seat = '';
+      tmp.comment = '';
       this.setState({
-        new_comment: {
-          username: '',
-          comment: ''
-        },
-        is_show_response: false
-      });
-    }
-  }, {
-    key: "_fetch",
-    value: function _fetch() {
-      var _this3 = this;
-
-      this.setState({
-        is_processing: true
-      });
-      fetch("/liveshare" + '/api/comments' + '?parent_comment_id=' + this.state.comment.id).then(function (response) {
-        return response.json();
-      }).then(function (objects) {
-        _this3.setState({
-          child_comments: objects,
-          is_processing: false
-        });
+        new_comment: tmp
       });
     }
   }]);
 
-  return EventComment;
+  return EventCommentForm;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
 
-if (document.getElementById('id-event-comment')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(EventComment, null), document.getElementById('id-event-comment'));
+if (document.getElementById('id-event-comment-form')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(EventCommentForm, null), document.getElementById('id-event-comment-form'));
 }
 
 /***/ }),
 
-/***/ 7:
-/*!*******************************************************!*\
-  !*** multi ./resources/js/components/EventComment.js ***!
-  \*******************************************************/
+/***/ 5:
+/*!***********************************************************!*\
+  !*** multi ./resources/js/components/EventCommentForm.js ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/namihira/work/project/vscode/livebook/resources/js/components/EventComment.js */"./resources/js/components/EventComment.js");
+module.exports = __webpack_require__(/*! /Users/namihira/work/project/vscode/livebook/resources/js/components/EventCommentForm.js */"./resources/js/components/EventCommentForm.js");
 
 
 /***/ })

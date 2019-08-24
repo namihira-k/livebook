@@ -12,4 +12,11 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./components/Example');
+require('./components/Header');
+require('./components/Footer');
+
+require('./components/EventComment');
+require('./components/EventCommentForm');
+require('./components/EventCommentList');
+require('./components/EventCommentSection');
+require('./components/EventInfo');

@@ -17,6 +17,5 @@ Route::get('/', function () {
 
 Route::get('/web/eventinfo', 'Web\EventInfoWebController@get');
 
-Route::get('hello', 'HelloController@index');
 Route::get('sample/model/{type?}', 'SampleController@model');
 Route::get('react', 'ReactController@index');
