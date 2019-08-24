@@ -67562,7 +67562,7 @@ function (_Component) {
       var req = this.state.new_comment;
       req.parent_comment_id = this.state.comment.id;
       req.event_uuid = this.state.comment.event_uuid;
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/comments', req).then(function () {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/comments', req).then(function () {
         _this2._fetch();
 
         _this2._clear();
@@ -67587,7 +67587,7 @@ function (_Component) {
       this.setState({
         is_processing: true
       });
-      fetch("" + '/api/comments' + '?parent_comment_id=' + this.state.comment.id + '&count=20').then(function (response) {
+      fetch("/liveshare" + '/api/comments' + '?parent_comment_id=' + this.state.comment.id + '&count=20').then(function (response) {
         return response.json();
       }).then(function (result) {
         _this3.setState({
@@ -67766,7 +67766,7 @@ function (_Component) {
 
       this._moveProgress('100%');
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/comments', this.state.new_comment).then(function () {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/comments', this.state.new_comment).then(function () {
         _this2._clear();
 
         _this2._moveProgress('0%');
@@ -67925,7 +67925,7 @@ function (_Component) {
     }(function () {
       var _this2 = this;
 
-      fetch("" + '/api/comments' + '?order=desc' + '&page=0').then(function (response) {
+      fetch("/liveshare" + '/api/comments' + '?order=desc' + '&page=0').then(function (response) {
         return response.json();
       }).then(function (result) {
         _this2.setState({
@@ -67939,7 +67939,7 @@ function (_Component) {
     value: function fetchPaging(page) {
       var _this3 = this;
 
-      fetch("" + '/api/comments' + '?order=desc' + '&page=' + page).then(function (response) {
+      fetch("/liveshare" + '/api/comments' + '?order=desc' + '&page=' + page).then(function (response) {
         return response.json();
       }).then(function (result) {
         var comments = _this3.state.comments.concat(result.data);
@@ -68167,7 +68167,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      fetch("" + '/api/events').then(function (response) {
+      fetch("/liveshare" + '/api/events').then(function (response) {
         return response.json();
       }).then(function (objects) {
         _this2.setState({
@@ -68241,9 +68241,7 @@ function (_Component) {
         className: "mt-5 bg-light"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container-fluid"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Made by ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "https://twitter.com/namihira_k"
-      }, "@namihira-k"))));
+      }));
     }
   }]);
 

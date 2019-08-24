@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Log;
 
 class CommentApiController extends Controller
 {
@@ -18,7 +19,9 @@ class CommentApiController extends Controller
       $comment->comment = $request->comment;
       $comment->save();
 
-      return response()->json( $comment );
+      Log::info("POST : " . $comment->comment);
+
+      return response()->json($comment);
     }
 
     public function get(Request $request)
