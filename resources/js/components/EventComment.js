@@ -24,6 +24,7 @@ export default class EventComment extends Component {
 
     this.post = this.post.bind(this);
     this.showResponseForm = this.showResponseForm.bind(this);
+    this._clear = this._clear.bind(this);
   }
 
   render() {
@@ -53,7 +54,7 @@ export default class EventComment extends Component {
                 <div className="form-group border-primary">
                   <textarea id="id-comment" className="form-control border-primary" value={this.state.new_comment.comment} onChange={this.changeComment} placeholder="公開コメント（入力必須）" required />
                 </div>
-                <button type="submit" className="btn btn-primary btn-sm">>返信する</button>
+                <button type="submit" className="btn btn-primary btn-sm">投稿する</button>
               </form>
             ) : (
               <button type="button" className="btn btn-primary btn-sm" onClick={this.showResponseForm}>>返信する</button>
@@ -93,13 +94,26 @@ export default class EventComment extends Component {
 
   post(event) {
     event.preventDefault();
+
     let req = this.state.new_comment;
     req.parent_comment_id = this.state.comment.id;
     req.event_uuid = this.state.comment.event_uuid;
+    
     axios.post(process.env.MIX_APP_BASE_PATH + '/api/comments', req)
           .then(() => {
             this._fetch();
+            this._clear();
           })
+  }
+
+  _clear() {
+    this.setState({
+      new_comment: {
+        username: '',
+        comment: '',
+      },
+      is_show_response: false
+    });
   }
 
   _fetch() {

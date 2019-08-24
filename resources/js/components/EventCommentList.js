@@ -31,7 +31,7 @@ export default class EventCommentList extends Component {
   }
 
   _fetch() {
-    fetch(process.env.MIX_APP_BASE_PATH + '/api/comments')
+    fetch(process.env.MIX_APP_BASE_PATH + '/api/comments' + '?order=desc')
     .then(response => {
         return response.json();
     })

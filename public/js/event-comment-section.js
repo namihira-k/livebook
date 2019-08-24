@@ -31309,6 +31309,7 @@ function (_Component) {
     _this.changeComment = _this.changeComment.bind(_assertThisInitialized(_this));
     _this.post = _this.post.bind(_assertThisInitialized(_this));
     _this.showResponseForm = _this.showResponseForm.bind(_assertThisInitialized(_this));
+    _this._clear = _this._clear.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -31355,7 +31356,7 @@ function (_Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "btn btn-primary btn-sm"
-      }, ">\u8FD4\u4FE1\u3059\u308B")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "\u6295\u7A3F\u3059\u308B")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
         className: "btn btn-primary btn-sm",
         onClick: this.showResponseForm
@@ -31402,6 +31403,19 @@ function (_Component) {
       req.event_uuid = this.state.comment.event_uuid;
       axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/comments', req).then(function () {
         _this2._fetch();
+
+        _this2._clear();
+      });
+    }
+  }, {
+    key: "_clear",
+    value: function _clear() {
+      this.setState({
+        new_comment: {
+          username: '',
+          comment: ''
+        },
+        is_show_response: false
       });
     }
   }, {
@@ -31712,7 +31726,7 @@ function (_Component) {
     value: function _fetch() {
       var _this2 = this;
 
-      fetch("" + '/api/comments').then(function (response) {
+      fetch("" + '/api/comments' + '?order=desc').then(function (response) {
         return response.json();
       }).then(function (objects) {
         _this2.setState({
