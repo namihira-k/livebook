@@ -7,6 +7,7 @@
 
   <title>Live Share</title>
 
+  <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/vnd.microsoft.icon">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
   <meta name="twitter:card" content="summary" />
@@ -14,6 +15,15 @@
   <meta name="twitter:image" content="https://www.namimono.com/liveshare/img/app_logo.jpg" />
   <meta name="twitter:title" content="乃木坂46 真夏の全国ツアー2019 ＜東京＞明治神宮野球場" />
   <meta name="twitter:description" content="準備や参加した体験を共有しよう！" />
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-33863076-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-33863076-3');
+  </script>
 
 </head>
 
