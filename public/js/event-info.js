@@ -29395,7 +29395,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      fetch("" + '/api/events').then(function (response) {
+      fetch("/liveshare" + '/api/events').then(function (response) {
         return response.json();
       }).then(function (objects) {
         _this2.setState({

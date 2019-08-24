@@ -16,7 +16,8 @@ export default class EventComment extends Component {
 
       child_comments: [],
 
-      is_show_response: false
+      is_show_response: false,
+      is_processing: false,
     };
 
     this.changeUsername = this.changeUsername.bind(this);
@@ -44,7 +45,7 @@ export default class EventComment extends Component {
               ) 
             })}
 
-            {this.state.is_show_response ? (
+            { this.state.is_show_response && (
               <form className="" onSubmit={this.post}>
                 <div className="form-row">
                   <div className="form-group col-md-3">
@@ -56,9 +57,17 @@ export default class EventComment extends Component {
                 </div>
                 <button type="submit" className="btn btn-primary btn-sm">投稿する</button>
               </form>
-            ) : (
-              <button type="button" className="btn btn-primary btn-sm" onClick={this.showResponseForm}>>返信する</button>
             )}
+
+            { this.state.is_processing ? (
+              <div className="spinner-grow spinner-grow-sm text-secondary" role="status">
+                <span className="sr-only">Loading...</span>
+              </div>
+              ) : (
+                <button type="button" className="btn btn-primary btn-sm" onClick={this.showResponseForm}>>返信する</button>
+              )
+            }
+
           </div>
 
         </div>
@@ -117,13 +126,18 @@ export default class EventComment extends Component {
   }
 
   _fetch() {
+    this.setState({
+      is_processing: true,
+    });
+
     fetch(process.env.MIX_APP_BASE_PATH + '/api/comments' + '?parent_comment_id=' + this.state.comment.id)
     .then(response => {
         return response.json();
     })
     .then(objects => {
         this.setState({
-          child_comments : objects
+          child_comments : objects,
+          is_processing: false,
         });
     });
   }

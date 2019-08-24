@@ -9,15 +9,24 @@ export default class EventCommentList extends Component {
     super();
     this.state = {
       comments: [],
+      is_processing: false,
     };
   }
 
   render() {
     return (
       <div>
-        {this.state.comments.map(comment => {
+        { this.state.is_processing && (
+          <div>
+            <div className="spinner-grow text-secondary m-3" role="status">
+              <span className="sr-only">Loading...</span>
+            </div>
+          </div>
+        )}
+
+        { this.state.comments.map(comment => {
           return <EventComment comment={comment} key={comment.id}/>
-        })}
+        }) }
       </div>
     );
   }
@@ -31,14 +40,19 @@ export default class EventCommentList extends Component {
   }
 
   _fetch() {
+    this.setState({
+      is_processing: true
+    })
+
     fetch(process.env.MIX_APP_BASE_PATH + '/api/comments' + '?order=desc')
     .then(response => {
-        return response.json();
+      return response.json();
     })
-    .then(objects => {
-        this.setState({
-          comments : objects
-        });
+    .then(comments => {
+      this.setState({
+        comments: comments,
+        is_processing: false
+      })  
     });
   }
 

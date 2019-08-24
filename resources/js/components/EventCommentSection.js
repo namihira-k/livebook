@@ -25,7 +25,6 @@ export default class EventCommentSection extends Component {
 
   updateList() {
     this.state.list.update();
-    console.log("updateList");
   }
 
 }
