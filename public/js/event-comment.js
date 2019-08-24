@@ -31331,7 +31331,12 @@ function (_Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           key: comment.id
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "by ", comment.username, "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, comment.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, comment.comment));
-      }), this.state.is_show_response && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }), this.state.is_processing && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spinner-grow spinner-grow-sm text-secondary",
+        role: "status"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "sr-only"
+      }, "Loading...")), this.state.is_show_response && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "",
         onSubmit: this.post
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -31357,12 +31362,7 @@ function (_Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "btn btn-primary btn-sm"
-      }, "\u6295\u7A3F\u3059\u308B")), this.state.is_processing ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "spinner-grow spinner-grow-sm text-secondary",
-        role: "status"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "sr-only"
-      }, "Loading...")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "\u6295\u7A3F\u3059\u308B")), !this.state.is_processing && !this.state.is_show_response && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
         className: "btn btn-primary btn-sm",
         onClick: this.showResponseForm
@@ -31407,7 +31407,7 @@ function (_Component) {
       var req = this.state.new_comment;
       req.parent_comment_id = this.state.comment.id;
       req.event_uuid = this.state.comment.event_uuid;
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/comments', req).then(function () {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/comments', req).then(function () {
         _this2._fetch();
 
         _this2._clear();
@@ -31432,11 +31432,11 @@ function (_Component) {
       this.setState({
         is_processing: true
       });
-      fetch("/liveshare" + '/api/comments' + '?parent_comment_id=' + this.state.comment.id).then(function (response) {
+      fetch("" + '/api/comments' + '?parent_comment_id=' + this.state.comment.id + '&count=20').then(function (response) {
         return response.json();
-      }).then(function (objects) {
+      }).then(function (result) {
         _this3.setState({
-          child_comments: objects,
+          child_comments: result.data,
           is_processing: false
         });
       });

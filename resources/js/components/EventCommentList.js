@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import InfiniteScroll from 'react-infinite-scroller';
 import EventComment from './EventComment';
 
 export default class EventCommentList extends Component {
@@ -10,50 +11,76 @@ export default class EventCommentList extends Component {
     this.state = {
       comments: [],
       is_processing: false,
+
+      has_more_comments: true
     };
   }
 
   render() {
     return (
-      <div>
-        { this.state.is_processing && (
-          <div>
-            <div className="spinner-grow text-secondary m-3" role="status">
-              <span className="sr-only">Loading...</span>
-            </div>
+      <InfiniteScroll
+        pageStart={1}
+        initialLoad={false}
+        loadMore={this.fetchPaging.bind(this)}
+        hasMore={this.state.has_more_comments}
+        loader={
+          <div className="spinner-grow text-secondary m-3" role="status" key={0}>
+            <span className="sr-only">Loading...</span>
           </div>
-        )}
-
-        { this.state.comments.map(comment => {
-          return <EventComment comment={comment} key={comment.id}/>
-        }) }
-      </div>
+        }
+      >
+        <div>
+          {
+            this.state.comments.map(comment => {
+              return <EventComment comment={comment} key={comment.id}/>
+            })
+          }
+        </div>
+      </InfiniteScroll>
     );
   }
 
   componentDidMount() {
-    this._fetch();
+    this.fetch();
   }
 
   update() {
-    this._fetch();
+    this._showLoading();
+    this.fetch();
   }
 
-  _fetch() {
-    this.setState({
-      is_processing: true
-    })
-
-    fetch(process.env.MIX_APP_BASE_PATH + '/api/comments' + '?order=desc')
+  fetch() {
+    fetch(process.env.MIX_APP_BASE_PATH + '/api/comments' + '?order=desc' + '&page=0')
     .then(response => {
       return response.json();
     })
-    .then(comments => {
+    .then(result => {
+      this.setState({
+        comments: result.data,
+        is_processing: false,
+      })
+    });
+  }
+
+  fetchPaging(page) {
+    fetch(process.env.MIX_APP_BASE_PATH + '/api/comments' + '?order=desc' + '&page=' + page)
+    .then(response => {
+      return response.json();
+    })
+    .then(result => {
+      var comments = this.state.comments.concat(result.data);
       this.setState({
         comments: comments,
-        is_processing: false
-      })  
+        has_more_comments: (result.next_page_url != null),
+        is_processing: false,
+      })
     });
+  }
+
+  _showLoading() {
+    this.setState({
+      is_processing: true
+    })
   }
 
 }

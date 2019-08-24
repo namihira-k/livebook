@@ -36,14 +36,22 @@ export default class EventComment extends Component {
           <p className="card-text">{this.state.comment.comment}</p>
 
           <div className="ml-5">
-            {this.state.child_comments.map(comment => {
-              return (
-                <p key={comment.id}>
-                  <span>by {comment.username}&emsp;<small>{comment.created_at}</small></span><br />
-                  <span>{comment.comment}</span>
-                </p>
-              ) 
-            })}
+            { 
+              this.state.child_comments.map(comment => {
+                return (
+                  <p key={comment.id}>
+                    <span>by {comment.username}&emsp;<small>{comment.created_at}</small></span><br />
+                    <span>{comment.comment}</span>
+                  </p>
+                ) 
+              })
+            }
+
+            { this.state.is_processing && (
+              <div className="spinner-grow spinner-grow-sm text-secondary" role="status">
+                <span className="sr-only">Loading...</span>
+              </div>
+            )}
 
             { this.state.is_show_response && (
               <form className="" onSubmit={this.post}>
@@ -59,14 +67,9 @@ export default class EventComment extends Component {
               </form>
             )}
 
-            { this.state.is_processing ? (
-              <div className="spinner-grow spinner-grow-sm text-secondary" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-              ) : (
+            { !this.state.is_processing && !this.state.is_show_response && (
                 <button type="button" className="btn btn-primary btn-sm" onClick={this.showResponseForm}>>返信する</button>
-              )
-            }
+            )}
 
           </div>
 
@@ -130,13 +133,13 @@ export default class EventComment extends Component {
       is_processing: true,
     });
 
-    fetch(process.env.MIX_APP_BASE_PATH + '/api/comments' + '?parent_comment_id=' + this.state.comment.id)
+    fetch(process.env.MIX_APP_BASE_PATH + '/api/comments' + '?parent_comment_id=' + this.state.comment.id + '&count=20')
     .then(response => {
         return response.json();
     })
-    .then(objects => {
+    .then(result => {
         this.setState({
-          child_comments : objects,
+          child_comments : result.data,
           is_processing: false,
         });
     });
