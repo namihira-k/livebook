@@ -26,6 +26,10 @@ export default class EventCommentList extends Component {
     this._fetch();
   }
 
+  update() {
+    this._fetch();
+  }
+
   _fetch() {
     fetch(process.env.MIX_APP_BASE_PATH + '/api/comments')
     .then(response => {

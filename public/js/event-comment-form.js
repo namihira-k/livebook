@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -31408,6 +31408,8 @@ function (_Component) {
         _this2._clear();
 
         _this2._moveProgress('0%');
+      }).then(function () {
+        _this2.props.callAfterPost();
       });
     }
   }, {
@@ -31445,7 +31447,7 @@ if (document.getElementById('id-event-comment-form')) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!***********************************************************!*\
   !*** multi ./resources/js/components/EventCommentForm.js ***!
   \***********************************************************/

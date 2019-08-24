@@ -14,12 +14,11 @@ const mix = require('laravel-mix');
 mix.react('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
 
-mix.react('resources/js/components/Example.js', 'public/js/app.js');
-
 mix.react('resources/js/components/Header.js', 'public/js/header.js');
 mix.react('resources/js/components/Footer.js', 'public/js/footer.js');
 
 mix.react('resources/js/components/EventInfo.js', 'public/js/event-info.js');
+mix.react('resources/js/components/EventCommentSection.js', 'public/js/event-comment-section.js');
 mix.react('resources/js/components/EventCommentForm.js', 'public/js/event-comment-form.js');
 mix.react('resources/js/components/EventCommentList.js', 'public/js/event-comment-list.js');
 mix.react('resources/js/components/EventComment.js', 'public/js/event-comment.js');

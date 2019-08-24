@@ -85,6 +85,9 @@ export default class EventCommentForm extends Component {
             this._clear();
             this._moveProgress('0%');
           })
+          .then(() => {
+            this.props.callAfterPost();
+          })
   }
 
   _moveProgress(percent) {
