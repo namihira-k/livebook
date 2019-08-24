@@ -32727,7 +32727,12 @@ function (_Component) {
   _createClass(EventCommentList, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_infinite_scroller__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.is_processing && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spinner-grow text-secondary m-3",
+        role: "status"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "sr-only"
+      }, "Loading...")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_infinite_scroller__WEBPACK_IMPORTED_MODULE_3___default.a, {
         pageStart: 1,
         initialLoad: false,
         loadMore: this.fetchPaging.bind(this),
@@ -32744,7 +32749,7 @@ function (_Component) {
           comment: comment,
           key: comment.id
         });
-      })));
+      }))));
     }
   }, {
     key: "componentDidMount",

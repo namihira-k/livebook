@@ -18,25 +18,33 @@ export default class EventCommentList extends Component {
 
   render() {
     return (
-      <InfiniteScroll
-        pageStart={1}
-        initialLoad={false}
-        loadMore={this.fetchPaging.bind(this)}
-        hasMore={this.state.has_more_comments}
-        loader={
-          <div className="spinner-grow text-secondary m-3" role="status" key={0}>
+      <div>
+        { this.state.is_processing && (
+          <div className="spinner-grow text-secondary m-3" role="status">
             <span className="sr-only">Loading...</span>
           </div>
-        }
-      >
-        <div>
-          {
-            this.state.comments.map(comment => {
-              return <EventComment comment={comment} key={comment.id}/>
-            })
+        )}
+
+        <InfiniteScroll
+          pageStart={1}
+          initialLoad={false}
+          loadMore={this.fetchPaging.bind(this)}
+          hasMore={this.state.has_more_comments}
+          loader={
+            <div className="spinner-grow text-secondary m-3" role="status" key={0}>
+              <span className="sr-only">Loading...</span>
+            </div>
           }
-        </div>
-      </InfiniteScroll>
+          >
+          <div>
+            {
+              this.state.comments.map(comment => {
+                return <EventComment comment={comment} key={comment.id}/>
+              })
+            }
+          </div>
+        </InfiniteScroll>
+      </div>
     );
   }
 
