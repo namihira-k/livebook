@@ -29340,9 +29340,7 @@ function (_Component) {
         className: "mt-5 bg-light"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container-fluid"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Made by ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "https://twitter.com/namihira_k"
-      }, "@namihira-k"))));
+      }));
     }
   }]);
 
