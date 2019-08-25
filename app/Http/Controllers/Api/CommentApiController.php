@@ -26,15 +26,26 @@ class CommentApiController extends Controller
 
     public function get(Request $request)
     {
+      $event_uuid = $request->query('event_uuid', null);
       $parent_comment_id = $request->query('parent_comment_id', null);
+      
       $order = $request->query('order', 'asc');
-      $count = $request->query('count', 2);
+      $count = $request->query('count', 10);
 
       $comment = new Comment;
-      $results = $comment::where('parent_comment_id', $parent_comment_id)
+      $results = null;
+      if (!empty($event_uuid)) {
+        $results = $comment::where('event_uuid', $event_uuid)
+                            ->where('parent_comment_id', null)
                             ->orderBy('created_at', $order)
                             ->paginate($count);
-
+      } else if (!empty($parent_comment_id)) {
+        $results = $comment::where('parent_comment_id', $parent_comment_id)
+                            ->orderBy('created_at', $order)
+                            ->paginate($count);
+      } else {
+        $results = $comment::get(0);
+      }
       return response()->json( $results );
     }
 }

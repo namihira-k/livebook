@@ -32710,13 +32710,14 @@ var EventCommentList =
 function (_Component) {
   _inherits(EventCommentList, _Component);
 
-  function EventCommentList() {
+  function EventCommentList(props) {
     var _this;
 
     _classCallCheck(this, EventCommentList);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(EventCommentList).call(this));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EventCommentList).call(this, props));
     _this.state = {
+      event_uuid: props.event_uuid,
       comments: [],
       is_processing: false,
       has_more_comments: true
@@ -32732,7 +32733,10 @@ function (_Component) {
         role: "status"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "sr-only"
-      }, "Loading...")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_infinite_scroller__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      }, "Loading...")), !this.state.is_processing && this.state.comments.length == 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "alert alert-light",
+        role: "alert"
+      }, "\u30B3\u30E1\u30F3\u30C8\u306F\u307E\u3060\u3042\u308A\u307E\u305B\u3093"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_infinite_scroller__WEBPACK_IMPORTED_MODULE_3___default.a, {
         pageStart: 1,
         initialLoad: false,
         loadMore: this.fetchPaging.bind(this),
@@ -32759,8 +32763,6 @@ function (_Component) {
   }, {
     key: "update",
     value: function update() {
-      this._showLoading();
-
       this.fetch();
     }
   }, {
@@ -32778,13 +32780,16 @@ function (_Component) {
     }(function () {
       var _this2 = this;
 
-      fetch("" + '/api/comments' + '?order=desc' + '&page=0').then(function (response) {
+      this._showLoading();
+
+      fetch("" + '/api/comments' + '?order=desc' + '&page=0' + '&event_uuid=' + this.state.event_uuid).then(function (response) {
         return response.json();
       }).then(function (result) {
         _this2.setState({
-          comments: result.data,
-          is_processing: false
+          comments: result.data
         });
+
+        _this2._closeLoading();
       });
     })
   }, {
@@ -32792,16 +32797,17 @@ function (_Component) {
     value: function fetchPaging(page) {
       var _this3 = this;
 
-      fetch("" + '/api/comments' + '?order=desc' + '&page=' + page).then(function (response) {
+      fetch("" + '/api/comments' + '?order=desc' + '&page=' + page + '&event_uuid=' + this.state.event_uuid).then(function (response) {
         return response.json();
       }).then(function (result) {
         var comments = _this3.state.comments.concat(result.data);
 
         _this3.setState({
           comments: comments,
-          has_more_comments: result.next_page_url != null,
-          is_processing: false
+          has_more_comments: result.next_page_url != null
         });
+
+        _this3._closeLoading();
       });
     }
   }, {
@@ -32811,16 +32817,19 @@ function (_Component) {
         is_processing: true
       });
     }
+  }, {
+    key: "_closeLoading",
+    value: function _closeLoading() {
+      this.setState({
+        is_processing: false
+      });
+    }
   }]);
 
   return EventCommentList;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
-
-if (document.getElementById('id-event-comment-list')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(EventCommentList, null), document.getElementById('id-event-comment-list'));
-}
 
 /***/ }),
 

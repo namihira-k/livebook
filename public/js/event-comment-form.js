@@ -31290,15 +31290,15 @@ var EventCommentForm =
 function (_Component) {
   _inherits(EventCommentForm, _Component);
 
-  function EventCommentForm() {
+  function EventCommentForm(props) {
     var _this;
 
     _classCallCheck(this, EventCommentForm);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(EventCommentForm).call(this));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EventCommentForm).call(this, props));
     _this.state = {
       new_comment: {
-        event_uuid: '1234',
+        event_uuid: props.event_uuid,
         username: '',
         seat: '',
         comment: ''
@@ -31440,10 +31440,6 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
-
-if (document.getElementById('id-event-comment-form')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(EventCommentForm, null), document.getElementById('id-event-comment-form'));
-}
 
 /***/ }),
 
