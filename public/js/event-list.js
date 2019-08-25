@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -31247,16 +31247,16 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./resources/js/components/EventComment.js":
-/*!*************************************************!*\
-  !*** ./resources/js/components/EventComment.js ***!
-  \*************************************************/
+/***/ "./resources/js/components/EventList.js":
+/*!**********************************************!*\
+  !*** ./resources/js/components/EventList.js ***!
+  \**********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EventComment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EventList; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
@@ -31273,9 +31273,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -31285,88 +31285,64 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var EventComment =
+var EventList =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(EventComment, _Component);
+  _inherits(EventList, _Component);
 
-  function EventComment(props) {
+  function EventList() {
     var _this;
 
-    _classCallCheck(this, EventComment);
+    _classCallCheck(this, EventList);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(EventComment).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EventList).call(this));
     _this.state = {
-      comment: props.comment,
-      new_comment: {
-        username: '',
-        comment: ''
-      },
-      child_comments: [],
-      is_show_response: false,
-      is_processing: false
+      events: []
     };
-    _this.changeUsername = _this.changeUsername.bind(_assertThisInitialized(_this));
-    _this.changeComment = _this.changeComment.bind(_assertThisInitialized(_this));
-    _this.post = _this.post.bind(_assertThisInitialized(_this));
-    _this.showResponseForm = _this.showResponseForm.bind(_assertThisInitialized(_this));
-    _this._clear = _this._clear.bind(_assertThisInitialized(_this));
     return _this;
   }
 
-  _createClass(EventComment, [{
+  _createClass(EventList, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card bg-light border-secondary mt-1"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-body"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
-        className: "card-title"
-      }, "by ", this.state.comment.username, "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, this.state.comment.created_at), "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, this.state.comment.seat)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "card-text"
-      }, this.state.comment.comment), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "ml-5"
-      }, this.state.child_comments.map(function (comment) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-          key: comment.id
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "by ", comment.username, "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, comment.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, comment.comment));
-      }), this.state.is_processing && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "spinner-grow spinner-grow-sm text-secondary",
-        role: "status"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "sr-only"
-      }, "Loading...")), this.state.is_show_response && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "",
-        onSubmit: this.post
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group col-md-3"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        className: "form-control border-primary",
-        id: "username",
-        value: this.state.new_comment.username,
-        onChange: this.changeUsername,
-        placeholder: "\u304A\u540D\u524D\uFF08\u5165\u529B\u81EA\u7531\uFF09"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group border-primary"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
-        id: "id-comment",
-        className: "form-control border-primary",
-        value: this.state.new_comment.comment,
-        onChange: this.changeComment,
-        placeholder: "\u516C\u958B\u30B3\u30E1\u30F3\u30C8\uFF08\u5165\u529B\u5FC5\u9808\uFF09",
-        required: true
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "submit",
-        className: "btn btn-primary btn-sm"
-      }, "\u6295\u7A3F\u3059\u308B")), !this.state.is_processing && !this.state.is_show_response && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "button",
-        className: "btn btn-primary btn-sm",
-        onClick: this.showResponseForm
-      }, ">\u8FD4\u4FE1\u3059\u308B"))));
+      var _this2 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "\u30E9\u30A4\u30D6\u4E00\u89A7"), this.state.events.map(function (event) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "card mb-3",
+          key: event.name
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "card-body"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+          className: "card-title"
+        }, event.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-4 col-md-2"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u51FA\u6F14\u8005")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-8 col-md-10"
+        }, event.performer)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-4 col-md-2"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u65E5\u6642")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-8 col-md-10"
+        }, event.datetime)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-4 col-md-2"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "UUID")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-8 col-md-10"
+        }, event.uuid)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-4 col-md-2"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u8A73\u7D30")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-8 col-md-10"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: _this2._infoPath(event)
+        }, _this2._infoPath(event))))));
+      }));
     }
   }, {
     key: "componentDidMount",
@@ -31374,94 +31350,44 @@ function (_Component) {
       this._fetch();
     }
   }, {
-    key: "changeUsername",
-    value: function changeUsername(event) {
-      var tmp = this.state.new_comment;
-      tmp.username = event.target.value;
-      this.setState({
-        new_comment: tmp
-      });
-    }
-  }, {
-    key: "changeComment",
-    value: function changeComment(event) {
-      var tmp = this.state.new_comment;
-      tmp.comment = event.target.value;
-      this.setState({
-        new_comment: tmp
-      });
-    }
-  }, {
-    key: "showResponseForm",
-    value: function showResponseForm() {
-      this.setState({
-        is_show_response: true
-      });
-    }
-  }, {
-    key: "post",
-    value: function post(event) {
-      var _this2 = this;
-
-      event.preventDefault();
-      var req = this.state.new_comment;
-      req.parent_comment_id = this.state.comment.id;
-      req.event_uuid = this.state.comment.event_uuid;
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/comments', req).then(function () {
-        _this2._fetch();
-
-        _this2._clear();
-      });
-    }
-  }, {
-    key: "_clear",
-    value: function _clear() {
-      this.setState({
-        new_comment: {
-          username: '',
-          comment: ''
-        },
-        is_show_response: false
-      });
-    }
-  }, {
     key: "_fetch",
     value: function _fetch() {
       var _this3 = this;
 
-      this.setState({
-        is_processing: true
-      });
-      fetch("/liveshare" + '/api/comments' + '?parent_comment_id=' + this.state.comment.id + '&count=20').then(function (response) {
+      fetch("/liveshare" + '/api/events').then(function (response) {
         return response.json();
       }).then(function (result) {
         _this3.setState({
-          child_comments: result.data,
-          is_processing: false
+          events: result.data
         });
       });
     }
+  }, {
+    key: "_infoPath",
+    value: function _infoPath(event) {
+      return "/liveshare" + '/web/eventinfo' + '?uuid=' + event.uuid;
+    }
   }]);
 
-  return EventComment;
+  return EventList;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
 
-if (document.getElementById('id-event-comment')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(EventComment, null), document.getElementById('id-event-comment'));
+if (document.getElementById('id-event-list')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(EventList, null), document.getElementById('id-event-list'));
 }
 
 /***/ }),
 
-/***/ 8:
-/*!*******************************************************!*\
-  !*** multi ./resources/js/components/EventComment.js ***!
-  \*******************************************************/
+/***/ 3:
+/*!****************************************************!*\
+  !*** multi ./resources/js/components/EventList.js ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/namihira/work/project/vscode/livebook/resources/js/components/EventComment.js */"./resources/js/components/EventComment.js");
+module.exports = __webpack_require__(/*! /Users/namihira/work/project/vscode/livebook/resources/js/components/EventList.js */"./resources/js/components/EventList.js");
 
 
 /***/ })

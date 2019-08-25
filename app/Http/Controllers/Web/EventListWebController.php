@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Web;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class EventInfoWebController extends Controller
+class EventListWebController extends Controller
 {
     public function get(Request $request)
     {
-      return view('eventinfo.view');
+      return view('eventlist.view');
     }
 }

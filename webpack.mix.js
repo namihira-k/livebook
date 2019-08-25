@@ -17,6 +17,8 @@ mix.react('resources/js/app.js', 'public/js')
 mix.react('resources/js/components/Header.js', 'public/js/header.js');
 mix.react('resources/js/components/Footer.js', 'public/js/footer.js');
 
+mix.react('resources/js/components/EventList.js', 'public/js/event-list.js');
+
 mix.react('resources/js/components/EventInfo.js', 'public/js/event-info.js');
 mix.react('resources/js/components/EventCommentSection.js', 'public/js/event-comment-section.js');
 mix.react('resources/js/components/EventCommentForm.js', 'public/js/event-comment-form.js');
