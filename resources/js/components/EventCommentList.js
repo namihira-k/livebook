@@ -32,8 +32,8 @@ export default class EventCommentList extends Component {
         )}
 
         <InfiniteScroll
-          pageStart={1}
-          initialLoad={false}
+          pageStart={0}
+          initialLoad={true}
           loadMore={this.fetchPaging.bind(this)}
           hasMore={this.state.has_more_comments}
           loader={
@@ -55,7 +55,6 @@ export default class EventCommentList extends Component {
   }
 
   componentDidMount() {
-    this.fetch();
   }
 
   update() {
