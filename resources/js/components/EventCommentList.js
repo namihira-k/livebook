@@ -6,9 +6,11 @@ import EventComment from './EventComment';
 
 export default class EventCommentList extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
+      event_uuid: props.event_uuid,
+
       comments: [],
       is_processing: false,
 
@@ -23,6 +25,10 @@ export default class EventCommentList extends Component {
           <div className="spinner-grow text-secondary m-3" role="status">
             <span className="sr-only">Loading...</span>
           </div>
+        )}
+
+        { (!this.state.is_processing && (this.state.comments.length == 0)) && (
+          <div class="alert alert-light" role="alert">コメントはまだありません</div>
         )}
 
         <InfiniteScroll
@@ -53,25 +59,25 @@ export default class EventCommentList extends Component {
   }
 
   update() {
-    this._showLoading();
     this.fetch();
   }
 
   fetch() {
-    fetch(process.env.MIX_APP_BASE_PATH + '/api/comments' + '?order=desc' + '&page=0')
+    this._showLoading();
+    fetch(process.env.MIX_APP_BASE_PATH + '/api/comments' + '?order=desc' + '&page=0' + '&event_uuid=' + this.state.event_uuid)
     .then(response => {
       return response.json();
     })
     .then(result => {
       this.setState({
         comments: result.data,
-        is_processing: false,
       })
+      this._closeLoading();
     });
   }
 
   fetchPaging(page) {
-    fetch(process.env.MIX_APP_BASE_PATH + '/api/comments' + '?order=desc' + '&page=' + page)
+    fetch(process.env.MIX_APP_BASE_PATH + '/api/comments' + '?order=desc' + '&page=' + page + '&event_uuid=' + this.state.event_uuid)
     .then(response => {
       return response.json();
     })
@@ -80,8 +86,8 @@ export default class EventCommentList extends Component {
       this.setState({
         comments: comments,
         has_more_comments: (result.next_page_url != null),
-        is_processing: false,
       })
+      this._closeLoading()
     });
   }
 
@@ -91,8 +97,9 @@ export default class EventCommentList extends Component {
     })
   }
 
-}
-
-if (document.getElementById('id-event-comment-list')) {
-    ReactDOM.render(<EventCommentList />, document.getElementById('id-event-comment-list'));
+  _closeLoading() {
+    this.setState({
+      is_processing: false
+    })
+  }  
 }

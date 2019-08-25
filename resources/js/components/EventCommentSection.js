@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route} from "react-router-dom";
+import queryString from 'query-string';
+
 import EventCommentForm from './EventCommentForm';
 import EventCommentList from './EventCommentList';
 
@@ -15,10 +18,11 @@ export default class EventCommentSection extends Component {
   }
 
   render() {
+    let event_uuid = this.props.qs.uuid;
     return (
       <div>
-        <EventCommentForm callAfterPost={this.updateList}/>
-        <EventCommentList ref={instance => { this.state.list = instance; }}/>
+        <EventCommentForm event_uuid={event_uuid} callAfterPost={this.updateList}/>
+        <EventCommentList event_uuid={event_uuid} ref={instance => { this.state.list = instance; }}/>
       </div>
     )
   }
@@ -30,5 +34,16 @@ export default class EventCommentSection extends Component {
 }
 
 if (document.getElementById('id-event-comment-section')) {
-    ReactDOM.render(<EventCommentSection />, document.getElementById('id-event-comment-section'));
+    ReactDOM.render(
+      <Router>
+        <Route render={ (props) => 
+          <EventCommentSection qs={queryString.parse(props.location.search)} />
+        }/>
+      </Router>,
+      
+      document.getElementById('id-event-comment-section')
+      
+    );
 }
+
+

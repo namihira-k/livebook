@@ -4,11 +4,11 @@ import axios from 'axios';
 
 export default class EventCommentForm extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       new_comment: {
-        event_uuid: '1234',
+        event_uuid: props.event_uuid,
         username: '',
         seat: '',
         comment: '',
@@ -108,8 +108,4 @@ export default class EventCommentForm extends Component {
     this.setState({new_comment : tmp});
   }
 
-}
-
-if (document.getElementById('id-event-comment-form')) {
-    ReactDOM.render(<EventCommentForm />, document.getElementById('id-event-comment-form'));
 }
