@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route} from "react-router-dom";
+import queryString from 'query-string';
 
 export default class EventInfo extends Component {
 
   constructor() {
     super();
     this.state = {
-      events: []
+      events: [],
     };
   }
 
@@ -24,33 +26,33 @@ export default class EventInfo extends Component {
       return (
         <div className="card" key={event.name}>
           <div className="card-body">
-            <h5 className="card-title">{event.name}</h5>
+            <h5 className="card-title">{ event.name }</h5>
 
             <div className="row">
               <div className="col-4 col-md-2"><strong>出演者</strong></div>
-              <div className="col-8 col-md-10">{event.performer}</div>
+              <div className="col-8 col-md-10">{ event.performer }</div>
             </div>
 
             <div className="row">
               <div className="col-4 col-md-2"><strong>都道府県</strong></div>
-              <div className="col-8 col-md-10">東京</div>
+              <div className="col-8 col-md-10">{ event.prefecture }</div>
             </div>
 
             <div className="row">
               <div className="col-4 col-md-2"><strong>開催場所</strong></div>
-              <div className="col-8 col-md-10">{event.place}</div>
+              <div className="col-8 col-md-10">{ event.place }</div>
             </div>
 
             <div className="row">
               <div className="col-4 col-md-2"><strong>日時</strong></div>
-              <div className="col-8 col-md-10">2019-08-30、2019-08-31、2019-09-01</div>
+              <div className="col-8 col-md-10">{ event.datetime }</div>
             </div>
 
             <div className="row">
               <div className="col-4 col-md-2"><strong>情報元</strong></div>
-              <div className="col-8 col-md-10"><a href="http://www.nogizaka46.com">http://www.nogizaka46.com</a></div>
+              <div className="col-8 col-md-10"><a href={ event.url }>{ event.url }</a><i class="fa fa-external-link ml-1"></i></div>
             </div>
-
+            
           </div>
         </div>
       );
@@ -58,17 +60,25 @@ export default class EventInfo extends Component {
   }
 
   componentDidMount() {
-    fetch(process.env.MIX_APP_BASE_PATH + '/api/events')
+    fetch(process.env.MIX_APP_BASE_PATH + '/api/events' + '?uuid='　+ this.props.qs.uuid)
     .then(response => {
         return response.json();
     })
-    .then(objects => {
-        this.setState({events:objects});
+    .then(obj => {
+        this.setState({
+          events: obj.data,
+        });
     });
   }
 
 }
 
 if (document.getElementById('id-event-info')) {
-    ReactDOM.render(<EventInfo />, document.getElementById('id-event-info'));
+    ReactDOM.render(
+      <Router>
+        <Route render={ (props) => 
+          <EventInfo qs={queryString.parse(props.location.search)} />
+        }/>
+      </Router>,
+      document.getElementById('id-event-info'));
 }
