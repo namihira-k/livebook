@@ -32737,8 +32737,8 @@ function (_Component) {
         "class": "alert alert-light",
         role: "alert"
       }, "\u30B3\u30E1\u30F3\u30C8\u306F\u307E\u3060\u3042\u308A\u307E\u305B\u3093"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_infinite_scroller__WEBPACK_IMPORTED_MODULE_3___default.a, {
-        pageStart: 1,
-        initialLoad: false,
+        pageStart: 0,
+        initialLoad: true,
         loadMore: this.fetchPaging.bind(this),
         hasMore: this.state.has_more_comments,
         loader: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -32757,9 +32757,7 @@ function (_Component) {
     }
   }, {
     key: "componentDidMount",
-    value: function componentDidMount() {
-      this.fetch();
-    }
+    value: function componentDidMount() {}
   }, {
     key: "update",
     value: function update() {
