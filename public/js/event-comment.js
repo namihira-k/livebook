@@ -31407,7 +31407,7 @@ function (_Component) {
       var req = this.state.new_comment;
       req.parent_comment_id = this.state.comment.id;
       req.event_uuid = this.state.comment.event_uuid;
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/comments', req).then(function () {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/comments', req).then(function () {
         _this2._fetch();
 
         _this2._clear();
@@ -31432,7 +31432,7 @@ function (_Component) {
       this.setState({
         is_processing: true
       });
-      fetch("/liveshare" + '/api/comments' + '?parent_comment_id=' + this.state.comment.id + '&count=20').then(function (response) {
+      fetch("" + '/api/comments' + '?parent_comment_id=' + this.state.comment.id + '&count=20').then(function (response) {
         return response.json();
       }).then(function (result) {
         _this3.setState({

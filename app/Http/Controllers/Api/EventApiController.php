@@ -5,19 +5,18 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Models\Event;
+
 class EventApiController extends Controller
 {
     public function get(Request $request)
     {
-      $events = collect([
-        [
-        'name' => '乃木坂46 真夏の全国ツアー2019 ＜東京＞明治神宮野球場',
-        'performer' => '乃木坂46',
-        'place' => '明治神宮野球場',
-        'uuid' => '1234'
-        ]
-      ]);
+      $uuid = $request->uuid;
+
+      $event = new Event;
+      $results = $event::where('uuid', $uuid)
+                        ->paginate(1);
       
-      return response()->json( $events );
+      return response()->json( $results );
     }
 }

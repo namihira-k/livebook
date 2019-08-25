@@ -9,6 +9,7 @@
 
   <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/vnd.microsoft.icon">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@liveshare_jp" />
