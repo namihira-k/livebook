@@ -14,8 +14,14 @@ class EventApiController extends Controller
       $uuid = $request->uuid;
 
       $event = new Event;
-      $results = $event::where('uuid', $uuid)
-                        ->paginate(1);
+
+      $results = null;
+      if (!empty($uuid)) {
+        $results = $event::where('uuid', $uuid)
+                          ->paginate(1);
+      } else {
+        $results = $event::paginate(20);
+      }
       
       return response()->json( $results );
     }
