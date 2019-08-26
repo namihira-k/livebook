@@ -28,7 +28,7 @@ export default class EventCommentList extends Component {
         )}
 
         { (!this.state.is_processing && (this.state.comments.length == 0)) && (
-          <div class="alert alert-light" role="alert">コメントはまだありません</div>
+          <div className="alert alert-light" role="alert">コメントはまだありません</div>
         )}
 
         <InfiniteScroll

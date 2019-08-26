@@ -40,9 +40,7 @@ if (document.getElementById('id-event-comment-section')) {
           <EventCommentSection qs={queryString.parse(props.location.search)} />
         }/>
       </Router>,
-      
       document.getElementById('id-event-comment-section')
-      
     );
 }
 

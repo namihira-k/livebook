@@ -16,6 +16,7 @@ mix.react('resources/js/app.js', 'public/js')
 
 mix.react('resources/js/components/Header.js', 'public/js/header.js');
 mix.react('resources/js/components/Footer.js', 'public/js/footer.js');
+mix.react('resources/js/components/Ads.js', 'public/js/ads.js');
 
 mix.react('resources/js/components/EventList.js', 'public/js/event-list.js');
 
