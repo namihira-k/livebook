@@ -29336,11 +29336,20 @@ function (_Component) {
   _createClass(Footer, [{
     key: "render",
     value: function render() {
+      var style = {
+        backgroundColor: '#f05ea7'
+      };
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
-        className: "mt-5 bg-light"
+        className: "mt-5 py-3 text-white",
+        style: style
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container-fluid"
-      }));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Live Share \u3068\u306F\uFF1F"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u30E9\u30A4\u30D6\u53C2\u52A0\u3078\u306E\u6E96\u5099\u3084\u5F53\u65E5\u72B6\u6CC1\u3092\u307F\u3093\u306A\u3067\u5171\u6709\u3059\u308B \u60C5\u5831\u5171\u6709\u30B5\u30FC\u30D3\u30B9 \u3067\u3059"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u8981\u671B\u3084\u554F\u3044\u5408\u308F\u305B\uFF1A", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "text-white",
+        href: "https://twitter.com/livesharejp"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("u", null, "@livesharejp(twitter)")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fa fa-external-link ml-1"
+      })))));
     }
   }]);
 

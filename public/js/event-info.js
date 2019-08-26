@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -33824,7 +33824,7 @@ function (_Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           href: event.url
         }, event.url), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          "class": "fa fa-external-link ml-1"
+          className: "fa fa-external-link ml-1"
         })))));
       });
     }
@@ -33860,7 +33860,7 @@ if (document.getElementById('id-event-info')) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!****************************************************!*\
   !*** multi ./resources/js/components/EventInfo.js ***!
   \****************************************************/
