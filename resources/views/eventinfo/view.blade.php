@@ -14,8 +14,8 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@liveshare_jp" />
   <meta name="twitter:image" content="https://www.namimono.com/liveshare/img/app_logo.jpg" />
-  <meta name="twitter:title" content="乃木坂46 真夏の全国ツアー2019 ＜東京＞明治神宮野球場" />
-  <meta name="twitter:description" content="準備や参加した体験を共有しよう！" />
+  <meta name="twitter:title" content="{{ $event['name'] }}" />
+  <meta name="twitter:description" content="参加への準備や当日状況を共有しよう" />
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-33863076-3"></script>
