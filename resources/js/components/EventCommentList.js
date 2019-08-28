@@ -42,13 +42,11 @@ export default class EventCommentList extends Component {
             </div>
           }
           >
-          <div>
-            {
-              this.state.comments.map(comment => {
-                return <EventComment comment={comment} key={comment.id}/>
-              })
-            }
-          </div>
+          {
+            this.state.comments.map(comment => {
+              return <EventComment comment={comment} key={comment.id}/>
+            })
+          }
         </InfiniteScroll>
       </div>
     );
