@@ -20,7 +20,7 @@ class EventApiController extends Controller
         $results = $event::where('uuid', $uuid)
                           ->paginate(1);
       } else {
-        $results = $event::paginate(20);
+        $results = $event::paginate(50);
       }
       
       return response()->json( $results );
