@@ -36,7 +36,7 @@
     <div id="id-event-comment-section" class="mt-3"></div>
     <div id="id-ads" class="mt-3"></div>
   </div>
-
+  
   <div id="id-footer"></div>
 
   <script src="{{ asset('js/header.js') }}"></script>
@@ -49,6 +49,8 @@
   <script src="{{ asset('js/event-comment-list.js') }}"></script>
   <script src="{{ asset('js/event-comment.js') }}"></script>
 
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </body>
 
 </html>

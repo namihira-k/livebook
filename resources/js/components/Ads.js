@@ -4,10 +4,19 @@ import ReactDOM from 'react-dom';
 export default class Ads extends Component {
   
   render() {
+    const style = {
+      display: 'block'
+    }  
+
     return (
       <div>
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        <ins className="adsbygoogle"
+              style={style}
+              data-ad-client="ca-pub-1908478661707708"
+              data-ad-slot="5869471877"
+              data-ad-format="auto"
+              data-full-width-responsive="true">
+        </ins>
       </div>
     );
   }

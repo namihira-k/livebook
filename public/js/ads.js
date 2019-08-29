@@ -29336,10 +29336,17 @@ function (_Component) {
   _createClass(Ads, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", {
-        async: true,
-        src: "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", null, "(adsbygoogle = window.adsbygoogle || []).push(", ");"));
+      var style = {
+        display: 'block'
+      };
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ins", {
+        className: "adsbygoogle",
+        style: style,
+        "data-ad-client": "ca-pub-1908478661707708",
+        "data-ad-slot": "5869471877",
+        "data-ad-format": "auto",
+        "data-full-width-responsive": "true"
+      }));
     }
   }]);
 
