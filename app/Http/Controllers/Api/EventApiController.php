@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
+use App\Http\Controllers\Controller;
 use App\Models\Event;
 
 class EventApiController extends Controller
@@ -23,6 +24,8 @@ class EventApiController extends Controller
         $results = $event::paginate(50);
       }
       
-      return response()->json( $results );
+      return response()->json( $results )->cookie(
+        'user_uuid', (string) Str::uuid()
+      );
     }
 }
