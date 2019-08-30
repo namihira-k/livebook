@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import reactStringReplace from "react-string-replace";
 
+import EventCommentRating from './EventCommentRating';
+
 export default class EventComment extends Component {
 
   constructor(props) {
@@ -36,16 +38,18 @@ export default class EventComment extends Component {
       <div className="card bg-light border-secondary mt-1">
         <div className="card-body">
           <h6 className="card-title">by {this.state.comment.username}&emsp;<small>{this.state.comment.created_at}</small>&emsp;<small>{this.state.comment.seat}</small></h6>
-          <p className="card-text">{ reactStringReplace(this.state.comment.comment, regExp, (m, i) => (<a key={this.state.comment.id} href={m}>{m}<i className="fa fa-external-link ml-1"></i></a>)) }</p>
+          <p className="card-text mb-0">{ reactStringReplace(this.state.comment.comment, regExp, (m, i) => (<a key={this.state.comment.id} href={m}>{m}<i className="fa fa-external-link ml-1"></i></a>)) }</p>
+          <EventCommentRating comment={this.state.comment} key={this.state.comment.id}/>
 
           <div className="ml-5">
             { 
               this.state.child_comments.map(comment => {
                 return (
-                  <p key={comment.id}>
-                    <span>by {comment.username}&emsp;<small>{comment.created_at}</small></span><br/>
-                    <span>{reactStringReplace(comment.comment, regExp, (m, i) => (<a key={comment.id} href={m}>{m}<i className="fa fa-external-link ml-1"></i></a>))}</span>
-                  </p>
+                  <div key={comment.id}>
+                    <p className="mb-1">by {comment.username}&emsp;<small>{comment.created_at}</small></p>
+                    <p className="mb-0">{reactStringReplace(comment.comment, regExp, (m, i) => (<a key={comment.id} href={m}>{m}<i className="fa fa-external-link ml-1"></i></a>))}</p>
+                    <EventCommentRating comment={comment} key={comment.id}/>
+                  </div>
                 ) 
               })
             }

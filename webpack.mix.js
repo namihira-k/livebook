@@ -24,5 +24,4 @@ mix.react('resources/js/components/EventInfo.js', 'public/js/event-info.js');
 mix.react('resources/js/components/EventCommentSection.js', 'public/js/event-comment-section.js');
 mix.react('resources/js/components/EventCommentForm.js', 'public/js/event-comment-form.js');
 mix.react('resources/js/components/EventCommentList.js', 'public/js/event-comment-list.js');
-mix.react('resources/js/components/EventComment.js', 'public/js/event-comment.js');
-
+mix.react('resources/js/components/EventCommentRating.js', 'public/js/event-comment-rating.js');

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Comment;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Log;
+
+use App\Models\Comment;
+use App\Models\Rating;
+use App\Http\Controllers\Controller;
 
 class CommentApiController extends Controller
 {
@@ -45,7 +47,8 @@ class CommentApiController extends Controller
                             ->paginate($count);
       } else {
         $results = $comment::get(0);
-      }
+      }  
+
       return response()->json( $results );
     }
 }
