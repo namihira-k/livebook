@@ -37071,7 +37071,8 @@ function (_Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "mb-1"
         }, "by ", comment.username, "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, comment.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-          className: "mb-0"
+          className: "mb-0",
+          style: style.text
         }, react_string_replace__WEBPACK_IMPORTED_MODULE_3___default()(comment.comment, regExp, function (m, i) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
             key: comment.id,
@@ -37159,7 +37160,7 @@ function (_Component) {
       var req = this.state.new_comment;
       req.parent_comment_id = this.state.comment.id;
       req.event_uuid = this.state.comment.event_uuid;
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/comments', req).then(function () {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/comments', req).then(function () {
         _this3._fetch();
 
         _this3._clear();
@@ -37184,7 +37185,7 @@ function (_Component) {
       this.setState({
         is_processing: true
       });
-      fetch("/liveshare" + '/api/comments' + '?parent_comment_id=' + this.state.comment.id + '&count=20').then(function (response) {
+      fetch("" + '/api/comments' + '?parent_comment_id=' + this.state.comment.id + '&count=20').then(function (response) {
         return response.json();
       }).then(function (result) {
         _this4.setState({
@@ -37363,7 +37364,7 @@ function (_Component) {
 
       this._moveProgress('100%');
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/comments', this.state.new_comment).then(function () {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/comments', this.state.new_comment).then(function () {
         _this2._clear();
 
         _this2._moveProgress('0%');
@@ -37520,7 +37521,7 @@ function (_Component) {
 
       this._showLoading();
 
-      fetch("/liveshare" + '/api/comments' + '?order=desc' + '&page=0' + '&event_uuid=' + this.state.event_uuid).then(function (response) {
+      fetch("" + '/api/comments' + '?order=desc' + '&page=0' + '&event_uuid=' + this.state.event_uuid).then(function (response) {
         return response.json();
       }).then(function (result) {
         _this2.setState({
@@ -37535,7 +37536,7 @@ function (_Component) {
     value: function fetchPaging(page) {
       var _this3 = this;
 
-      fetch("/liveshare" + '/api/comments' + '?order=desc' + '&page=' + page + '&event_uuid=' + this.state.event_uuid).then(function (response) {
+      fetch("" + '/api/comments' + '?order=desc' + '&page=' + page + '&event_uuid=' + this.state.event_uuid).then(function (response) {
         return response.json();
       }).then(function (result) {
         var comments = _this3.state.comments.concat(result.data);
@@ -37654,7 +37655,7 @@ function (_Component) {
     value: function _fetch() {
       var _this2 = this;
 
-      fetch("/liveshare" + '/api/ratings' + '?comment_uuid=' + this.state.comment.id).then(function (response) {
+      fetch("" + '/api/ratings' + '?comment_uuid=' + this.state.comment.id).then(function (response) {
         return response.json();
       }).then(function (result) {
         _this2.setState({
@@ -37667,7 +37668,7 @@ function (_Component) {
     value: function post(label) {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/ratings', {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/ratings', {
         comment_uuid: this.state.comment.id,
         label: label
       }).then(function () {

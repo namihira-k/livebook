@@ -31330,7 +31330,7 @@ function (_Component) {
     value: function _fetch() {
       var _this2 = this;
 
-      fetch("/liveshare" + '/api/ratings' + '?comment_uuid=' + this.state.comment.id).then(function (response) {
+      fetch("" + '/api/ratings' + '?comment_uuid=' + this.state.comment.id).then(function (response) {
         return response.json();
       }).then(function (result) {
         _this2.setState({
@@ -31343,7 +31343,7 @@ function (_Component) {
     value: function post(label) {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/ratings', {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/ratings', {
         comment_uuid: this.state.comment.id,
         label: label
       }).then(function () {
