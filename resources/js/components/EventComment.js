@@ -34,11 +34,17 @@ export default class EventComment extends Component {
   render() {
     const regExp = /(https?:\/\/\S+)/g;
 
+    const style = {
+      text: {
+        whiteSpace: 'pre-line'
+      }
+    }
+
     return (
       <div className="card bg-light border-secondary mt-1">
         <div className="card-body">
           <h6 className="card-title">by {this.state.comment.username}&emsp;<small>{this.state.comment.created_at}</small>&emsp;<small>{this.state.comment.seat}</small></h6>
-          <p className="card-text mb-0">{ reactStringReplace(this.state.comment.comment, regExp, (m, i) => (<a key={this.state.comment.id} href={m}>{m}<i className="fa fa-external-link ml-1"></i></a>)) }</p>
+          <p className="card-text mb-0" style={style.text}>{ reactStringReplace(this.state.comment.comment, regExp, (m, i) => (<a key={this.state.comment.id} href={m}>{m}<i className="fa fa-external-link ml-1"></i></a>)) }</p>
           <EventCommentRating comment={this.state.comment} key={this.state.comment.id}/>
 
           <div className="ml-5">

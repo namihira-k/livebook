@@ -37039,6 +37039,11 @@ function (_Component) {
       var _this2 = this;
 
       var regExp = /(https?:\/\/\S+)/g;
+      var style = {
+        text: {
+          whiteSpace: 'pre-line'
+        }
+      };
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card bg-light border-secondary mt-1"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -37046,7 +37051,8 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
         className: "card-title"
       }, "by ", this.state.comment.username, "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, this.state.comment.created_at), "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, this.state.comment.seat)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "card-text mb-0"
+        className: "card-text mb-0",
+        style: style.text
       }, react_string_replace__WEBPACK_IMPORTED_MODULE_3___default()(this.state.comment.comment, regExp, function (m, i) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           key: _this2.state.comment.id,
