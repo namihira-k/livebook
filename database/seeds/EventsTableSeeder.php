@@ -48,6 +48,18 @@ class EventsTableSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),  
             ],
+            [
+                'id' => 4,
+                'name' => '乃木坂46 アンダーライブ2019 at 幕張メッセ',
+                'performer' => '乃木坂46',
+                'prefecture' => '千葉',
+                'place' => '幕張メッセ',
+                'datetime' => '2019-10-10（木）、2019-10-11（金）',
+                'url' => 'http://www.nogizaka46.com',
+                'uuid' => '9a8c1909-0978-41b0-a43b-8695a7ae47ca',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
         ]);
     }
 }
