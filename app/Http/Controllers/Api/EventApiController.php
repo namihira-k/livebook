@@ -13,16 +13,16 @@ class EventApiController extends Controller
     public function get(Request $request)
     {
       $uuid = $request->uuid;
-      $order = $request->query('order', 'asc');
+      $order = $request->query('order', 'desc');
 
       $event = new Event;
       $results = null;
       if (!empty($uuid)) {
         $results = $event::where('uuid', $uuid)
-                          ->orderBy('id', $order)
                           ->paginate(1);
       } else {
-        $results = $event::paginate(50);
+        $results = $event::orderBy('id', $order)
+                          ->paginate(50);
       }
       
       return response()->json( $results )->cookie(
