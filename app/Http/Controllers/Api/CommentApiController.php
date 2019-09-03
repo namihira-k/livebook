@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 use App\Models\Comment;
-use App\Models\Rating;
 use App\Http\Controllers\Controller;
 
 class CommentApiController extends Controller
@@ -15,13 +15,14 @@ class CommentApiController extends Controller
     {
       $comment = new Comment;
       $comment->event_uuid = $request->event_uuid;
-      $comment->parent_comment_id = $request->parent_comment_id;
+      $comment->parent_comment_uuid = $request->parent_comment_uuid;
       $comment->username = empty($request->username) ? "参加者" : $request->username;
       $comment->seat = $request->seat;
       $comment->comment = $request->comment;
+      $comment->uuid = Str::uuid();
       $comment->save();
 
-      Log::info("POST : " . $comment->comment);
+      Log::info("POST COMMENT: " . $comment->comment);
 
       return response()->json($comment);
     }
@@ -29,7 +30,7 @@ class CommentApiController extends Controller
     public function get(Request $request)
     {
       $event_uuid = $request->query('event_uuid', null);
-      $parent_comment_id = $request->query('parent_comment_id', null);
+      $parent_comment_id = $request->query('parent_comment_uuid', null);
       
       $order = $request->query('order', 'asc');
       $count = $request->query('count', 10);
@@ -38,11 +39,11 @@ class CommentApiController extends Controller
       $results = null;
       if (!empty($event_uuid)) {
         $results = $comment::where('event_uuid', $event_uuid)
-                            ->where('parent_comment_id', null)
+                            ->where('parent_comment_uuid', null)
                             ->orderBy('created_at', $order)
                             ->paginate($count);
       } else if (!empty($parent_comment_id)) {
-        $results = $comment::where('parent_comment_id', $parent_comment_id)
+        $results = $comment::where('parent_comment_uuid', $parent_comment_id)
                             ->orderBy('created_at', $order)
                             ->paginate($count);
       } else {

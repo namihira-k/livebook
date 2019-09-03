@@ -33648,7 +33648,7 @@ function (_Component) {
 
       event.preventDefault();
       var req = this.state.new_comment;
-      req.parent_comment_id = this.state.comment.id;
+      req.parent_comment_uuid = this.state.comment.uuid;
       req.event_uuid = this.state.comment.event_uuid;
       axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/comments', req).then(function () {
         _this3._fetch();
@@ -33675,7 +33675,7 @@ function (_Component) {
       this.setState({
         is_processing: true
       });
-      fetch("" + '/api/comments' + '?parent_comment_id=' + this.state.comment.id + '&count=20').then(function (response) {
+      fetch("" + '/api/comments' + '?parent_comment_uuid=' + this.state.comment.uuid + '&count=20').then(function (response) {
         return response.json();
       }).then(function (result) {
         _this4.setState({
@@ -33949,7 +33949,7 @@ function (_Component) {
     value: function _fetch() {
       var _this2 = this;
 
-      fetch("" + '/api/ratings' + '?comment_uuid=' + this.state.comment.id).then(function (response) {
+      fetch("" + '/api/ratings' + '?comment_uuid=' + this.state.comment.uuid).then(function (response) {
         return response.json();
       }).then(function (result) {
         _this2.setState({
@@ -33963,7 +33963,7 @@ function (_Component) {
       var _this3 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/ratings', {
-        comment_uuid: this.state.comment.id,
+        comment_uuid: this.state.comment.uuid,
         label: label
       }).then(function () {
         _this3._fetch();

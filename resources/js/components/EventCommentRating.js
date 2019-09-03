@@ -26,7 +26,7 @@ export default class EventCommentRating extends Component {
   }
 
   _fetch() {
-    fetch(process.env.MIX_APP_BASE_PATH + '/api/ratings' + '?comment_uuid=' + this.state.comment.id)
+    fetch(process.env.MIX_APP_BASE_PATH + '/api/ratings' + '?comment_uuid=' + this.state.comment.uuid)
     .then(response => {
         return response.json();
     })
@@ -41,7 +41,7 @@ export default class EventCommentRating extends Component {
   post(label) {
     axios.post(process.env.MIX_APP_BASE_PATH + '/api/ratings', 
             {
-              comment_uuid: this.state.comment.id,
+              comment_uuid: this.state.comment.uuid,
               label: label
             }
           )

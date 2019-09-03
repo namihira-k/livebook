@@ -121,7 +121,7 @@ export default class EventComment extends Component {
     event.preventDefault();
 
     let req = this.state.new_comment;
-    req.parent_comment_id = this.state.comment.id;
+    req.parent_comment_uuid = this.state.comment.uuid;
     req.event_uuid = this.state.comment.event_uuid;
     
     axios.post(process.env.MIX_APP_BASE_PATH + '/api/comments', req)
@@ -146,7 +146,7 @@ export default class EventComment extends Component {
       is_processing: true,
     });
 
-    fetch(process.env.MIX_APP_BASE_PATH + '/api/comments' + '?parent_comment_id=' + this.state.comment.id + '&count=20')
+    fetch(process.env.MIX_APP_BASE_PATH + '/api/comments' + '?parent_comment_uuid=' + this.state.comment.uuid + '&count=20')
     .then(response => {
         return response.json();
     })
