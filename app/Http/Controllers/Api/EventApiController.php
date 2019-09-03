@@ -13,12 +13,13 @@ class EventApiController extends Controller
     public function get(Request $request)
     {
       $uuid = $request->uuid;
+      $order = $request->query('order', 'asc');
 
       $event = new Event;
-
       $results = null;
       if (!empty($uuid)) {
         $results = $event::where('uuid', $uuid)
+                          ->orderBy('id', $order)
                           ->paginate(1);
       } else {
         $results = $event::paginate(50);
