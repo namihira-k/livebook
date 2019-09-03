@@ -18,5 +18,7 @@ require('./components/Footer');
 require('./components/EventComment');
 require('./components/EventCommentForm');
 require('./components/EventCommentList');
+require('./components/EventCommentRating');
 require('./components/EventCommentSection');
 require('./components/EventInfo');
+require('./components/EventList');
