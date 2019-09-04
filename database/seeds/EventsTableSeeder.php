@@ -60,6 +60,18 @@ class EventsTableSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
+            [
+                'id' => 5,
+                'name' => 'KAT-TUN LIVE TOUR 2019 IGITE サンドーム福井',
+                'performer' => 'KAT-TUN',
+                'prefecture' => '福井',
+                'place' => 'サンドーム福井',
+                'datetime' => '2019-09-06（金）、2019-09-07（土）',
+                'url' => 'https://www.johnnys-net.jp/page?id=consta&artist=14#146',
+                'uuid' => '34ec9afb-e143-4f55-aeab-33d9b6c282c4',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
         ]);
     }
 }

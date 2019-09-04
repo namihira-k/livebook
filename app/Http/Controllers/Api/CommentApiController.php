@@ -48,7 +48,7 @@ class CommentApiController extends Controller
                             ->paginate($count);
       } else {
         $results = $comment::get(0);
-      }  
+      }
 
       return response()->json( $results );
     }
