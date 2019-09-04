@@ -50,7 +50,7 @@ export default class EventInfo extends Component {
 
             <div className="row">
               <div className="col-4 col-md-2"><strong>情報元</strong></div>
-              <div className="col-8 col-md-10"><a href={ event.url }>{ event.url }</a><i className="fa fa-external-link ml-1"></i></div>
+              <div className="col-8 col-md-10"><a href={ event.url }>{ event.url }<i className="fa fa-external-link ml-1"></i></a></div>
             </div>
             
           </div>

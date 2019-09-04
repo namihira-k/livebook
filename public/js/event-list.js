@@ -31354,7 +31354,7 @@ function (_Component) {
     value: function _fetch() {
       var _this3 = this;
 
-      fetch("/liveshare" + '/api/events').then(function (response) {
+      fetch("" + '/api/events').then(function (response) {
         return response.json();
       }).then(function (result) {
         _this3.setState({
@@ -31365,7 +31365,7 @@ function (_Component) {
   }, {
     key: "_infoPath",
     value: function _infoPath(event) {
-      return "/liveshare" + '/web/eventinfo' + '?uuid=' + event.uuid;
+      return "" + '/web/eventinfo' + '?uuid=' + event.uuid;
     }
   }]);
 
