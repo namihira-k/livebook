@@ -12,8 +12,7 @@ class RatingApiController extends Controller
 {
     public function post(Request $request)
     {
-      $rating = new Rating;
-      $rating->updateOrCreate(
+      $rating = Rating::updateOrCreate(
         [
           'comment_uuid' => $request->comment_uuid, 
           'user_uuid' => $request->cookie('user_uuid'), 
