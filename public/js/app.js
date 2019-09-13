@@ -72875,7 +72875,7 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "\u30E9\u30A4\u30D6\u4E00\u89A7"), this.state.events.map(function (event) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "\u30E9\u30A4\u30D6\u4E00\u89A7"), this.state.events.map(function (event) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "card mb-3",
           key: event.name
@@ -72899,17 +72899,14 @@ function (_Component) {
           className: "row"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-4 col-md-2"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "UUID")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u958B\u50AC\u5834\u6240")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-8 col-md-10"
-        }, event.uuid)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, event.place)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "row"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-4 col-md-2"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "\u8A73\u7D30")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-8 col-md-10"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          "class": "btn btn-link",
           href: _this2._infoPath(event)
-        }, _this2._infoPath(event))))));
+        }, "\u30B3\u30E1\u30F3\u30C8\u3092\u898B\u308B"))));
       }));
     }
   }, {

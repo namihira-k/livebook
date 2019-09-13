@@ -14,7 +14,7 @@ export default class EventList extends Component {
   render() {
     return (
       <div>
-        <h6>ライブ一覧</h6>
+        <h5>ライブ一覧</h5>
 
         {
           this.state.events.map(event => {
@@ -34,13 +34,12 @@ export default class EventList extends Component {
                   </div>
 
                   <div className="row">
-                    <div className="col-4 col-md-2"><strong>UUID</strong></div>
-                    <div className="col-8 col-md-10">{ event.uuid }</div>
+                    <div className="col-4 col-md-2"><strong>開催場所</strong></div>
+                    <div className="col-8 col-md-10">{ event.place }</div>
                   </div>
 
                   <div className="row">
-                    <div className="col-4 col-md-2"><strong>詳細</strong></div>
-                    <div className="col-8 col-md-10"><a href={this._infoPath(event)}>{this._infoPath(event)}</a></div>
+                    <a class="btn btn-link" href={this._infoPath(event)}>コメントを見る</a>
                   </div>
                 </div>
               </div>
