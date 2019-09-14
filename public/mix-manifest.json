@@ -2,6 +2,7 @@
     "/js/ads.js": "/js/ads.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/js/clock.js": "/js/clock.js",
     "/js/event-comment-form.js": "/js/event-comment-form.js",
     "/js/event-comment-list.js": "/js/event-comment-list.js",
     "/js/event-comment-rating.js": "/js/event-comment-rating.js",
