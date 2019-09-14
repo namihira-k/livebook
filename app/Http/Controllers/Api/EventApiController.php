@@ -13,7 +13,7 @@ class EventApiController extends Controller
     public function get(Request $request)
     {
       $uuid = $request->uuid;
-      $order = $request->query('order', 'desc');
+      $order = $request->query('order', 'asc');
 
       $event = new Event;
       $results = null;
@@ -21,7 +21,7 @@ class EventApiController extends Controller
         $results = $event::where('uuid', $uuid)
                           ->paginate(1);
       } else {
-        $results = $event::orderBy('id', $order)
+        $results = $event::orderBy('from_date_time', $order)
                           ->paginate(50);
       }
       

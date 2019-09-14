@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import queryString from 'query-string';
+import moment from 'moment';
 
 export default class EventInfo extends Component {
 
@@ -45,7 +46,7 @@ export default class EventInfo extends Component {
 
             <div className="row">
               <div className="col-4 col-md-2"><strong>日時</strong></div>
-              <div className="col-8 col-md-10">{ event.datetime }</div>
+              <div className="col-8 col-md-10">{ this.displayDateTime(event.from_date_time) }  -  { this.displayDateTime(event.to_date_time) }</div>
             </div>
 
             <div className="row">
@@ -69,6 +70,12 @@ export default class EventInfo extends Component {
           events: obj.data,
         });
     });
+  }
+
+  displayDateTime(str) {
+    var m = moment(str);
+    m.locale('ja')
+    return m.format('LL') + " (" + m.format('ddd') + ") "
   }
 
 }

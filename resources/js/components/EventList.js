@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import moment from 'moment';
 
 export default class EventList extends Component {
 
@@ -30,7 +31,7 @@ export default class EventList extends Component {
 
                   <div className="row">
                     <div className="col-4 col-md-2"><strong>日時</strong></div>
-                    <div className="col-8 col-md-10">{ event.datetime }</div>
+                    <div className="col-8 col-md-10">{ this.displayDateTime(event.from_date_time) }  -  { this.displayDateTime(event.to_date_time) }</div>
                   </div>
 
                   <div className="row">
@@ -39,7 +40,7 @@ export default class EventList extends Component {
                   </div>
 
                   <div className="row">
-                    <a class="btn btn-link" href={this._infoPath(event)}>コメントを見る</a>
+                    <a class="btn btn-link" href={this.infoPath(event)}>コメントを見る</a>
                   </div>
                 </div>
               </div>
@@ -66,8 +67,14 @@ export default class EventList extends Component {
     });
   }
 
-  _infoPath(event) {
+  infoPath(event) {
     return process.env.MIX_APP_BASE_PATH + '/web/eventinfo' + '?uuid=' + event.uuid;
+  }
+
+  displayDateTime(str) {
+    var m = moment(str);
+    m.locale('ja')
+    return m.format('LL') + " (" + m.format('ddd') + ") "
   }
 }
 
