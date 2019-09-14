@@ -4,10 +4,10 @@
 
 @section('content')
 
-<div class="jumbotron">
+<div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-3">Live Share</h1>
-        <p>ライブ参加の準備をしよう！状況を共有しよう！</p>
+        <span class="display-4">Live Share</span>
+        <p class="lead">ライブ参加の準備をしよう！状況を共有しよう！</p>
     </div>
 </div>
 
