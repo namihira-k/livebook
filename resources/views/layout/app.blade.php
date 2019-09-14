@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 
 <head>
-  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Live Share</title>
@@ -31,9 +31,7 @@
 <body>
   <div id="id-header"></div>
 
-  <div class="container-fluid">
-    @yield('content')
-  </div>
+  @yield('content')
   
   <div id="id-ads" class="mt-3"></div>
   <div id="id-footer"></div>

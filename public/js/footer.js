@@ -47078,21 +47078,16 @@ function (_Component) {
         className: "row justify-content-around"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-5"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Live Share \u3068\u306F\uFF1F"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u30E9\u30A4\u30D6\u53C2\u52A0\u3078\u306E\u6E96\u5099\u3084\u5F53\u65E5\u72B6\u6CC1\u3092\u307F\u3093\u306A\u3067\u5171\u6709\u3059\u308B \u60C5\u5831\u5171\u6709\u30B5\u30FC\u30D3\u30B9 \u3067\u3059"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u8981\u671B\u3084\u554F\u3044\u5408\u308F\u305B\uFF1A", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Live Share \u3068\u306F\uFF1F"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "\u30E9\u30A4\u30D6\u53C2\u52A0\u3078\u306E\u6E96\u5099\u3084\u5F53\u65E5\u72B6\u6CC1\u3092\u307F\u3093\u306A\u3067\u5171\u6709\u3059\u308B \u60C5\u5831\u5171\u6709\u30B5\u30FC\u30D3\u30B9 \u3067\u3059"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Contact\uFF1A", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "text-white",
         href: "https://twitter.com/livesharejp"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("u", null, "@livesharejp(twitter)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fa fa-external-link ml-1"
-      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "pt-1"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Clock__WEBPACK_IMPORTED_MODULE_2__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Made by ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "text-white",
-        href: "https://twitter.com/namihira_k"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("u", null, "@namihira-k"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fa fa-external-link ml-1"
-      })))))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Clock__WEBPACK_IMPORTED_MODULE_2__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Made by @namihira-k")))));
     }
   }]);
 
