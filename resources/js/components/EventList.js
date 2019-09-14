@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
 import moment from 'moment';
 
 export default class EventList extends Component {
@@ -40,7 +39,7 @@ export default class EventList extends Component {
                   </div>
 
                   <div className="row">
-                    <a class="btn btn-link" href={this.infoPath(event)}>コメントを見る</a>
+                    <a className="btn btn-link" href={this.infoPath(event)}>コメントを見る</a>
                   </div>
                 </div>
               </div>
