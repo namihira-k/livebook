@@ -21,6 +21,7 @@ class RatingApiController extends Controller
       );
 
       Log::info("POST : " . $rating->label);
+      
       return response()->json($rating);
     }
 
