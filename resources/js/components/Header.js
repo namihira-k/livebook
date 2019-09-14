@@ -17,7 +17,7 @@ export default class Header extends Component {
 
     return (
       <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-        <a className="navbar-brand" href="/">Live Share</a>
+        <a className="navbar-brand" href={ process.env.MIX_APP_BASE_PATH +"/" }>Live Share</a>
 
         <button className="navbar-toggler" type="button" onClick={ this.showMenu }>
           <span className="navbar-toggler-icon"></span>
@@ -25,7 +25,7 @@ export default class Header extends Component {
         <div className={"collapse navbar-collapse " + show}>
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link" href="/">Home</a>
+              <a className="nav-link" href={ process.env.MIX_APP_BASE_PATH +"/" }>Home</a>
             </li>
           </ul>
         </div>
