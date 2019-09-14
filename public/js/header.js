@@ -29348,7 +29348,7 @@ function (_Component) {
         className: "navbar navbar-expand-md navbar-dark bg-dark"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "navbar-brand",
-        href: "/"
+        href: "/liveshare" + "/"
       }, "Live Share"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "navbar-toggler",
         type: "button",
@@ -29363,7 +29363,7 @@ function (_Component) {
         className: "nav-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "nav-link",
-        href: "/"
+        href: "/liveshare" + "/"
       }, "Home")))));
     }
   }, {
