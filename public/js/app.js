@@ -90572,7 +90572,8 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(EventList).call(this));
     _this.state = {
-      events: []
+      events: [],
+      is_processing: false
     };
     return _this;
   }
@@ -90582,7 +90583,12 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "\u30E9\u30A4\u30D6\u4E00\u89A7"), this.state.events.map(function (event) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "\u30E9\u30A4\u30D6\u4E00\u89A7"), this.state.is_processing && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spinner-grow text-secondary m-3",
+        role: "status"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "sr-only"
+      }, "Loading...")), this.state.events.map(function (event) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "card mb-3",
           key: event.name
@@ -90626,12 +90632,15 @@ function (_Component) {
     value: function _fetch() {
       var _this3 = this;
 
+      this.showLoading();
       fetch("/liveshare" + '/api/events').then(function (response) {
         return response.json();
       }).then(function (result) {
         _this3.setState({
           events: result.data
         });
+
+        _this3.closeLoading();
       });
     }
   }, {
@@ -90645,6 +90654,20 @@ function (_Component) {
       var m = moment__WEBPACK_IMPORTED_MODULE_2___default()(str);
       m.locale('ja');
       return m.format('LL') + " (" + m.format('ddd') + ") ";
+    }
+  }, {
+    key: "showLoading",
+    value: function showLoading() {
+      this.setState({
+        is_processing: true
+      });
+    }
+  }, {
+    key: "closeLoading",
+    value: function closeLoading() {
+      this.setState({
+        is_processing: false
+      });
     }
   }]);
 

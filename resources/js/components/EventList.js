@@ -8,6 +8,8 @@ export default class EventList extends Component {
     super();
     this.state = {
       events: [],
+
+      is_processing: false,
     };
   }
 
@@ -15,6 +17,11 @@ export default class EventList extends Component {
     return (
       <div>
         <h5>ライブ一覧</h5>
+        { this.state.is_processing && (
+          <div className="spinner-grow text-secondary m-3" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        )}
 
         {
           this.state.events.map(event => {
@@ -55,6 +62,8 @@ export default class EventList extends Component {
   }
 
   _fetch() {
+    this.showLoading();
+
     fetch(process.env.MIX_APP_BASE_PATH + '/api/events')
     .then(response => {
       return response.json();
@@ -63,6 +72,7 @@ export default class EventList extends Component {
       this.setState({
         events: result.data,
       })
+      this.closeLoading()
     });
   }
 
@@ -74,6 +84,18 @@ export default class EventList extends Component {
     var m = moment(str);
     m.locale('ja')
     return m.format('LL') + " (" + m.format('ddd') + ") "
+  }
+
+  showLoading() {
+    this.setState({
+      is_processing: true
+    })
+  }
+
+  closeLoading() {
+    this.setState({
+      is_processing: false
+    })
   }
 }
 
