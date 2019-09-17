@@ -79,12 +79,11 @@ export default class EventComment extends Component {
                 <button type="submit" className="btn btn-primary btn-sm">投稿する</button>
               </form>
             )}
-
-            { !this.state.is_processing && !this.state.is_show_response && (
-                <button type="button" className="btn btn-primary btn-sm" onClick={this.showResponseForm}>>返信する</button>
-            )}
-
           </div>
+          
+          { !this.state.is_processing && !this.state.is_show_response && (
+              <button type="button" className="btn btn-primary btn-sm" onClick={this.showResponseForm}>>返信する</button>
+          )}
 
         </div>
       </div>
