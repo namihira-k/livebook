@@ -33,7 +33,10 @@
 
   @yield('content')
   
-  <div id="id-ads" class="mt-3"></div>
+  <div class="container">
+    <div id="id-ads" class="mt-3"></div>
+  </div>
+
   <div id="id-footer"></div>
 
   <script src="{{ asset('js/clock.js') }}"></script>
