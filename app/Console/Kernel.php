@@ -4,6 +4,11 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Log;
+
+use Abraham\TwitterOAuth\TwitterOAuth;
+
+use App\Models\Event;
 
 class Kernel extends ConsoleKernel
 {
@@ -24,8 +29,28 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->call(function () {
+            $twitter = new TwitterOAuth(env('TWITTER_CLIENT_ID'),
+                                        env('TWITTER_CLIENT_SECRET'),
+                                        env('TWITTER_CLIENT_ID_ACCESS_TOKEN'),
+                                        env('TWITTER_CLIENT_ID_ACCESS_TOKEN_SECRET'));
+
+            $event = new Event;
+            $result = $event::orderBy('from_date_time', 'asc')->first();
+
+            $tweet = $result->name . PHP_EOL . 
+                    'の準備をしよう！状況を共有しよう！' . PHP_EOL . 
+                    $result->hashtag . PHP_EOL . 
+                    'https://www.namimono.com/liveshare/web/eventinfo?uuid=' . $result->uuid;
+
+            $twitter->post('statuses/update', [
+                'status' => $tweet
+            ]);
+
+            Log::info('cron tweet : ' . $tweet);
+        })->cron("30 * * * *");
+
+
     }
 
     /**
