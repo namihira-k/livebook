@@ -47,7 +47,7 @@ class CommentApiController extends Controller
                             ->orderBy('created_at', $order)
                             ->paginate($count);
       } else {
-        $results = $comment::get(0);
+        $results = $comment::first();
       }
 
       return response()->json( $results );
