@@ -7,6 +7,7 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Facades\Log;
 
 use Abraham\TwitterOAuth\TwitterOAuth;
+use Carbon\Carbon;
 
 use App\Models\Event;
 
@@ -36,7 +37,9 @@ class Kernel extends ConsoleKernel
                                         env('TWITTER_CLIENT_ID_ACCESS_TOKEN_SECRET'));
 
             $event = new Event;
-            $result = $event::orderBy('from_date_time', 'asc')->first();
+            $result = $event::where('to_date_time', '>=', Carbon::now()->subDays(1))
+                            ->inRandomOrder()
+                            ->first();
 
             $tweet = $result->name . PHP_EOL . 
                     'の準備をしよう！状況を共有しよう！' . PHP_EOL . 
