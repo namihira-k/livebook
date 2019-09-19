@@ -43,6 +43,7 @@ class Kernel extends ConsoleKernel
 
             $tweet = $result->name . PHP_EOL . 
                     'の準備をしよう！状況を共有しよう！' . PHP_EOL . 
+                    'あと' . Carbon::now()->diffInDays($result->from_date_time) . '日' . (Carbon::now()->diffInHours($result->from_date_time) % 24) . "時間" . PHP_EOL .
                     $result->hashtag . PHP_EOL . 
                     'https://www.namimono.com/liveshare/web/eventinfo?uuid=' . $result->uuid;
 
