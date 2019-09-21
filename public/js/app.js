@@ -89742,7 +89742,7 @@ function (_Component) {
       var req = this.state.new_comment;
       req.parent_comment_uuid = this.state.comment.uuid;
       req.event_uuid = this.state.comment.event_uuid;
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/comments', req).then(function () {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/comments', req).then(function () {
         _this3._fetch();
 
         _this3._clear();
@@ -89767,7 +89767,7 @@ function (_Component) {
       this.setState({
         is_processing: true
       });
-      fetch("" + '/api/comments' + '?parent_comment_uuid=' + this.state.comment.uuid + '&count=20').then(function (response) {
+      fetch("/liveshare" + '/api/comments' + '?parent_comment_uuid=' + this.state.comment.uuid + '&count=20').then(function (response) {
         return response.json();
       }).then(function (result) {
         _this4.setState({
@@ -89946,7 +89946,7 @@ function (_Component) {
 
       this._moveProgress('100%');
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/comments', this.state.new_comment).then(function () {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/comments', this.state.new_comment).then(function () {
         _this2._clear();
 
         _this2._moveProgress('0%');
@@ -90103,7 +90103,7 @@ function (_Component) {
 
       this._showLoading();
 
-      fetch("" + '/api/comments' + '?order=desc' + '&page=0' + '&event_uuid=' + this.state.event_uuid).then(function (response) {
+      fetch("/liveshare" + '/api/comments' + '?order=desc' + '&page=0' + '&event_uuid=' + this.state.event_uuid).then(function (response) {
         return response.json();
       }).then(function (result) {
         _this2.setState({
@@ -90118,7 +90118,7 @@ function (_Component) {
     value: function fetchPaging(page) {
       var _this3 = this;
 
-      fetch("" + '/api/comments' + '?order=desc' + '&page=' + page + '&event_uuid=' + this.state.event_uuid).then(function (response) {
+      fetch("/liveshare" + '/api/comments' + '?order=desc' + '&page=' + page + '&event_uuid=' + this.state.event_uuid).then(function (response) {
         return response.json();
       }).then(function (result) {
         var comments = _this3.state.comments.concat(result.data);
@@ -90237,7 +90237,7 @@ function (_Component) {
     value: function _fetch() {
       var _this2 = this;
 
-      fetch("" + '/api/ratings' + '?comment_uuid=' + this.state.comment.uuid).then(function (response) {
+      fetch("/liveshare" + '/api/ratings' + '?comment_uuid=' + this.state.comment.uuid).then(function (response) {
         return response.json();
       }).then(function (result) {
         _this2.setState({
@@ -90250,7 +90250,7 @@ function (_Component) {
     value: function post(label) {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/ratings', {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/ratings', {
         comment_uuid: this.state.comment.uuid,
         label: label
       }).then(function () {
@@ -90488,7 +90488,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this3 = this;
 
-      fetch("" + '/api/events' + '?uuid=' + this.props.qs.uuid).then(function (response) {
+      fetch("/liveshare" + '/api/events' + '?uuid=' + this.props.qs.uuid).then(function (response) {
         return response.json();
       }).then(function (obj) {
         _this3.setState({
@@ -90633,7 +90633,7 @@ function (_Component) {
       var _this3 = this;
 
       this.showLoading();
-      fetch("" + '/api/events').then(function (response) {
+      fetch("/liveshare" + '/api/events').then(function (response) {
         return response.json();
       }).then(function (result) {
         _this3.setState({
@@ -90646,7 +90646,7 @@ function (_Component) {
   }, {
     key: "infoPath",
     value: function infoPath(event) {
-      return "" + '/web/eventinfo' + '?uuid=' + event.uuid;
+      return "/liveshare" + '/web/eventinfo' + '?uuid=' + event.uuid;
     }
   }, {
     key: "displayDateTime",
@@ -90830,7 +90830,7 @@ function (_Component) {
         className: "navbar navbar-expand-md navbar-dark bg-dark"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "navbar-brand",
-        href: "" + "/"
+        href: "/liveshare" + "/"
       }, "Live Share"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "navbar-toggler",
         type: "button",
@@ -90845,7 +90845,7 @@ function (_Component) {
         className: "nav-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "nav-link",
-        href: "" + "/"
+        href: "/liveshare" + "/"
       }, "Home")))));
     }
   }, {

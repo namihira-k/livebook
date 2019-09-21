@@ -51476,7 +51476,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this3 = this;
 
-      fetch("" + '/api/events' + '?uuid=' + this.props.qs.uuid).then(function (response) {
+      fetch("/liveshare" + '/api/events' + '?uuid=' + this.props.qs.uuid).then(function (response) {
         return response.json();
       }).then(function (obj) {
         _this3.setState({
