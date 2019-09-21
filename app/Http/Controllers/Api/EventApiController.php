@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 use App\Http\Controllers\Controller;
 use App\Models\Event;
@@ -21,7 +22,8 @@ class EventApiController extends Controller
         $results = $event::where('uuid', $uuid)
                           ->paginate(1);
       } else {
-        $results = $event::orderBy('from_date_time', $order)
+        $results = $event::where('to_date_time', '>=', Carbon::now())
+                          ->orderBy('from_date_time', $order)
                           ->paginate(50);
       }
       
