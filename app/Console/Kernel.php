@@ -41,9 +41,15 @@ class Kernel extends ConsoleKernel
                             ->inRandomOrder()
                             ->first();
 
+            if (Carbon::now()->gte($result->to_date_time) ) {
+                $limit = Carbon::now()->diffInDays($result->from_date_time) . (Carbon::now()->diffInHours($result->from_date_time) % 24);
+            } else {
+                $limit = 'あと' . Carbon::now()->diffInDays($result->from_date_time) . '日' . (Carbon::now()->diffInHours($result->from_date_time) % 24) . "時間";
+            }
+
             $tweet = $result->name . PHP_EOL . 
                     'の準備をしよう！状況を共有しよう！' . PHP_EOL . 
-                    'あと' . Carbon::now()->diffInDays($result->from_date_time) . '日' . (Carbon::now()->diffInHours($result->from_date_time) % 24) . "時間" . PHP_EOL .
+                    $limit . PHP_EOL .
                     $result->hashtag . PHP_EOL . 
                     'https://www.namimono.com/liveshare/web/eventinfo?uuid=' . $result->uuid;
 
@@ -53,8 +59,6 @@ class Kernel extends ConsoleKernel
 
             Log::info('cron tweet : ' . $tweet);
         })->cron("30 * * * *");
-
-
     }
 
     /**

@@ -47036,7 +47036,7 @@ function (_Component) {
       var _this3 = this;
 
       this.showLoading();
-      fetch("" + '/api/events').then(function (response) {
+      fetch("/liveshare" + '/api/events').then(function (response) {
         return response.json();
       }).then(function (result) {
         _this3.setState({
@@ -47049,7 +47049,7 @@ function (_Component) {
   }, {
     key: "infoPath",
     value: function infoPath(event) {
-      return "" + '/web/eventinfo' + '?uuid=' + event.uuid;
+      return "/liveshare" + '/web/eventinfo' + '?uuid=' + event.uuid;
     }
   }, {
     key: "displayDateTime",
