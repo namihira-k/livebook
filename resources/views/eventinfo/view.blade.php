@@ -7,5 +7,4 @@
   <div id="id-event-info" class="mt-3"></div>
   <div id="id-event-comment-section" class="mt-3"></div>
 </div>
-  @endsection
-  
+@endsection

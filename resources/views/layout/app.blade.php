@@ -45,14 +45,14 @@
   <script src="{{ asset('js/footer.js') }}"></script>
   <script src="{{ asset('js/ads.js') }}"></script>
 
-  <script src="{{ asset('js/event-list.js') }}"></script>
-
   <script src="{{ asset('js/event-info.js') }}"></script>
   <script src="{{ asset('js/event-comment-section.js') }}"></script>
   <script src="{{ asset('js/event-comment-form.js') }}"></script>
   <script src="{{ asset('js/event-comment-list.js') }}"></script>
   <script src="{{ asset('js/event-comment.js') }}"></script>
   <script src="{{ asset('js/event-comment-rating.js') }}"></script>
+
+  @yield('script')
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>

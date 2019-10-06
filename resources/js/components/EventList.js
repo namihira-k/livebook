@@ -4,10 +4,11 @@ import moment from 'moment';
 
 export default class EventList extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       events: [],
+      place: (props.place ? props.place : ''),
 
       is_processing: false,
     };
@@ -16,7 +17,6 @@ export default class EventList extends Component {
   render() {
     return (
       <div>
-        <h5>ライブ一覧</h5>
         { this.state.is_processing && (
           <div className="spinner-grow text-secondary m-3" role="status">
             <span className="sr-only">Loading...</span>
@@ -26,7 +26,7 @@ export default class EventList extends Component {
         {
           this.state.events.map(event => {
             return (
-              <div className="card mb-3" key={event.name}>
+              <div className="card mb-3" key={ event.name }>
                 <div className="card-body">
                   <h5 className="card-title">{ event.name }</h5>
 
@@ -64,7 +64,7 @@ export default class EventList extends Component {
   _fetch() {
     this.showLoading();
 
-    fetch(process.env.MIX_APP_BASE_PATH + '/api/events')
+    fetch(process.env.MIX_APP_BASE_PATH + '/api/events?' + 'place=' + this.state.place)
     .then(response => {
       return response.json();
     })

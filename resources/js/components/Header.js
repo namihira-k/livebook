@@ -27,8 +27,12 @@ export default class Header extends Component {
             <li className="nav-item">
               <a className="nav-link" href={ process.env.MIX_APP_BASE_PATH +"/" }>Home</a>
             </li>
+            <li className="nav-item">
+              <a className="nav-link" href={ process.env.MIX_APP_BASE_PATH +"/web/eventsearch" }>場所で調べる</a>
+            </li>
           </ul>
         </div>
+
 
       </nav>
     );

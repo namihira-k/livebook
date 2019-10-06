@@ -14,6 +14,7 @@ class EventApiController extends Controller
     public function get(Request $request)
     {
       $uuid = $request->uuid;
+      $place = $request->place;
       $order = $request->query('order', 'asc');
 
       $event = new Event;
@@ -21,6 +22,10 @@ class EventApiController extends Controller
       if (!empty($uuid)) {
         $results = $event::where('uuid', $uuid)
                           ->paginate(1);
+      } else if (!empty($place)) {
+        $results = $event::where('place', 'LIKE',   $place . '%')
+                          ->orderBy('from_date_time', $order)
+                          ->paginate(50);
       } else {
         $results = $event::where('to_date_time', '>=', Carbon::now())
                           ->orderBy('from_date_time', $order)
