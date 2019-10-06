@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -51476,7 +51476,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this3 = this;
 
-      fetch("" + '/api/events' + '?uuid=' + this.props.qs.uuid).then(function (response) {
+      fetch("/liveshare" + '/api/events' + '?uuid=' + this.props.qs.uuid).then(function (response) {
         return response.json();
       }).then(function (obj) {
         _this3.setState({
@@ -51510,7 +51510,7 @@ if (document.getElementById('id-event-info')) {
 
 /***/ }),
 
-/***/ 6:
+/***/ 7:
 /*!****************************************************!*\
   !*** multi ./resources/js/components/EventInfo.js ***!
   \****************************************************/

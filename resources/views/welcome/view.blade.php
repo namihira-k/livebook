@@ -11,6 +11,11 @@
 </div>
 
 <div class="container">
+    <h5>近々開催するライブ</h5>
     <div id="id-event-list" class="mt-3"></div>
 </div>
+@endsection
+
+@section('script')
+<script src="{{ asset('js/event-list.js') }}"></script>
 @endsection

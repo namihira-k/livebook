@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -47086,14 +47086,158 @@ if (document.getElementById('id-event-list')) {
 
 /***/ }),
 
-/***/ 5:
-/*!****************************************************!*\
-  !*** multi ./resources/js/components/EventList.js ***!
-  \****************************************************/
+/***/ "./resources/js/components/EventSearch.js":
+/*!************************************************!*\
+  !*** ./resources/js/components/EventSearch.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EventSearch; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _EventList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EventList */ "./resources/js/components/EventList.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+var EventSearch =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(EventSearch, _Component);
+
+  function EventSearch() {
+    var _this;
+
+    _classCallCheck(this, EventSearch);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EventSearch).call(this));
+    _this.state = {
+      places: [],
+      selected_place: ''
+    };
+    _this.changePlace = _this.changePlace.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(EventSearch, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "id-place"
+      }, "\u5834\u6240\u3092\u9078\u3076"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        className: "custom-select",
+        id: "id-place",
+        onChange: function onChange(event) {
+          _this2.changePlace(event);
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        defaultValue: true
+      }, "..."), this.state.places.map(function (p) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          value: p.place,
+          key: p.place
+        }, p.place);
+      })))), this.renderSelectedEvent());
+    }
+  }, {
+    key: "renderSelectedEvent",
+    value: function renderSelectedEvent() {
+      var _this3 = this;
+
+      if (this.state.selected_place == '') {
+        return this.state.places.map(function (p) {
+          return _this3.renderEventList(p);
+        });
+      }
+
+      return this.state.places.filter(function (p) {
+        return p.place == _this3.state.selected_place;
+      }).map(function (p) {
+        return _this3.renderEventList(p);
+      });
+    }
+  }, {
+    key: "renderEventList",
+    value: function renderEventList(p) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        key: p.place
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, p.place), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EventList__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        place: p.place
+      }));
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.fetchPlace();
+    }
+  }, {
+    key: "fetchPlace",
+    value: function fetchPlace() {
+      var _this4 = this;
+
+      fetch("/liveshare" + '/api/places?').then(function (response) {
+        return response.json();
+      }).then(function (result) {
+        _this4.setState({
+          places: result.data
+        });
+      });
+    }
+  }, {
+    key: "changePlace",
+    value: function changePlace(event) {
+      this.setState({
+        selected_place: event.target.value
+      });
+    }
+  }]);
+
+  return EventSearch;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+if (document.getElementById('id-event-search')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(EventSearch, null), document.getElementById('id-event-search'));
+}
+
+/***/ }),
+
+/***/ 6:
+/*!******************************************************!*\
+  !*** multi ./resources/js/components/EventSearch.js ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/namihira/work/project/vscode/livebook/resources/js/components/EventList.js */"./resources/js/components/EventList.js");
+module.exports = __webpack_require__(/*! /Users/namihira/work/project/vscode/livebook/resources/js/components/EventSearch.js */"./resources/js/components/EventSearch.js");
 
 
 /***/ })
