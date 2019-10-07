@@ -47188,7 +47188,9 @@ function (_Component) {
     value: function renderEventList(p) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: p.place
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, p.place), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EventList__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fa fa-map-marker mr-1"
+      }), p.place), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EventList__WEBPACK_IMPORTED_MODULE_2__["default"], {
         place: p.place
       }));
     }

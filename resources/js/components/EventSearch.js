@@ -58,7 +58,7 @@ export default class EventSearch extends Component {
   renderEventList(p){
     return (
       <div key={ p.place }>
-        <h5>{ p.place }</h5>
+        <h5><i className="fa fa-map-marker mr-1"></i>{ p.place }</h5>
         <EventList place={ p.place }　/>
       </div>
     )
