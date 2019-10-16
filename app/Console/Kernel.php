@@ -4,7 +4,6 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Illuminate\Support\Facades\Log;
 
 use Abraham\TwitterOAuth\TwitterOAuth;
 use Carbon\Carbon;
@@ -57,7 +56,6 @@ class Kernel extends ConsoleKernel
                 'status' => $tweet
             ]);
 
-            Log::info('cron tweet : ' . $tweet);
         })->cron("30 * * * *");
     }
 
