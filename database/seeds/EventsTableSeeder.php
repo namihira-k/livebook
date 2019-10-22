@@ -13,6 +13,20 @@ class EventsTableSeeder extends Seeder
     {
         DB::table('events')->insert([
             [
+                'id' => 17,
+                'name' => 'デザインフェスタ vol.50',
+                'performer' => 'Design Festa Ltd.',
+                'prefecture' => '東京',
+                'place' => '東京ビックサイト',
+                'hashtag' => '#デザインフェスタ #デザフェス #デザフェス50',
+                'from_date_time' => '2019-11-16 11:00:00',
+                'to_date_time' => '2019-11-17 19:00:00',
+                'url' => 'https://designfesta.com',
+                'uuid' => '27ec1c85-f6a4-4da6-83f0-939d8f01da62',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
                 'id' => 16,
                 'name' => 'GENERATIONS LIVE TOUR 2019 少年クロニクル',
                 'performer' => 'GENERATIONS',
