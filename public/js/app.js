@@ -89632,7 +89632,13 @@ function (_Component) {
         className: "card-body"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
         className: "card-title"
-      }, "by ", this.state.comment.username, "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, this.state.comment.created_at), "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, this.state.comment.seat)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fa fa-user"
+      }), " ", this.state.comment.username, "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
+        className: "text-muted"
+      }, this.state.comment.seat), "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
+        className: "text-muted"
+      }, this.state.comment.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "card-text mb-0",
         style: style.text
       }, react_string_replace__WEBPACK_IMPORTED_MODULE_3___default()(this.state.comment.comment, regExp, function (m, i) {
@@ -89652,7 +89658,11 @@ function (_Component) {
           key: comment.id
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "mb-1"
-        }, "by ", comment.username, "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, comment.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fa fa-user"
+        }), " ", comment.username, "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
+          className: "text-muted"
+        }, comment.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "mb-0",
           style: style.text
         }, react_string_replace__WEBPACK_IMPORTED_MODULE_3___default()(comment.comment, regExp, function (m, i) {
@@ -90334,15 +90344,17 @@ function (_Component) {
       var _this2 = this;
 
       var event_uuid = this.props.qs.uuid;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EventCommentForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EventCommentForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
         event_uuid: event_uuid,
         callAfterPost: this.updateList
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EventCommentList__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "mt-5"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EventCommentList__WEBPACK_IMPORTED_MODULE_5__["default"], {
         event_uuid: event_uuid,
         ref: function ref(instance) {
           _this2.state.list = instance;
         }
-      }));
+      })));
     }
   }, {
     key: "updateList",
