@@ -21,8 +21,12 @@ export default class EventCommentSection extends Component {
     let event_uuid = this.props.qs.uuid;
     return (
       <div>
-        <EventCommentForm event_uuid={event_uuid} callAfterPost={this.updateList}/>
-        <EventCommentList event_uuid={event_uuid} ref={instance => { this.state.list = instance; }}/>
+        <div>
+          <EventCommentForm event_uuid={event_uuid} callAfterPost={this.updateList}/>
+        </div>
+        <div className="mt-5">
+          <EventCommentList event_uuid={event_uuid} ref={instance => { this.state.list = instance; }}/>
+        </div>
       </div>
     )
   }
