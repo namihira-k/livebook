@@ -14,6 +14,8 @@ export default class EventCommentForm extends Component {
         comment: '',
       },
 
+      is_processing: false,
+
       style: {
         progress: {
           width: '0%'
@@ -50,7 +52,7 @@ export default class EventCommentForm extends Component {
           <div className="form-group border-primary">
             <textarea id="id-comment" className="form-control border-primary" value={this.state.new_comment.comment} onChange={this.changeComment} placeholder="公開コメント（入力必須）" required />
           </div>
-          <button type="submit" className="btn btn-primary">投稿する</button>
+          <button type="submit" className="btn btn-primary" disabled={this.state.is_processing}>投稿する</button>
           <div className="progress mt-1" style={style.progress}>
             <div className="progress-bar" role="progressbar" style={this.state.style.progress}></div>
           </div>
@@ -80,6 +82,10 @@ export default class EventCommentForm extends Component {
   post(event) {
     event.preventDefault();
     this._moveProgress('100%');
+    this.setState({
+      is_processing: true,
+    });
+
     axios.post(process.env.MIX_APP_BASE_PATH + '/api/comments', this.state.new_comment)
           .then(() => {
             this._clear();
@@ -87,6 +93,9 @@ export default class EventCommentForm extends Component {
           })
           .then(() => {
             this.props.callAfterPost();
+            this.setState({
+              is_processing: false,
+            });        
           })
   }
 

@@ -31303,6 +31303,7 @@ function (_Component) {
         seat: '',
         comment: ''
       },
+      is_processing: false,
       style: {
         progress: {
           width: '0%'
@@ -31358,7 +31359,8 @@ function (_Component) {
         required: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
-        className: "btn btn-primary"
+        className: "btn btn-primary",
+        disabled: this.state.is_processing
       }, "\u6295\u7A3F\u3059\u308B"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "progress mt-1",
         style: style.progress
@@ -31404,12 +31406,19 @@ function (_Component) {
 
       this._moveProgress('100%');
 
+      this.setState({
+        is_processing: true
+      });
       axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/comments', this.state.new_comment).then(function () {
         _this2._clear();
 
         _this2._moveProgress('0%');
       }).then(function () {
         _this2.props.callAfterPost();
+
+        _this2.setState({
+          is_processing: false
+        });
       });
     }
   }, {
