@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 import queryString from 'query-string';
 import moment from 'moment';
 
+import ShareForm from './ShareForm';
+
 export default class EventInfo extends Component {
 
   constructor() {
@@ -53,7 +55,11 @@ export default class EventInfo extends Component {
               <div className="col-4 col-md-2"><strong>情報元</strong></div>
               <div className="col-8 col-md-10"><a href={ event.url }>{ event.url }<i className="fa fa-external-link ml-1"></i></a></div>
             </div>
-            
+
+            <div className="my-1">
+              <ShareForm path={'/liveshare/web/eventinfo?uuid=' +  event.uuid} msg={ event.name + "について共有しよう！" +　" " + event.hashtag }/>            
+            </div>
+
           </div>
         </div>
       );

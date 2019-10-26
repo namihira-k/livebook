@@ -19,6 +19,7 @@ mix.react('resources/js/components/Clock.js', 'public/js/clock.js');
 mix.react('resources/js/components/Header.js', 'public/js/header.js');
 mix.react('resources/js/components/Footer.js', 'public/js/footer.js');
 mix.react('resources/js/components/Ads.js', 'public/js/ads.js');
+mix.react('resources/js/components/ShareForm.js', 'public/js/share-form.js');
 
 mix.react('resources/js/components/EventList.js', 'public/js/event-list.js');
 mix.react('resources/js/components/EventSearch.js', 'public/js/event-search.js');
