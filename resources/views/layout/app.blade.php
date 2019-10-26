@@ -44,6 +44,7 @@
   <script src="{{ asset('js/header.js') }}"></script>
   <script src="{{ asset('js/footer.js') }}"></script>
   <script src="{{ asset('js/ads.js') }}"></script>
+  <script src="{{ asset('js/share-form.js') }}"></script>
 
   <script src="{{ asset('js/event-info.js') }}"></script>
   <script src="{{ asset('js/event-comment-section.js') }}"></script>
