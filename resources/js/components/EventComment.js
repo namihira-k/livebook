@@ -21,6 +21,12 @@ export default class EventComment extends Component {
 
       is_show_response: false,
       is_processing: false,
+
+      style: {
+        progress: {
+          width: '0%'
+        }
+      }
     };
 
     this.changeUsername = this.changeUsername.bind(this);
@@ -37,6 +43,9 @@ export default class EventComment extends Component {
     const style = {
       text: {
         whiteSpace: 'pre-line'
+      },
+      progress: {
+        height: '2px'
       }
     }
 
@@ -60,12 +69,6 @@ export default class EventComment extends Component {
               })
             }
 
-            { this.state.is_processing && (
-              <div className="spinner-grow spinner-grow-sm text-secondary" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-            )}
-
             { this.state.is_show_response && (
               <form className="" onSubmit={this.post}>
                 <div className="form-row">
@@ -76,12 +79,21 @@ export default class EventComment extends Component {
                 <div className="form-group border-primary">
                   <textarea id="id-comment" className="form-control border-primary" value={this.state.new_comment.comment} onChange={this.changeComment} placeholder="公開コメント（入力必須）" required />
                 </div>
-                <button type="submit" className="btn btn-primary btn-sm">投稿する</button>
+                <div className="progress mb-1" style={style.progress}>
+                  <div className="progress-bar" role="progressbar" style={this.state.style.progress}></div>
+                </div>
+                <button type="submit" className="btn btn-primary btn-sm" disabled={this.state.is_processing}>投稿する</button>
               </form>
             )}
 
+            { this.state.is_processing && (
+              <div className="spinner-grow spinner-grow-sm text-secondary" role="status">
+                <span className="sr-only">Loading...</span>
+              </div>
+            )}
+
             { !this.state.is_processing && !this.state.is_show_response && (
-                <button type="button" className="btn btn-primary btn-sm" onClick={this.showResponseForm}>>返信する...</button>
+                <button type="button" className="btn btn-primary btn-sm" onClick={this.showResponseForm}>> 返信する...</button>
             )}
           </div>
 
@@ -118,6 +130,10 @@ export default class EventComment extends Component {
 
   post(event) {
     event.preventDefault();
+    this.moveProgress('100%');
+    this.setState({
+      is_processing: true,
+    });
 
     let req = this.state.new_comment;
     req.parent_comment_uuid = this.state.comment.uuid;
@@ -127,7 +143,18 @@ export default class EventComment extends Component {
           .then(() => {
             this._fetch();
             this._clear();
+            this.moveProgress('0%');
           })
+  }
+
+  moveProgress(percent) {
+    this.setState({
+      style: {
+        progress: {
+          width: percent
+        }
+      }
+    });
   }
 
   _clear() {

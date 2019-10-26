@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Carbon\Carbon;
 
 use App\Models\Comment;
 use App\Http\Controllers\Controller;
@@ -14,6 +15,14 @@ class CommentApiController extends Controller
     public function post(Request $request)
     {
       $comment = new Comment;
+
+      $existed_comment = $comment::where('comment', $request->comment)
+                            ->where('created_at', '>=', Carbon::now()->subHour())
+                            ->first();
+      if ($existed_comment) {
+        return response()->json($existed_comment);
+      }
+
       $comment->event_uuid = $request->event_uuid;
       $comment->parent_comment_uuid = $request->parent_comment_uuid;
       $comment->username = empty($request->username) ? "参加者" : $request->username;

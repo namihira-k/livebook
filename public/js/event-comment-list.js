@@ -33513,7 +33513,12 @@ function (_Component) {
       },
       child_comments: [],
       is_show_response: false,
-      is_processing: false
+      is_processing: false,
+      style: {
+        progress: {
+          width: '0%'
+        }
+      }
     };
     _this.changeUsername = _this.changeUsername.bind(_assertThisInitialized(_this));
     _this.changeComment = _this.changeComment.bind(_assertThisInitialized(_this));
@@ -33532,6 +33537,9 @@ function (_Component) {
       var style = {
         text: {
           whiteSpace: 'pre-line'
+        },
+        progress: {
+          height: '2px'
         }
       };
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -33584,12 +33592,7 @@ function (_Component) {
           comment: comment,
           key: comment.id
         }));
-      }), this.state.is_processing && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "spinner-grow spinner-grow-sm text-secondary",
-        role: "status"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "sr-only"
-      }, "Loading...")), this.state.is_show_response && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }), this.state.is_show_response && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "",
         onSubmit: this.post
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -33612,14 +33615,27 @@ function (_Component) {
         onChange: this.changeComment,
         placeholder: "\u516C\u958B\u30B3\u30E1\u30F3\u30C8\uFF08\u5165\u529B\u5FC5\u9808\uFF09",
         required: true
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "progress mb-1",
+        style: style.progress
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "progress-bar",
+        role: "progressbar",
+        style: this.state.style.progress
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
-        className: "btn btn-primary btn-sm"
-      }, "\u6295\u7A3F\u3059\u308B")), !this.state.is_processing && !this.state.is_show_response && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn btn-primary btn-sm",
+        disabled: this.state.is_processing
+      }, "\u6295\u7A3F\u3059\u308B")), this.state.is_processing && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spinner-grow spinner-grow-sm text-secondary",
+        role: "status"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "sr-only"
+      }, "Loading...")), !this.state.is_processing && !this.state.is_show_response && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
         className: "btn btn-primary btn-sm",
         onClick: this.showResponseForm
-      }, ">\u8FD4\u4FE1\u3059\u308B..."))));
+      }, "> \u8FD4\u4FE1\u3059\u308B..."))));
     }
   }, {
     key: "componentDidMount",
@@ -33657,6 +33673,10 @@ function (_Component) {
       var _this3 = this;
 
       event.preventDefault();
+      this.moveProgress('100%');
+      this.setState({
+        is_processing: true
+      });
       var req = this.state.new_comment;
       req.parent_comment_uuid = this.state.comment.uuid;
       req.event_uuid = this.state.comment.event_uuid;
@@ -33664,6 +33684,19 @@ function (_Component) {
         _this3._fetch();
 
         _this3._clear();
+
+        _this3.moveProgress('0%');
+      });
+    }
+  }, {
+    key: "moveProgress",
+    value: function moveProgress(percent) {
+      this.setState({
+        style: {
+          progress: {
+            width: percent
+          }
+        }
       });
     }
   }, {
