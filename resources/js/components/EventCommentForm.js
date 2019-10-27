@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
 
 export default class EventCommentForm extends Component {
@@ -27,7 +26,7 @@ export default class EventCommentForm extends Component {
     this.changeSeat = this.changeSeat.bind(this);
     this.changeComment = this.changeComment.bind(this);
 
-    this.post = this.post.bind(this);    
+    this.post = this.post.bind(this);
   }
 
   render() {

@@ -37190,7 +37190,7 @@ function (_Component) {
       var req = this.state.new_comment;
       req.parent_comment_uuid = this.state.comment.uuid;
       req.event_uuid = this.state.comment.event_uuid;
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/comments', req).then(function () {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/comments', req).then(function () {
         _this3._fetch();
 
         _this3._clear();
@@ -37228,7 +37228,7 @@ function (_Component) {
       this.setState({
         is_processing: true
       });
-      fetch("" + '/api/comments' + '?parent_comment_uuid=' + this.state.comment.uuid + '&count=20').then(function (response) {
+      fetch("/liveshare" + '/api/comments' + '?parent_comment_uuid=' + this.state.comment.uuid + '&count=20').then(function (response) {
         return response.json();
       }).then(function (result) {
         _this4.setState({
@@ -37262,10 +37262,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EventCommentForm; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -37283,7 +37281,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -37412,7 +37409,7 @@ function (_Component) {
       this.setState({
         is_processing: true
       });
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/comments', this.state.new_comment).then(function () {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/liveshare" + '/api/comments', this.state.new_comment).then(function () {
         _this2._clear();
 
         _this2._moveProgress('0%');
@@ -37573,7 +37570,7 @@ function (_Component) {
 
       this._showLoading();
 
-      fetch("" + '/api/comments' + '?order=desc' + '&page=0' + '&event_uuid=' + this.state.event_uuid).then(function (response) {
+      fetch("/liveshare" + '/api/comments' + '?order=desc' + '&page=0' + '&event_uuid=' + this.state.event_uuid).then(function (response) {
         return response.json();
       }).then(function (result) {
         _this2.setState({
@@ -37588,7 +37585,7 @@ function (_Component) {
     value: function fetchPaging(page) {
       var _this3 = this;
 
-      fetch("" + '/api/comments' + '?order=desc' + '&page=' + page + '&event_uuid=' + this.state.event_uuid).then(function (response) {
+      fetch("/liveshare" + '/api/comments' + '?order=desc' + '&page=' + page + '&event_uuid=' + this.state.event_uuid).then(function (response) {
         return response.json();
       }).then(function (result) {
         var comments = _this3.state.comments.concat(result.data);
@@ -37707,7 +37704,7 @@ function (_Component) {
     value: function _fetch() {
       var _this2 = this;
 
-      fetch("" + '/api/ratings' + '?comment_uuid=' + this.state.comment.uuid).then(function (response) {
+      fetch("/liveshare" + '/api/ratings' + '?comment_uuid=' + this.state.comment.uuid).then(function (response) {
         return response.json();
       }).then(function (result) {
         _this2.setState({
@@ -37720,7 +37717,7 @@ function (_Component) {
     value: function post(label) {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/ratings', {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/ratings', {
         comment_uuid: this.state.comment.uuid,
         label: label
       }).then(function () {
