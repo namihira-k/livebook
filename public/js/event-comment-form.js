@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -31409,7 +31409,7 @@ function (_Component) {
       this.setState({
         is_processing: true
       });
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/comments', this.state.new_comment).then(function () {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/comments', this.state.new_comment).then(function () {
         _this2._clear();
 
         _this2._moveProgress('0%');
@@ -31452,7 +31452,7 @@ function (_Component) {
 
 /***/ }),
 
-/***/ 10:
+/***/ 11:
 /*!***********************************************************!*\
   !*** multi ./resources/js/components/EventCommentForm.js ***!
   \***********************************************************/

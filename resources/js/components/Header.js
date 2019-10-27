@@ -22,6 +22,7 @@ export default class Header extends Component {
         <button className="navbar-toggler" type="button" onClick={ this.showMenu }>
           <span className="navbar-toggler-icon"></span>
         </button>
+
         <div className={"collapse navbar-collapse " + show}>
           <ul className="navbar-nav">
             <li className="nav-item">
@@ -30,9 +31,11 @@ export default class Header extends Component {
             <li className="nav-item">
               <a className="nav-link" href={ process.env.MIX_APP_BASE_PATH +"/web/eventsearch" }>場所で調べる</a>
             </li>
+            <li className="nav-item">
+              <a className="nav-link" href={ process.env.MIX_APP_BASE_PATH +"/web/eventrequest" }>掲載を依頼する</a>
+            </li>
           </ul>
         </div>
-
 
       </nav>
     );

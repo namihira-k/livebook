@@ -46,6 +46,8 @@
   <script src="{{ asset('js/ads.js') }}"></script>
   <script src="{{ asset('js/share-form.js') }}"></script>
 
+  <script src="{{ asset('js/event-request.js') }}"></script>
+
   <script src="{{ asset('js/event-info.js') }}"></script>
   <script src="{{ asset('js/event-comment-section.js') }}"></script>
   <script src="{{ asset('js/event-comment-form.js') }}"></script>
