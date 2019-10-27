@@ -21,6 +21,8 @@ Route::get('/places', 'Api\PlaceApiController@get');
 
 Route::get('/events', 'Api\EventApiController@get');
 
+Route::post('/eventrequests', 'Api\EventRequestApiController@post');
+
 Route::post('/comments', 'Api\CommentApiController@post');
 Route::get('/comments', 'Api\CommentApiController@get');
 

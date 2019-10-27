@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 13);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -31247,16 +31247,16 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./resources/js/components/EventCommentRating.js":
-/*!*******************************************************!*\
-  !*** ./resources/js/components/EventCommentRating.js ***!
-  \*******************************************************/
+/***/ "./resources/js/components/EventRequest.js":
+/*!*************************************************!*\
+  !*** ./resources/js/components/EventRequest.js ***!
+  \*************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EventCommentRating; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EventRequest; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
@@ -31273,9 +31273,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -31285,88 +31285,101 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var EventCommentRating =
+var EventRequest =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(EventCommentRating, _Component);
+  _inherits(EventRequest, _Component);
 
-  function EventCommentRating(props) {
+  function EventRequest(props) {
     var _this;
 
-    _classCallCheck(this, EventCommentRating);
+    _classCallCheck(this, EventRequest);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(EventCommentRating).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EventRequest).call(this, props));
     _this.state = {
-      comment: _this.props.comment,
-      rating: {}
+      request: {
+        url: ''
+      },
+      is_done: false
     };
+    _this.changeUrl = _this.changeUrl.bind(_assertThisInitialized(_this));
+    _this.post = _this.post.bind(_assertThisInitialized(_this));
     return _this;
   }
 
-  _createClass(EventCommentRating, [{
+  _createClass(EventRequest, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "button",
-        className: "btn btn-light",
-        onClick: this.post.bind(this, 'good')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fa fa-thumbs-o-up mr-1"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.state.rating.good)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "button",
-        className: "btn btn-light",
-        onClick: this.post.bind(this, 'bad')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fa fa-thumbs-o-down mr-1"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.state.rating.bad)));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card mt-5"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "card-title"
+      }, "\u30E9\u30A4\u30D6\u60C5\u5831\u306E\u63B2\u8F09\u30EA\u30AF\u30A8\u30B9\u30C8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.post
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "url",
+        className: "col-sm-2 col-form-label"
+      }, "\u53C2\u8003URL\uFF08\u5FC5\u9808\uFF09"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-8"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "url",
+        type: "text",
+        className: "form-control",
+        value: this.state.request.url,
+        onChange: this.changeUrl,
+        placeholder: "http://xx.exmaple.com",
+        required: true
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit",
+        className: "btn btn-primary",
+        disabled: this.state.is_done
+      }, "\u4F9D\u983C\u3059\u308B"), this.state.is_done && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        "class": "text-success mt-3"
+      }, "\u3042\u308A\u304C\u3068\u3046\u3054\u3056\u3044\u307E\u3059\uFF01\u78BA\u8A8D\u3057\u305F\u306E\u3061\u63B2\u8F09\u3057\u307E\u3059\uFF01"))));
     }
   }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this._fetch();
-    }
-  }, {
-    key: "_fetch",
-    value: function _fetch() {
-      var _this2 = this;
-
-      fetch("/liveshare" + '/api/ratings' + '?comment_uuid=' + this.state.comment.uuid).then(function (response) {
-        return response.json();
-      }).then(function (result) {
-        _this2.setState({
-          rating: result
-        });
+    key: "changeUrl",
+    value: function changeUrl(event) {
+      var tmp = this.state.request;
+      tmp.url = event.target.value;
+      this.setState({
+        request: tmp
       });
     }
   }, {
     key: "post",
-    value: function post(label) {
-      var _this3 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/ratings', {
-        comment_uuid: this.state.comment.uuid,
-        label: label
-      }).then(function () {
-        _this3._fetch();
+    value: function post(event) {
+      event.preventDefault();
+      this.setState({
+        is_done: true
       });
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/eventrequests', this.state.request);
     }
   }]);
 
-  return EventCommentRating;
+  return EventRequest;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
 
+if (document.getElementById('id-event-request')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(EventRequest, null), document.getElementById('id-event-request'));
+}
+
 /***/ }),
 
-/***/ 13:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/components/EventCommentRating.js ***!
-  \*************************************************************/
+/***/ 8:
+/*!*******************************************************!*\
+  !*** multi ./resources/js/components/EventRequest.js ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/namihira/work/project/vscode/livebook/resources/js/components/EventCommentRating.js */"./resources/js/components/EventCommentRating.js");
+module.exports = __webpack_require__(/*! /Users/namihira/work/project/vscode/livebook/resources/js/components/EventRequest.js */"./resources/js/components/EventRequest.js");
 
 
 /***/ })
