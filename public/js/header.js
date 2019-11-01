@@ -29368,8 +29368,18 @@ function (_Component) {
         className: "nav-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "nav-link",
+<<<<<<< HEAD
         href: "" + "/web/eventsearch"
       }, "\u5834\u6240\u3067\u8ABF\u3079\u308B")))));
+=======
+        href: "/liveshare" + "/web/eventsearch"
+      }, "\u5834\u6240\u3067\u8ABF\u3079\u308B")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "nav-item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "nav-link",
+        href: "/liveshare" + "/web/eventrequest"
+      }, "\u63B2\u8F09\u3092\u4F9D\u983C\u3059\u308B")))));
+>>>>>>> master
     }
   }, {
     key: "showMenu",

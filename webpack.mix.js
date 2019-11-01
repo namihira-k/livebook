@@ -23,6 +23,7 @@ mix.react('resources/js/components/ShareForm.js', 'public/js/share-form.js');
 
 mix.react('resources/js/components/EventList.js', 'public/js/event-list.js');
 mix.react('resources/js/components/EventSearch.js', 'public/js/event-search.js');
+mix.react('resources/js/components/EventRequest.js', 'public/js/event-request.js');
 
 mix.react('resources/js/components/EventInfo.js', 'public/js/event-info.js');
 mix.react('resources/js/components/EventCommentSection.js', 'public/js/event-comment-section.js');

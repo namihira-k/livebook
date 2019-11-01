@@ -17,3 +17,4 @@ Route::get('/web/welcome', 'Web\WelcomeWebController@get');
 Route::get('/web/eventinfo', 'Web\EventInfoWebController@get');
 
 Route::get('/web/eventsearch', 'Web\EventSearchWebController@get');
+Route::get('/web/eventrequest', 'Web\EventRequestWebController@get');
