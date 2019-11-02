@@ -25,6 +25,7 @@ export default class EventCommentForm extends Component {
     this.changeUsername = this.changeUsername.bind(this);
     this.changeSeat = this.changeSeat.bind(this);
     this.changeComment = this.changeComment.bind(this);
+    this.changeImage = this.changeImage.bind(this)
 
     this.post = this.post.bind(this);
   }
@@ -39,7 +40,7 @@ export default class EventCommentForm extends Component {
     return (
       <div>
         <h6>コメント</h6>
-        <form className="" onSubmit={this.post}>
+        <form className="ml-3" onSubmit={this.post}>
           <div className="form-row">
             <div className="form-group col-md-3">
               <input type="text" className="form-control border-primary" id="username" value={this.state.new_comment.username} onChange={this.changeUsername} placeholder="お名前（入力自由）" />
@@ -51,7 +52,12 @@ export default class EventCommentForm extends Component {
           <div className="form-group border-primary">
             <textarea id="id-comment" className="form-control border-primary" value={this.state.new_comment.comment} onChange={this.changeComment} placeholder="公開コメント（入力必須）" required />
           </div>
+          <div className="form-group">
+            <label htmlFor="id-image">画像（任意）：</label>
+            <input id="id-image" type="file" onChange={ this.changeImage }/>
+          </div>
           <button type="submit" className="btn btn-primary" disabled={this.state.is_processing}>投稿する</button>
+
           <div className="progress mt-1" style={style.progress}>
             <div className="progress-bar" role="progressbar" style={this.state.style.progress}></div>
           </div>
@@ -78,6 +84,23 @@ export default class EventCommentForm extends Component {
     this.setState({new_comment : tmp});
   }
 
+  changeImage(e) {
+    let files = e.target.files || e.dataTransfer.files;
+    if (!files.length)
+      return;
+    this.createImage(files[0]);
+  }
+
+  createImage(file) {
+    let reader = new FileReader();
+    reader.onload = (e) => {
+      this.setState({
+        image: e.target.result
+      })
+    };
+    reader.readAsDataURL(file);
+  }
+
   post(event) {
     event.preventDefault();
     this._moveProgress('100%');
@@ -86,6 +109,14 @@ export default class EventCommentForm extends Component {
     });
 
     axios.post(process.env.MIX_APP_BASE_PATH + '/api/comments', this.state.new_comment)
+          .then(res => {
+            if (this.state.image) {
+              axios.post(process.env.MIX_APP_BASE_PATH + '/api/files', {
+                file: this.state.image,
+                comment_uuid: res.data.uuid,
+              })  
+            }
+          })
           .then(() => {
             this._clear();
             this._moveProgress('0%');

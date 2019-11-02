@@ -31314,7 +31314,7 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit"
       }, "Upload"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "http://118.152.155.220/dav/publish/60a0177e-ba0b-44ad-b8ee-5ab3468a14ed/img/1a81f2d5-14ee-48e1-a6b8-c33ceb9a9626.jpg"
+        src: "http://static.namimono.com/dav/publish/60a0177e-ba0b-44ad-b8ee-5ab3468a14ed/img/1a81f2d5-14ee-48e1-a6b8-c33ceb9a9626.jpg"
       }));
     }
   }, {

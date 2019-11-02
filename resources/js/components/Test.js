@@ -19,7 +19,7 @@ export default class Test extends Component {
       <form onSubmit={ this.onFormSubmit }>
         <input type="file" onChange={ this.onChange }/>
         <button type="submit">Upload</button>
-        <img src="http://118.152.155.220/dav/publish/60a0177e-ba0b-44ad-b8ee-5ab3468a14ed/img/1a81f2d5-14ee-48e1-a6b8-c33ceb9a9626.jpg" />
+        <img src="http://static.namimono.com/dav/publish/60a0177e-ba0b-44ad-b8ee-5ab3468a14ed/img/1a81f2d5-14ee-48e1-a6b8-c33ceb9a9626.jpg" />
       </form>
     );
   }
