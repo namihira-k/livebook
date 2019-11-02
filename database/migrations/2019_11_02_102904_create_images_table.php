@@ -16,7 +16,7 @@ class CreateImagesTable extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('comment_uuid', 36);            
-            $table->string('uuid', 36);
+            $table->string('path', 256);
             $table->timestamps();
         });
     }

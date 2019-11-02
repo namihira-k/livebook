@@ -29,7 +29,7 @@ class FileApiController extends Controller
 
         $image = new Image();
         $image->comment_uuid = $request->get('comment_uuid');
-        $image->uuid = $image_uuid;
+        $image->path = 'img/' . $image_uuid . '.jpg';
         $image->save();
         return response()->json($image);
     }

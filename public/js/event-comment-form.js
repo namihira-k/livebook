@@ -4659,10 +4659,10 @@ function (_Component) {
         placeholder: "\u516C\u958B\u30B3\u30E1\u30F3\u30C8\uFF08\u5165\u529B\u5FC5\u9808\uFF09",
         required: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
+        className: "form-group mb-0"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "id-image"
-      }, "\u753B\u50CF\uFF08\u4EFB\u610F\uFF09\uFF1A"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "\u753B\u50CF\uFF08\u5165\u529B\u81EA\u7531\uFF09\uFF1A"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "id-image",
         type: "file",
         onChange: this.changeImage
@@ -4670,14 +4670,14 @@ function (_Component) {
         type: "submit",
         className: "btn btn-primary",
         disabled: this.state.is_processing
-      }, "\u6295\u7A3F\u3059\u308B"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "\u6295\u7A3F\u3059\u308B")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "progress mt-1",
         style: style.progress
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "progress-bar",
         role: "progressbar",
         style: this.state.style.progress
-      }))));
+      })));
     }
   }, {
     key: "changeUsername",
@@ -4745,18 +4745,24 @@ function (_Component) {
           axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("" + '/api/files', {
             file: _this3.state.image,
             comment_uuid: res.data.uuid
+          }).then(function () {
+            _this3.props.callAfterPost();
+
+            _this3.setState({
+              is_processing: false
+            });
+          });
+        } else {
+          _this3.props.callAfterPost();
+
+          _this3.setState({
+            is_processing: false
           });
         }
       }).then(function () {
         _this3._clear();
 
         _this3._moveProgress('0%');
-      }).then(function () {
-        _this3.props.callAfterPost();
-
-        _this3.setState({
-          is_processing: false
-        });
       });
     }
   }, {

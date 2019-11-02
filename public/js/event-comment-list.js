@@ -33564,6 +33564,9 @@ function (_Component) {
         }, m, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fa fa-external-link ml-1"
         }));
+      })), this.state.comment.image_path && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "img-fluid",
+        src: "http://192.168.0.9/dav/publish/60a0177e-ba0b-44ad-b8ee-5ab3468a14ed" + "/" + this.state.comment.image_path
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EventCommentRating__WEBPACK_IMPORTED_MODULE_4__["default"], {
         comment: this.state.comment,
         key: this.state.comment.id

@@ -52,16 +52,15 @@ export default class EventCommentForm extends Component {
           <div className="form-group border-primary">
             <textarea id="id-comment" className="form-control border-primary" value={this.state.new_comment.comment} onChange={this.changeComment} placeholder="公開コメント（入力必須）" required />
           </div>
-          <div className="form-group">
-            <label htmlFor="id-image">画像（任意）：</label>
-            <input id="id-image" type="file" onChange={ this.changeImage }/>
+          <div className="form-group mb-0">
+            <label htmlFor="id-image">画像（入力自由）：</label><input id="id-image" type="file" onChange={ this.changeImage }/>
           </div>
           <button type="submit" className="btn btn-primary" disabled={this.state.is_processing}>投稿する</button>
-
-          <div className="progress mt-1" style={style.progress}>
-            <div className="progress-bar" role="progressbar" style={this.state.style.progress}></div>
-          </div>
         </form>
+
+        <div className="progress mt-1" style={style.progress}>
+          <div className="progress-bar" role="progressbar" style={this.state.style.progress}></div>
+        </div>
       </div>
     );
   }
@@ -112,20 +111,25 @@ export default class EventCommentForm extends Component {
           .then(res => {
             if (this.state.image) {
               axios.post(process.env.MIX_APP_BASE_PATH + '/api/files', {
-                file: this.state.image,
-                comment_uuid: res.data.uuid,
-              })  
+                      file: this.state.image,
+                      comment_uuid: res.data.uuid,
+                    })
+                    .then(() => {
+                      this.props.callAfterPost();
+                      this.setState({
+                        is_processing: false,
+                      });        
+                    })
+            } else {
+              this.props.callAfterPost();
+              this.setState({
+                is_processing: false,
+              });
             }
           })
           .then(() => {
             this._clear();
             this._moveProgress('0%');
-          })
-          .then(() => {
-            this.props.callAfterPost();
-            this.setState({
-              is_processing: false,
-            });        
           })
   }
 

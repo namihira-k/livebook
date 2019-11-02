@@ -49,11 +49,15 @@ class CommentApiController extends Controller
       if (!empty($event_uuid)) {
         $results = $comment::where('event_uuid', $event_uuid)
                             ->where('parent_comment_uuid', null)
-                            ->orderBy('created_at', $order)
+                            ->leftJoin('images', 'comments.uuid', '=', 'images.comment_uuid')
+                            ->orderBy('comments.created_at', $order)
+                            ->select('comments.*', 'images.id as image_id', 'images.path as image_path')
                             ->paginate($count);
       } else if (!empty($parent_comment_id)) {
         $results = $comment::where('parent_comment_uuid', $parent_comment_id)
-                            ->orderBy('created_at', $order)
+                            ->leftJoin('images', 'comments.uuid', '=', 'images.comment_uuid')
+                            ->orderBy('comments.created_at', $order)
+                            ->select('comments.*', 'images.id as image_id', 'images.path as image_path')
                             ->paginate($count);
       } else {
         $results = $comment::first();

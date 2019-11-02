@@ -54,6 +54,13 @@ export default class EventComment extends Component {
         <div className="card-body">
           <h6 className="card-title"><i className="fa fa-user"></i> {this.state.comment.username}&emsp;<small className="text-muted">{this.state.comment.seat}</small>&emsp;<small className="text-muted">{this.state.comment.created_at}</small></h6>
           <p className="card-text mb-0" style={style.text}>{ reactStringReplace(this.state.comment.comment, regExp, (m, i) => (<a key={this.state.comment.id} href={m}>{m}<i className="fa fa-external-link ml-1"></i></a>)) }</p>
+
+          { this.state.comment.image_path && (
+            <div>
+              <img className="img-fluid" src={process.env.MIX_STATIC_EXT_URL + "/" + this.state.comment.image_path} />
+            </div>
+          )}  
+
           <EventCommentRating comment={this.state.comment} key={this.state.comment.id}/>
 
           <div className="ml-5">
