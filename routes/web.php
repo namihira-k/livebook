@@ -12,6 +12,9 @@
 */
 
 Route::get('/', 'Web\WelcomeWebController@get');
+
+Route::get('/web/test', 'Web\TestWebController@get');
+
 Route::get('/web/welcome', 'Web\WelcomeWebController@get');
 
 Route::get('/web/eventinfo', 'Web\EventInfoWebController@get');

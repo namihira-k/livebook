@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 
 use App\Http\Controllers\Controller;
 use App\Models\Event;

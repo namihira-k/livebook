@@ -96248,6 +96248,9 @@ function (_Component) {
         }, m, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fa fa-external-link ml-1"
         }));
+      })), this.state.comment.image_path && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "img-fluid",
+        src: "http://192.168.0.9/dav/publish/60a0177e-ba0b-44ad-b8ee-5ab3468a14ed" + "/" + this.state.comment.image_path
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EventCommentRating__WEBPACK_IMPORTED_MODULE_4__["default"], {
         comment: this.state.comment,
         key: this.state.comment.id
@@ -96364,7 +96367,7 @@ function (_Component) {
       var req = this.state.new_comment;
       req.parent_comment_uuid = this.state.comment.uuid;
       req.event_uuid = this.state.comment.event_uuid;
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/comments', req).then(function () {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/comments', req).then(function () {
         _this3._fetch();
 
         _this3._clear();
@@ -96402,7 +96405,7 @@ function (_Component) {
       this.setState({
         is_processing: true
       });
-      fetch("/liveshare" + '/api/comments' + '?parent_comment_uuid=' + this.state.comment.uuid + '&count=20').then(function (response) {
+      fetch("" + '/api/comments' + '?parent_comment_uuid=' + this.state.comment.uuid + '&count=20').then(function (response) {
         return response.json();
       }).then(function (result) {
         _this4.setState({
@@ -96487,6 +96490,7 @@ function (_Component) {
     _this.changeUsername = _this.changeUsername.bind(_assertThisInitialized(_this));
     _this.changeSeat = _this.changeSeat.bind(_assertThisInitialized(_this));
     _this.changeComment = _this.changeComment.bind(_assertThisInitialized(_this));
+    _this.changeImage = _this.changeImage.bind(_assertThisInitialized(_this));
     _this.post = _this.post.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -96500,7 +96504,7 @@ function (_Component) {
         }
       };
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "\u30B3\u30E1\u30F3\u30C8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "",
+        className: "ml-3",
         onSubmit: this.post
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-row"
@@ -96531,18 +96535,26 @@ function (_Component) {
         onChange: this.changeComment,
         placeholder: "\u516C\u958B\u30B3\u30E1\u30F3\u30C8\uFF08\u5165\u529B\u5FC5\u9808\uFF09",
         required: true
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group mb-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "id-image"
+      }, "\u753B\u50CF\uFF08\u5165\u529B\u81EA\u7531\uFF09\uFF1A"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "id-image",
+        type: "file",
+        onChange: this.changeImage
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "btn btn-primary",
         disabled: this.state.is_processing
-      }, "\u6295\u7A3F\u3059\u308B"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "\u6295\u7A3F\u3059\u308B")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "progress mt-1",
         style: style.progress
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "progress-bar",
         role: "progressbar",
         style: this.state.style.progress
-      }))));
+      })));
     }
   }, {
     key: "changeUsername",
@@ -96572,9 +96584,31 @@ function (_Component) {
       });
     }
   }, {
+    key: "changeImage",
+    value: function changeImage(e) {
+      var files = e.target.files || e.dataTransfer.files;
+      if (!files.length) return;
+      this.createImage(files[0]);
+    }
+  }, {
+    key: "createImage",
+    value: function createImage(file) {
+      var _this2 = this;
+
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        _this2.setState({
+          image: e.target.result
+        });
+      };
+
+      reader.readAsDataURL(file);
+    }
+  }, {
     key: "post",
     value: function post(event) {
-      var _this2 = this;
+      var _this3 = this;
 
       event.preventDefault();
 
@@ -96583,16 +96617,29 @@ function (_Component) {
       this.setState({
         is_processing: true
       });
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/liveshare" + '/api/comments', this.state.new_comment).then(function () {
-        _this2._clear();
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("" + '/api/comments', this.state.new_comment).then(function (res) {
+        if (_this3.state.image) {
+          axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("" + '/api/files', {
+            file: _this3.state.image,
+            comment_uuid: res.data.uuid
+          }).then(function () {
+            _this3.props.callAfterPost();
 
-        _this2._moveProgress('0%');
+            _this3.setState({
+              is_processing: false
+            });
+          });
+        } else {
+          _this3.props.callAfterPost();
+
+          _this3.setState({
+            is_processing: false
+          });
+        }
       }).then(function () {
-        _this2.props.callAfterPost();
+        _this3._clear();
 
-        _this2.setState({
-          is_processing: false
-        });
+        _this3._moveProgress('0%');
       });
     }
   }, {
@@ -96744,7 +96791,7 @@ function (_Component) {
 
       this._showLoading();
 
-      fetch("/liveshare" + '/api/comments' + '?order=desc' + '&page=0' + '&event_uuid=' + this.state.event_uuid).then(function (response) {
+      fetch("" + '/api/comments' + '?order=desc' + '&page=0' + '&event_uuid=' + this.state.event_uuid).then(function (response) {
         return response.json();
       }).then(function (result) {
         _this2.setState({
@@ -96759,7 +96806,7 @@ function (_Component) {
     value: function fetchPaging(page) {
       var _this3 = this;
 
-      fetch("/liveshare" + '/api/comments' + '?order=desc' + '&page=' + page + '&event_uuid=' + this.state.event_uuid).then(function (response) {
+      fetch("" + '/api/comments' + '?order=desc' + '&page=' + page + '&event_uuid=' + this.state.event_uuid).then(function (response) {
         return response.json();
       }).then(function (result) {
         var comments = _this3.state.comments.concat(result.data);
@@ -96878,7 +96925,7 @@ function (_Component) {
     value: function _fetch() {
       var _this2 = this;
 
-      fetch("/liveshare" + '/api/ratings' + '?comment_uuid=' + this.state.comment.uuid).then(function (response) {
+      fetch("" + '/api/ratings' + '?comment_uuid=' + this.state.comment.uuid).then(function (response) {
         return response.json();
       }).then(function (result) {
         _this2.setState({
@@ -96891,7 +96938,7 @@ function (_Component) {
     value: function post(label) {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/ratings', {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/ratings', {
         comment_uuid: this.state.comment.uuid,
         label: label
       }).then(function () {
@@ -96979,7 +97026,7 @@ function (_Component) {
         event_uuid: event_uuid,
         callAfterPost: this.updateList
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "mt-5"
+        className: "mt-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EventCommentList__WEBPACK_IMPORTED_MODULE_5__["default"], {
         event_uuid: event_uuid,
         ref: function ref(instance) {
@@ -97138,7 +97185,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this3 = this;
 
-      fetch("/liveshare" + '/api/events' + '?uuid=' + this.props.qs.uuid).then(function (response) {
+      fetch("" + '/api/events' + '?uuid=' + this.props.qs.uuid).then(function (response) {
         return response.json();
       }).then(function (obj) {
         _this3.setState({
@@ -97284,7 +97331,7 @@ function (_Component) {
       var _this3 = this;
 
       this.showLoading();
-      fetch("/liveshare" + '/api/events?' + 'place=' + this.state.place).then(function (response) {
+      fetch("" + '/api/events?' + 'place=' + this.state.place).then(function (response) {
         return response.json();
       }).then(function (result) {
         _this3.setState({
@@ -97297,7 +97344,7 @@ function (_Component) {
   }, {
     key: "infoPath",
     value: function infoPath(event) {
-      return "/liveshare" + '/web/eventinfo' + '?uuid=' + event.uuid;
+      return "" + '/web/eventinfo' + '?uuid=' + event.uuid;
     }
   }, {
     key: "displayDateTime",
@@ -97481,7 +97528,7 @@ function (_Component) {
         className: "navbar navbar-expand-md navbar-dark bg-dark"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "navbar-brand",
-        href: "/liveshare" + "/"
+        href: "" + "/"
       }, "Live Share"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "navbar-toggler",
         type: "button",
@@ -97496,17 +97543,17 @@ function (_Component) {
         className: "nav-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "nav-link",
-        href: "/liveshare" + "/"
+        href: "" + "/"
       }, "Home")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "nav-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "nav-link",
-        href: "/liveshare" + "/web/eventsearch"
+        href: "" + "/web/eventsearch"
       }, "\u5834\u6240\u3067\u8ABF\u3079\u308B")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "nav-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "nav-link",
-        href: "/liveshare" + "/web/eventrequest"
+        href: "" + "/web/eventrequest"
       }, "\u63B2\u8F09\u3092\u4F9D\u983C\u3059\u308B")))));
     }
   }, {
@@ -97585,7 +97632,6 @@ function (_Component) {
     key: "render",
     value: function render() {
       var share_url = "https://www.namimono.com" + this.state.path;
-      console.log(share_url);
       var style = {
         buttons: {
           display: 'flex'

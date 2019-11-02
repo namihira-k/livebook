@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10354,7 +10354,6 @@ function (_Component) {
     key: "render",
     value: function render() {
       var share_url = "https://www.namimono.com" + this.state.path;
-      console.log(share_url);
       var style = {
         buttons: {
           display: 'flex'
@@ -10390,7 +10389,7 @@ function (_Component) {
 
 /***/ }),
 
-/***/ 5:
+/***/ 6:
 /*!****************************************************!*\
   !*** multi ./resources/js/components/ShareForm.js ***!
   \****************************************************/

@@ -24,7 +24,7 @@ export default class EventCommentSection extends Component {
         <div>
           <EventCommentForm event_uuid={event_uuid} callAfterPost={this.updateList}/>
         </div>
-        <div className="mt-5">
+        <div className="mt-3">
           <EventCommentList event_uuid={event_uuid} ref={instance => { this.state.list = instance; }}/>
         </div>
       </div>

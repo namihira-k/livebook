@@ -13,5 +13,6 @@
     "/js/event-search.js": "/js/event-search.js",
     "/js/footer.js": "/js/footer.js",
     "/js/header.js": "/js/header.js",
-    "/js/share-form.js": "/js/share-form.js"
+    "/js/share-form.js": "/js/share-form.js",
+    "/js/test.js": "/js/test.js"
 }

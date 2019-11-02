@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => env('FILESYSTEM_DRIVER', 'ftp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,6 +42,14 @@ return [
     */
 
     'disks' => [
+        'ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),        
+            'port' => env('FTP_PORT'),
+            'root' => env('FTP_ROOT'),
+        ],
 
         'local' => [
             'driver' => 'local',

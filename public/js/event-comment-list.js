@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -33564,6 +33564,9 @@ function (_Component) {
         }, m, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fa fa-external-link ml-1"
         }));
+      })), this.state.comment.image_path && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "img-fluid",
+        src: "http://192.168.0.9/dav/publish/60a0177e-ba0b-44ad-b8ee-5ab3468a14ed" + "/" + this.state.comment.image_path
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EventCommentRating__WEBPACK_IMPORTED_MODULE_4__["default"], {
         comment: this.state.comment,
         key: this.state.comment.id
@@ -33680,7 +33683,7 @@ function (_Component) {
       var req = this.state.new_comment;
       req.parent_comment_uuid = this.state.comment.uuid;
       req.event_uuid = this.state.comment.event_uuid;
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/comments', req).then(function () {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/comments', req).then(function () {
         _this3._fetch();
 
         _this3._clear();
@@ -33718,7 +33721,7 @@ function (_Component) {
       this.setState({
         is_processing: true
       });
-      fetch("/liveshare" + '/api/comments' + '?parent_comment_uuid=' + this.state.comment.uuid + '&count=20').then(function (response) {
+      fetch("" + '/api/comments' + '?parent_comment_uuid=' + this.state.comment.uuid + '&count=20').then(function (response) {
         return response.json();
       }).then(function (result) {
         _this4.setState({
@@ -33858,7 +33861,7 @@ function (_Component) {
 
       this._showLoading();
 
-      fetch("/liveshare" + '/api/comments' + '?order=desc' + '&page=0' + '&event_uuid=' + this.state.event_uuid).then(function (response) {
+      fetch("" + '/api/comments' + '?order=desc' + '&page=0' + '&event_uuid=' + this.state.event_uuid).then(function (response) {
         return response.json();
       }).then(function (result) {
         _this2.setState({
@@ -33873,7 +33876,7 @@ function (_Component) {
     value: function fetchPaging(page) {
       var _this3 = this;
 
-      fetch("/liveshare" + '/api/comments' + '?order=desc' + '&page=' + page + '&event_uuid=' + this.state.event_uuid).then(function (response) {
+      fetch("" + '/api/comments' + '?order=desc' + '&page=' + page + '&event_uuid=' + this.state.event_uuid).then(function (response) {
         return response.json();
       }).then(function (result) {
         var comments = _this3.state.comments.concat(result.data);
@@ -33992,7 +33995,7 @@ function (_Component) {
     value: function _fetch() {
       var _this2 = this;
 
-      fetch("/liveshare" + '/api/ratings' + '?comment_uuid=' + this.state.comment.uuid).then(function (response) {
+      fetch("" + '/api/ratings' + '?comment_uuid=' + this.state.comment.uuid).then(function (response) {
         return response.json();
       }).then(function (result) {
         _this2.setState({
@@ -34005,7 +34008,7 @@ function (_Component) {
     value: function post(label) {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/ratings', {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/ratings', {
         comment_uuid: this.state.comment.uuid,
         label: label
       }).then(function () {
@@ -34021,7 +34024,7 @@ function (_Component) {
 
 /***/ }),
 
-/***/ 12:
+/***/ 13:
 /*!***********************************************************!*\
   !*** multi ./resources/js/components/EventCommentList.js ***!
   \***********************************************************/
