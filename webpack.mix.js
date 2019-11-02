@@ -14,6 +14,8 @@ const mix = require('laravel-mix');
 mix.react('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
 
+mix.react('resources/js/components/Test.js', 'public/js/test.js');
+
 mix.react('resources/js/components/Clock.js', 'public/js/clock.js');
 
 mix.react('resources/js/components/Header.js', 'public/js/header.js');

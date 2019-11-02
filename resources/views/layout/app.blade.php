@@ -39,6 +39,8 @@
 
   <div id="id-footer"></div>
 
+  <script src="{{ asset('js/test.js') }}"></script>
+
   <script src="{{ asset('js/clock.js') }}"></script>
 
   <script src="{{ asset('js/header.js') }}"></script>

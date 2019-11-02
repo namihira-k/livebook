@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -47086,7 +47086,7 @@ if (document.getElementById('id-event-list')) {
 
 /***/ }),
 
-/***/ 6:
+/***/ 7:
 /*!****************************************************!*\
   !*** multi ./resources/js/components/EventList.js ***!
   \****************************************************/

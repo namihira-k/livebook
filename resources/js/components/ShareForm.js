@@ -20,7 +20,6 @@ export default class ShareForm extends Component {
 
   render() {
     const share_url = process.env.MIX_APP_EXT_URL + this.state.path;
-    console.log(share_url);
 
     const style = {
       buttons: {

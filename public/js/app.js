@@ -96583,7 +96583,7 @@ function (_Component) {
       this.setState({
         is_processing: true
       });
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/comments', this.state.new_comment).then(function () {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("" + '/api/comments', this.state.new_comment).then(function () {
         _this2._clear();
 
         _this2._moveProgress('0%');
@@ -97502,7 +97502,12 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "nav-link",
         href: "" + "/web/eventsearch"
-      }, "\u5834\u6240\u3067\u8ABF\u3079\u308B")))));
+      }, "\u5834\u6240\u3067\u8ABF\u3079\u308B")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "nav-item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "nav-link",
+        href: "" + "/web/eventrequest"
+      }, "\u63B2\u8F09\u3092\u4F9D\u983C\u3059\u308B")))));
     }
   }, {
     key: "showMenu",
@@ -97580,7 +97585,6 @@ function (_Component) {
     key: "render",
     value: function render() {
       var share_url = "https://www.namimono.com" + this.state.path;
-      console.log(share_url);
       var style = {
         buttons: {
           display: 'flex'

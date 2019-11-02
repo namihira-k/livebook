@@ -29,4 +29,4 @@ Route::get('/comments', 'Api\CommentApiController@get');
 Route::post('/ratings', 'Api\RatingApiController@post');
 Route::get('/ratings', 'Api\RatingApiController@get');
 
-Route::get('/files', 'Api\FileApiController@get');
+Route::post('/files', 'Api\FileApiController@post');

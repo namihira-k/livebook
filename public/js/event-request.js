@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -31357,7 +31357,7 @@ function (_Component) {
       this.setState({
         is_done: true
       });
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/eventrequests', this.state.request);
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/eventrequests', this.state.request);
     }
   }]);
 
@@ -31372,7 +31372,7 @@ if (document.getElementById('id-event-request')) {
 
 /***/ }),
 
-/***/ 8:
+/***/ 9:
 /*!*******************************************************!*\
   !*** multi ./resources/js/components/EventRequest.js ***!
   \*******************************************************/
