@@ -42,7 +42,7 @@ class CommentApiController extends Controller
       $parent_comment_id = $request->query('parent_comment_uuid', null);
       
       $order = $request->query('order', 'asc');
-      $count = $request->query('count', 10);
+      $count = $request->query('count', 3);
 
       $comment = new Comment;
       $results = null;
