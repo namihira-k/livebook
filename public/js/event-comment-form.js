@@ -4610,6 +4610,7 @@ function (_Component) {
         }
       }
     };
+    _this.refInputFile = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
     _this.changeUsername = _this.changeUsername.bind(_assertThisInitialized(_this));
     _this.changeSeat = _this.changeSeat.bind(_assertThisInitialized(_this));
     _this.changeComment = _this.changeComment.bind(_assertThisInitialized(_this));
@@ -4665,7 +4666,8 @@ function (_Component) {
       }, "\u753B\u50CF\uFF08\u5165\u529B\u81EA\u7531\uFF09\uFF1A"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "id-image",
         type: "file",
-        onChange: this.changeImage
+        onChange: this.changeImage,
+        ref: this.refInputFile
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "btn btn-primary",
@@ -4735,34 +4737,42 @@ function (_Component) {
 
       event.preventDefault();
 
-      this._moveProgress('100%');
+      this._moveProgress('50%');
 
       this.setState({
         is_processing: true
       });
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("" + '/api/comments', this.state.new_comment).then(function (res) {
         if (_this3.state.image) {
+          _this3._moveProgress('75%');
+
           axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("" + '/api/files', {
             file: _this3.state.image,
             comment_uuid: res.data.uuid
           }).then(function () {
-            _this3.props.callAfterPost();
+            _this3.refInputFile.current.value = '';
+
+            _this3._clear();
+
+            _this3._moveProgress('0%');
 
             _this3.setState({
               is_processing: false
             });
+
+            _this3.props.callAfterPost();
           });
         } else {
-          _this3.props.callAfterPost();
+          _this3._clear();
+
+          _this3._moveProgress('0%');
 
           _this3.setState({
             is_processing: false
           });
-        }
-      }).then(function () {
-        _this3._clear();
 
-        _this3._moveProgress('0%');
+          _this3.props.callAfterPost();
+        }
       });
     }
   }, {

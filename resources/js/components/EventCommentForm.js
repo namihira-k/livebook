@@ -22,6 +22,8 @@ export default class EventCommentForm extends Component {
       }
     };
 
+    this.refInputFile = React.createRef();
+
     this.changeUsername = this.changeUsername.bind(this);
     this.changeSeat = this.changeSeat.bind(this);
     this.changeComment = this.changeComment.bind(this);
@@ -53,7 +55,7 @@ export default class EventCommentForm extends Component {
             <textarea id="id-comment" className="form-control border-primary" value={this.state.new_comment.comment} onChange={this.changeComment} placeholder="公開コメント（入力必須）" required />
           </div>
           <div className="form-group mb-0">
-            <label htmlFor="id-image">画像（入力自由）：</label><input id="id-image" type="file" onChange={ this.changeImage }/>
+            <label htmlFor="id-image">画像（入力自由）：</label><input id="id-image" type="file" onChange={ this.changeImage } ref={this.refInputFile}/>
           </div>
           <button type="submit" className="btn btn-primary" disabled={this.state.is_processing}>投稿する</button>
         </form>
@@ -102,7 +104,7 @@ export default class EventCommentForm extends Component {
 
   post(event) {
     event.preventDefault();
-    this._moveProgress('100%');
+    this._moveProgress('50%');
     this.setState({
       is_processing: true,
     });
@@ -110,26 +112,28 @@ export default class EventCommentForm extends Component {
     axios.post(process.env.MIX_APP_BASE_PATH + '/api/comments', this.state.new_comment)
           .then(res => {
             if (this.state.image) {
+              this._moveProgress('75%');
               axios.post(process.env.MIX_APP_BASE_PATH + '/api/files', {
                       file: this.state.image,
                       comment_uuid: res.data.uuid,
                     })
                     .then(() => {
-                      this.props.callAfterPost();
+                      this.refInputFile.current.value = '';
+                      this._clear();
+                      this._moveProgress('0%');
                       this.setState({
                         is_processing: false,
-                      });        
+                      });
+                      this.props.callAfterPost();
                     })
             } else {
-              this.props.callAfterPost();
+              this._clear();
+              this._moveProgress('0%');                
               this.setState({
                 is_processing: false,
               });
+              this.props.callAfterPost();
             }
-          })
-          .then(() => {
-            this._clear();
-            this._moveProgress('0%');
           })
   }
 
