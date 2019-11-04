@@ -37193,7 +37193,7 @@ function (_Component) {
       var req = this.state.new_comment;
       req.parent_comment_uuid = this.state.comment.uuid;
       req.event_uuid = this.state.comment.event_uuid;
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/comments', req).then(function () {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/comments', req).then(function () {
         _this3._fetch();
 
         _this3._clear();
@@ -37231,7 +37231,7 @@ function (_Component) {
       this.setState({
         is_processing: true
       });
-      fetch("" + '/api/comments' + '?parent_comment_uuid=' + this.state.comment.uuid + '&count=20').then(function (response) {
+      fetch("/liveshare" + '/api/comments' + '?parent_comment_uuid=' + this.state.comment.uuid + '&count=20').then(function (response) {
         return response.json();
       }).then(function (result) {
         _this4.setState({
@@ -37445,11 +37445,11 @@ function (_Component) {
       this.setState({
         is_processing: true
       });
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("" + '/api/comments', this.state.new_comment).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/liveshare" + '/api/comments', this.state.new_comment).then(function (res) {
         if (_this3.state.image) {
           _this3._moveProgress('75%');
 
-          axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("" + '/api/files', {
+          axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/liveshare" + '/api/files', {
             file: _this3.state.image,
             comment_uuid: res.data.uuid
           }).then(function () {
@@ -37627,7 +37627,7 @@ function (_Component) {
 
       this._showLoading();
 
-      fetch("" + '/api/comments' + '?order=desc' + '&page=0' + '&event_uuid=' + this.state.event_uuid).then(function (response) {
+      fetch("/liveshare" + '/api/comments' + '?order=desc' + '&page=0' + '&event_uuid=' + this.state.event_uuid).then(function (response) {
         return response.json();
       }).then(function (result) {
         _this2.setState({
@@ -37642,7 +37642,7 @@ function (_Component) {
     value: function fetchPaging(page) {
       var _this3 = this;
 
-      fetch("" + '/api/comments' + '?order=desc' + '&page=' + page + '&event_uuid=' + this.state.event_uuid).then(function (response) {
+      fetch("/liveshare" + '/api/comments' + '?order=desc' + '&page=' + page + '&event_uuid=' + this.state.event_uuid).then(function (response) {
         return response.json();
       }).then(function (result) {
         var comments = _this3.state.comments.concat(result.data);
@@ -37728,8 +37728,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(EventCommentRating).call(this, props));
     _this.state = {
-      comment: _this.props.comment,
-      rating: {}
+      comment: _this.props.comment
     };
     return _this;
   }
@@ -37743,29 +37742,24 @@ function (_Component) {
         onClick: this.post.bind(this, 'good')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fa fa-thumbs-o-up mr-1"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.state.rating.good)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.state.comment.rating.good)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
         className: "btn btn-light",
         onClick: this.post.bind(this, 'bad')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fa fa-thumbs-o-down mr-1"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.state.rating.bad)));
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this._fetch();
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.state.comment.rating.bad)));
     }
   }, {
     key: "_fetch",
     value: function _fetch() {
       var _this2 = this;
 
-      fetch("" + '/api/ratings' + '?comment_uuid=' + this.state.comment.uuid).then(function (response) {
+      fetch("/liveshare" + '/api/comments' + '?uuid=' + this.state.comment.uuid).then(function (response) {
         return response.json();
       }).then(function (result) {
         _this2.setState({
-          rating: result
+          comment: result.data[0]
         });
       });
     }
@@ -37774,7 +37768,7 @@ function (_Component) {
     value: function post(label) {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/ratings', {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/ratings', {
         comment_uuid: this.state.comment.uuid,
         label: label
       }).then(function () {

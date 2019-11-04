@@ -47037,7 +47037,7 @@ function (_Component) {
       var _this3 = this;
 
       this.showLoading();
-      fetch("" + '/api/events?' + 'place=' + this.state.place).then(function (response) {
+      fetch("/liveshare" + '/api/events?' + 'place=' + this.state.place).then(function (response) {
         return response.json();
       }).then(function (result) {
         _this3.setState({
@@ -47050,7 +47050,7 @@ function (_Component) {
   }, {
     key: "infoPath",
     value: function infoPath(event) {
-      return "" + '/web/eventinfo' + '?uuid=' + event.uuid;
+      return "/liveshare" + '/web/eventinfo' + '?uuid=' + event.uuid;
     }
   }, {
     key: "displayDateTime",
@@ -47204,7 +47204,7 @@ function (_Component) {
     value: function fetchPlace() {
       var _this4 = this;
 
-      fetch("" + '/api/places?').then(function (response) {
+      fetch("/liveshare" + '/api/places?').then(function (response) {
         return response.json();
       }).then(function (result) {
         _this4.setState({

@@ -9,6 +9,7 @@ use Carbon\Carbon;
 
 use App\Models\Comment;
 use App\Http\Controllers\Controller;
+use App\Models\Rating;
 
 class CommentApiController extends Controller
 {
@@ -40,7 +41,8 @@ class CommentApiController extends Controller
     {
       $event_uuid = $request->query('event_uuid', null);
       $parent_comment_id = $request->query('parent_comment_uuid', null);
-      
+      $uuid = $request->query('uuid', null);
+
       $order = $request->query('order', 'asc');
       $count = $request->query('count', 3);
 
@@ -60,7 +62,29 @@ class CommentApiController extends Controller
                             ->select('comments.*', 'images.id as image_id', 'images.path as image_path')
                             ->paginate($count);
       } else {
-        $results = $comment::first();
+        $results = $comment::where('uuid', $uuid)
+                            ->leftJoin('images', 'comments.uuid', '=', 'images.comment_uuid')
+                            ->select('comments.*', 'images.id as image_id', 'images.path as image_path')
+                            ->paginate(1);
+      }
+
+      $ids = array_map(function ($item) {
+        return $item->uuid;
+      }, $results->items());
+
+      $rating = new Rating;
+      $ratings = $rating->whereIn('comment_uuid', $ids)->get();
+
+      foreach($results->items() as $item) {
+        $uuid = $item->uuid;
+        $goods = array_filter($ratings->toArray(), function ($r) use ($uuid) {return ($r['comment_uuid'] === $uuid) && ($r['label'] === 'good');});
+        $bads = array_filter($ratings->toArray(), function ($r) use ($uuid) {return ($r['comment_uuid'] === $uuid) && ($r['label'] === 'bad');});  
+
+        $res = [
+          'good' => count($goods),
+          'bad' => count($bads),
+        ];
+        $item->rating = $res;
       }
 
       return response()->json( $results );

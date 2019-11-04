@@ -4742,11 +4742,11 @@ function (_Component) {
       this.setState({
         is_processing: true
       });
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("" + '/api/comments', this.state.new_comment).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/liveshare" + '/api/comments', this.state.new_comment).then(function (res) {
         if (_this3.state.image) {
           _this3._moveProgress('75%');
 
-          axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("" + '/api/files', {
+          axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/liveshare" + '/api/files', {
             file: _this3.state.image,
             comment_uuid: res.data.uuid
           }).then(function () {

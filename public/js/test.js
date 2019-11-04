@@ -31348,7 +31348,7 @@ function (_Component) {
   }, {
     key: "fileUpload",
     value: function fileUpload(image) {
-      return axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/files', {
+      return axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/files', {
         file: this.state.image,
         comment_uuid: '1234567890'
       }).then(function (response) {

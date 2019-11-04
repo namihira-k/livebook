@@ -59,9 +59,9 @@ export default class EventComment extends Component {
             <div>
               <img className="img-fluid" src={process.env.MIX_STATIC_EXT_URL + "/" + this.state.comment.image_path} />
             </div>
-          )}  
+          )}
 
-          <EventCommentRating comment={this.state.comment} key={this.state.comment.id}/>
+          <EventCommentRating comment={this.state.comment} key={this.state.comment.id} />
 
           <div className="ml-5">
             { 
@@ -70,7 +70,7 @@ export default class EventComment extends Component {
                   <div key={comment.id}>
                     <p className="mb-1"><i className="fa fa-user"></i> {comment.username}&emsp;<small className="text-muted">{comment.created_at}</small></p>
                     <p className="mb-0" style={style.text}>{reactStringReplace(comment.comment, regExp, (m, i) => (<a key={comment.id} href={m}>{m}<i className="fa fa-external-link ml-1"></i></a>))}</p>
-                    <EventCommentRating comment={comment} key={comment.id}/>
+                    <EventCommentRating comment={comment} key={comment.id} />
                   </div>
                 ) 
               })
