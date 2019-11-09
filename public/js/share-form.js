@@ -10353,7 +10353,7 @@ function (_Component) {
   _createClass(ShareForm, [{
     key: "render",
     value: function render() {
-      var share_url = "https://www.namimono.com" + this.state.path;
+      var share_url = "https://liveshare.namimono.com" + this.state.path;
       var style = {
         buttons: {
           display: 'flex'

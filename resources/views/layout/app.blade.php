@@ -13,7 +13,7 @@
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@liveshare_jp" />
-  <meta name="twitter:image" content="https://www.namimono.com/liveshare/img/app_logo.jpg" />
+  <meta name="twitter:image" content="https://liveshare.namimono.com/img/app_logo.jpg" />
   <meta name="twitter:title" content="@yield('title')" />
   <meta name="twitter:description" content="参加への準備や当日状況を共有しよう" />
 

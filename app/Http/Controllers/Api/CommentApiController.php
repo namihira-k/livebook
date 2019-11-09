@@ -32,7 +32,7 @@ class CommentApiController extends Controller
       $comment->uuid = Str::uuid();
       $comment->save();
 
-      Log::info("POST COMMENT: " . $comment->comment . "\n" . "https://www.namimono.com/liveshare/web/eventinfo?uuid=" . $comment->event_uuid);
+      Log::info("POST COMMENT: " . $comment->comment . "\n" . "https://liveshare.namimono.com/web/eventinfo?uuid=" . $comment->event_uuid);
 
       return response()->json($comment);
     }
