@@ -31357,7 +31357,7 @@ function (_Component) {
       this.setState({
         is_done: true
       });
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/liveshare" + '/api/eventrequests', this.state.request);
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("" + '/api/eventrequests', this.state.request);
     }
   }]);
 

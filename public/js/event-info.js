@@ -58270,7 +58270,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this3 = this;
 
-      fetch("/liveshare" + '/api/events' + '?uuid=' + this.props.qs.uuid).then(function (response) {
+      fetch("" + '/api/events' + '?uuid=' + this.props.qs.uuid).then(function (response) {
         return response.json();
       }).then(function (obj) {
         _this3.setState({
@@ -58359,7 +58359,7 @@ function (_Component) {
   _createClass(ShareForm, [{
     key: "render",
     value: function render() {
-      var share_url = "https://www.namimono.com" + this.state.path;
+      var share_url = "https://liveshare.namimono.com" + this.state.path;
       var style = {
         buttons: {
           display: 'flex'

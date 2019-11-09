@@ -50,7 +50,7 @@ class Kernel extends ConsoleKernel
                     'の準備をしよう！状況を共有しよう！' . PHP_EOL . 
                     $limit . PHP_EOL .
                     $result->hashtag . PHP_EOL . 
-                    'https://www.namimono.com/liveshare/web/eventinfo?uuid=' . $result->uuid;
+                    'https://liveshare.namimono.com/web/eventinfo?uuid=' . $result->uuid;
 
             $twitter->post('statuses/update', [
                 'status' => $tweet
