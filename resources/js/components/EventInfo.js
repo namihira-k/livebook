@@ -57,7 +57,7 @@ export default class EventInfo extends Component {
             </div>
 
             <div className="my-1">
-              <ShareForm path={'/liveshare/web/eventinfo?uuid=' +  event.uuid} msg={ event.name + "について共有しよう！" +　" " + event.hashtag }/>            
+              <ShareForm path={'/web/eventinfo?uuid=' +  event.uuid} msg={ event.name + "について共有しよう！" +　" " + event.hashtag }/>            
             </div>
 
           </div>
