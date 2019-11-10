@@ -58260,7 +58260,7 @@ function (_Component) {
         })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "my-1"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ShareForm__WEBPACK_IMPORTED_MODULE_5__["default"], {
-          path: '/liveshare/web/eventinfo?uuid=' + event.uuid,
+          path: '/web/eventinfo?uuid=' + event.uuid,
           msg: event.name + "について共有しよう！" + " " + event.hashtag
         }))));
       });
