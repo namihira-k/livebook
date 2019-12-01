@@ -87275,7 +87275,7 @@ if (false) {} else {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -96238,7 +96238,9 @@ function (_Component) {
         className: "text-muted"
       }, this.state.comment.seat), "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
         className: "text-muted"
-      }, this.state.comment.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, this.state.comment.created_at), "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
+        className: "text-muted"
+      }, "( #", this.state.comment.id, " )")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "card-text mb-0",
         style: style.text
       }, react_string_replace__WEBPACK_IMPORTED_MODULE_3___default()(this.state.comment.comment, regExp, function (m, i) {
@@ -96265,7 +96267,9 @@ function (_Component) {
           className: "fa fa-user"
         }), " ", comment.username, "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
           className: "text-muted"
-        }, comment.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, comment.created_at), "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
+          className: "text-muted"
+        }, "( #", comment.id, " )")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "mb-0",
           style: style.text
         }, react_string_replace__WEBPACK_IMPORTED_MODULE_3___default()(comment.comment, regExp, function (m, i) {
@@ -96504,7 +96508,7 @@ function (_Component) {
           height: '2px'
         }
       };
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "\u30B3\u30E1\u30F3\u30C8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "\u30B3\u30E1\u30F3\u30C8\uFF1A\u8CEA\u554F\u3084\u611F\u60F3\u3001\u8981\u671B\u306A\u3069"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "ml-3",
         onSubmit: this.post
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -96534,10 +96538,10 @@ function (_Component) {
         className: "form-control border-primary",
         value: this.state.new_comment.comment,
         onChange: this.changeComment,
-        placeholder: "\u516C\u958B\u30B3\u30E1\u30F3\u30C8\uFF08\u5165\u529B\u5FC5\u9808\uFF09",
+        placeholder: "\u30B3\u30E1\u30F3\u30C8\uFF08\u5165\u529B\u5FC5\u9808\uFF09",
         required: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group mb-0"
+        className: "form-group mb-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "id-image"
       }, "\u753B\u50CF\uFF08\u5165\u529B\u81EA\u7531\uFF09\uFF1A"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {

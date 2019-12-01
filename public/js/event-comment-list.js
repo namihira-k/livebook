@@ -33554,7 +33554,9 @@ function (_Component) {
         className: "text-muted"
       }, this.state.comment.seat), "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
         className: "text-muted"
-      }, this.state.comment.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, this.state.comment.created_at), "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
+        className: "text-muted"
+      }, "( #", this.state.comment.id, " )")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "card-text mb-0",
         style: style.text
       }, react_string_replace__WEBPACK_IMPORTED_MODULE_3___default()(this.state.comment.comment, regExp, function (m, i) {
@@ -33581,7 +33583,9 @@ function (_Component) {
           className: "fa fa-user"
         }), " ", comment.username, "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
           className: "text-muted"
-        }, comment.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, comment.created_at), "\u2003", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
+          className: "text-muted"
+        }, "( #", comment.id, " )")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "mb-0",
           style: style.text
         }, react_string_replace__WEBPACK_IMPORTED_MODULE_3___default()(comment.comment, regExp, function (m, i) {
