@@ -41,7 +41,7 @@ export default class EventCommentForm extends Component {
 
     return (
       <div>
-        <h6>コメント</h6>
+        <h6>コメント：質問や感想、要望など</h6>
         <form className="ml-3" onSubmit={this.post}>
           <div className="form-row">
             <div className="form-group col-md-3">
@@ -52,9 +52,9 @@ export default class EventCommentForm extends Component {
             </div>
           </div>
           <div className="form-group border-primary">
-            <textarea id="id-comment" className="form-control border-primary" value={this.state.new_comment.comment} onChange={this.changeComment} placeholder="公開コメント（入力必須）" required />
+            <textarea id="id-comment" className="form-control border-primary" value={this.state.new_comment.comment} onChange={this.changeComment} placeholder="コメント（入力必須）" required />
           </div>
-          <div className="form-group mb-0">
+          <div className="form-group mb-3">
             <label htmlFor="id-image">画像（入力自由）：</label><input id="id-image" type="file" onChange={ this.changeImage } ref={this.refInputFile}/>
           </div>
           <button type="submit" className="btn btn-primary" disabled={this.state.is_processing}>投稿する</button>
