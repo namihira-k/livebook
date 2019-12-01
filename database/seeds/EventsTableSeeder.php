@@ -13,6 +13,20 @@ class EventsTableSeeder extends Seeder
     {
         DB::table('events')->insert([
             [
+                'id' => 22,
+                'name' => '乃木坂46 8th YEAR BIRTHDAY LIVE',
+                'performer' => '乃木坂46',
+                'prefecture' => '愛知',
+                'place' => 'ナゴヤドーム',
+                'hashtag' => '#乃木坂46 #8thバスラ #バスラ #バスラ名古屋 #ナゴヤドーム',
+                'from_date_time' => '2020-02-21 18:00:00',
+                'to_date_time' => '2020-02-24 21:00:00',
+                'url' => 'http://www.nogizaka46.com/news/2019/11/8th-year-birthday-live.php',
+                'uuid' => 'ed20e7e4-78ab-4761-9a87-08a86500d629',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
                 'id' => 21,
                 'name' => 'Perfume 8th Tour 2020 P Cubed in Dome',
                 'performer' => 'Perfume',
