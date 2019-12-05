@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -31353,7 +31353,7 @@ function (_Component) {
 
 /***/ }),
 
-/***/ 14:
+/***/ 15:
 /*!*************************************************************!*\
   !*** multi ./resources/js/components/EventCommentRating.js ***!
   \*************************************************************/

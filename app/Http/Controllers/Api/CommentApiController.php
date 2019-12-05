@@ -42,7 +42,6 @@ class CommentApiController extends Controller
       $event_uuid = $request->query('event_uuid', null);
       $parent_comment_id = $request->query('parent_comment_uuid', null);
       $uuid = $request->query('uuid', null);
-
       $order = $request->query('order', 'asc');
       $count = $request->query('count', 3);
 
@@ -61,11 +60,16 @@ class CommentApiController extends Controller
                             ->orderBy('comments.created_at', $order)
                             ->select('comments.*', 'images.id as image_id', 'images.path as image_path')
                             ->paginate($count);
-      } else {
+      } else if (!empty($uuid)) {
         $results = $comment::where('uuid', $uuid)
                             ->leftJoin('images', 'comments.uuid', '=', 'images.comment_uuid')
                             ->select('comments.*', 'images.id as image_id', 'images.path as image_path')
                             ->paginate(1);
+      } else {
+        $results = $comment::leftJoin('images', 'comments.uuid', '=', 'images.comment_uuid')
+                            ->orderBy('comments.created_at', $order)
+                            ->select('comments.*', 'images.id as image_id', 'images.path as image_path')
+                            ->paginate($count);
       }
 
       $ids = array_map(function ($item) {
