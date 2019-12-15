@@ -29343,6 +29343,8 @@ function (_Component) {
   _createClass(CommentList, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.is_processing && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spinner-grow text-secondary m-3",
         role: "status"
@@ -29355,7 +29357,12 @@ function (_Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "card-body"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
-          className: "card-title"
+          className: "card-subtitle mb-2 text-muted"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, comment.username, " > "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          className: "btn btn-link",
+          href: _this2.infoPath(comment.event)
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, comment.event.name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "card-text"
         }, comment.comment)));
       }));
     }
@@ -29367,7 +29374,7 @@ function (_Component) {
   }, {
     key: "getComments",
     value: function getComments() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.setState({
         is_processing: true
@@ -29375,11 +29382,16 @@ function (_Component) {
       fetch("" + '/api/comments' + '?count=5' + "&order=desc").then(function (response) {
         return response.json();
       }).then(function (result) {
-        _this2.setState({
+        _this3.setState({
           comments: result.data,
           is_processing: false
         });
       });
+    }
+  }, {
+    key: "infoPath",
+    value: function infoPath(event) {
+      return "" + '/web/eventinfo' + '?uuid=' + event.uuid;
     }
   }]);
 
