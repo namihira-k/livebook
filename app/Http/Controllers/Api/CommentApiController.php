@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
 
-use App\Models\Comment;
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
+use App\Models\Event;
 use App\Models\Rating;
 
 class CommentApiController extends Controller
@@ -70,6 +71,18 @@ class CommentApiController extends Controller
                             ->orderBy('comments.created_at', $order)
                             ->select('comments.*', 'images.id as image_id', 'images.path as image_path')
                             ->paginate($count);
+      }
+
+      $eventIds = array_map(function ($item) {
+        return $item->event_uuid;
+      }, $results->items());
+
+      $event = new Event;
+      $events = $event->whereIn('uuid', $eventIds)->get();
+
+      foreach($results->items() as $item) {
+        $event_uuid = $item->event_uuid;
+        $item->event = current(array_filter($events->toArray(), function ($r) use ($event_uuid) {return $r['uuid'] === $event_uuid;}));
       }
 
       $ids = array_map(function ($item) {
