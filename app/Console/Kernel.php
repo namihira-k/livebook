@@ -29,6 +29,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        // Telescope
+        $schedule->command('telescope:prune')->daily();
+
+        // Twitter
         $schedule->call(function () {
             $twitter = new TwitterOAuth(env('TWITTER_CLIENT_ID'),
                                         env('TWITTER_CLIENT_SECRET'),
