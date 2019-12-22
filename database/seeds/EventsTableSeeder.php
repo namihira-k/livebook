@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class EventsTableSeeder extends Seeder
 {
@@ -11,7 +12,7 @@ class EventsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('events')->insert([
+        DB::table('events')->insert([  
             [
                 'id' => 22,
                 'name' => '乃木坂46 8th YEAR BIRTHDAY LIVE',
