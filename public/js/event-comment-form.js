@@ -4654,10 +4654,11 @@ function (_Component) {
         className: "form-group border-primary"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         id: "id-comment",
-        className: "form-control border-primary",
+        className: "form-control border-primary w-75",
         value: this.state.new_comment.comment,
         onChange: this.changeComment,
         placeholder: "\u30B3\u30E1\u30F3\u30C8\uFF08\u5165\u529B\u5FC5\u9808\uFF09",
+        rows: "5",
         required: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group mb-3"
@@ -4673,7 +4674,7 @@ function (_Component) {
         className: "btn btn-primary",
         disabled: this.state.is_processing
       }, "\u6295\u7A3F\u3059\u308B")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "progress mt-1",
+        className: "progress mt-3",
         style: style.progress
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "progress-bar",
