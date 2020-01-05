@@ -52,7 +52,7 @@ export default class EventCommentForm extends Component {
             </div>
           </div>
           <div className="form-group border-primary">
-            <textarea id="id-comment" className="form-control border-primary" value={this.state.new_comment.comment} onChange={this.changeComment} placeholder="コメント（入力必須）" required />
+            <textarea id="id-comment" className="form-control border-primary w-75" value={this.state.new_comment.comment} onChange={this.changeComment} placeholder="コメント（入力必須）"　rows="5" required />
           </div>
           <div className="form-group mb-3">
             <label htmlFor="id-image">画像（入力自由）：</label><input id="id-image" type="file" onChange={ this.changeImage } ref={this.refInputFile}/>
@@ -60,7 +60,7 @@ export default class EventCommentForm extends Component {
           <button type="submit" className="btn btn-primary" disabled={this.state.is_processing}>投稿する</button>
         </form>
 
-        <div className="progress mt-1" style={style.progress}>
+        <div className="progress mt-3" style={style.progress}>
           <div className="progress-bar" role="progressbar" style={this.state.style.progress}></div>
         </div>
       </div>

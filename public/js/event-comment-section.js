@@ -31376,7 +31376,7 @@ if (false) {} else {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37361,10 +37361,11 @@ function (_Component) {
         className: "form-group border-primary"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         id: "id-comment",
-        className: "form-control border-primary",
+        className: "form-control border-primary w-75",
         value: this.state.new_comment.comment,
         onChange: this.changeComment,
         placeholder: "\u30B3\u30E1\u30F3\u30C8\uFF08\u5165\u529B\u5FC5\u9808\uFF09",
+        rows: "5",
         required: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group mb-3"
@@ -37380,7 +37381,7 @@ function (_Component) {
         className: "btn btn-primary",
         disabled: this.state.is_processing
       }, "\u6295\u7A3F\u3059\u308B")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "progress mt-1",
+        className: "progress mt-3",
         style: style.progress
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "progress-bar",
@@ -37860,7 +37861,7 @@ function (_Component) {
         event_uuid: event_uuid,
         callAfterPost: this.updateList
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "mt-3"
+        className: "my-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EventCommentList__WEBPACK_IMPORTED_MODULE_5__["default"], {
         event_uuid: event_uuid,
         ref: function ref(instance) {
