@@ -31300,6 +31300,7 @@ function (_Component) {
       request: {
         url: ''
       },
+      events: [],
       is_done: false
     };
     _this.changeUrl = _this.changeUrl.bind(_assertThisInitialized(_this));
@@ -31310,21 +31311,23 @@ function (_Component) {
   _createClass(EventRequest, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card mt-5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         className: "card-title"
-      }, "\u30E9\u30A4\u30D6\u60C5\u5831\u306E\u63B2\u8F09\u30EA\u30AF\u30A8\u30B9\u30C8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, "\u63B2\u8F09\u30EA\u30AF\u30A8\u30B9\u30C8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "lead"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, "\u9802\u3044\u305F\u30E9\u30A4\u30D6\u60C5\u5831\u3092\u672C\u30B5\u30FC\u30D3\u30B9\u306B\u63B2\u8F09\u3057\u307E\u3059\uFF01\u304A\u6C17\u8EFD\u306B\u30EA\u30AF\u30A8\u30B9\u30C8\u304F\u3060\u3055\u3044\uFF01")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.post
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "url",
-        className: "col-sm-2 col-form-label"
-      }, "\u53C2\u8003URL\uFF08\u5FC5\u9808\uFF09"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-8"
+        className: "col-sm-3 col-form-label"
+      }, "\u30E9\u30A4\u30D6\u306B\u95A2\u3059\u308BURL\uFF08\u5FC5\u9808\uFF09\uFF1A"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "url",
         type: "text",
@@ -31339,7 +31342,31 @@ function (_Component) {
         disabled: this.state.is_done
       }, "\u4F9D\u983C\u3059\u308B"), this.state.is_done && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         "class": "text-success mt-3"
-      }, "\u3042\u308A\u304C\u3068\u3046\u3054\u3056\u3044\u307E\u3059\uFF01\u78BA\u8A8D\u3057\u305F\u306E\u3061\u63B2\u8F09\u3057\u307E\u3059\uFF01"))));
+      }, "\u3042\u308A\u304C\u3068\u3046\u3054\u3056\u3044\u307E\u3059\uFF01\u78BA\u8A8D\u3057\u305F\u306E\u3061\u63B2\u8F09\u3057\u307E\u3059\uFF01")))), this.state.events.length != 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "mt-5 ml-5"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "\u30EA\u30AF\u30A8\u30B9\u30C8\u306B\u3088\u308A\u8FFD\u52A0\u3057\u305F\u30E9\u30A4\u30D6\u60C5\u5831\uFF08\u76F4\u8FD1\u306E\u307F\uFF09"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.state.events.map(function (event) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: event.uuid
+        }, event.performer, " --- ", event.name);
+      }))));
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.getEvents();
+    }
+  }, {
+    key: "getEvents",
+    value: function getEvents() {
+      var _this2 = this;
+
+      fetch("" + '/api/events?' + 'orderBy=id' + '&order=desc' + '&count=3').then(function (response) {
+        return response.json();
+      }).then(function (result) {
+        _this2.setState({
+          events: result.data
+        });
+      });
     }
   }, {
     key: "changeUrl",
