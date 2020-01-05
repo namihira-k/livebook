@@ -15,7 +15,9 @@ class EventApiController extends Controller
     {
       $uuid = $request->uuid;
       $place = $request->place;
+      $orderBy = $request->query('orderBy', 'from_date_time');      
       $order = $request->query('order', 'asc');
+      $count = $request->query('count', 50);
 
       $event = new Event;
       $results = null;
@@ -24,12 +26,12 @@ class EventApiController extends Controller
                           ->paginate(1);
       } else if (!empty($place)) {
         $results = $event::where('place', 'LIKE',   $place . '%')
-                          ->orderBy('from_date_time', $order)
-                          ->paginate(50);
+                          ->orderBy($orderBy, $order)
+                          ->paginate($count);
       } else {
         $results = $event::where('to_date_time', '>=', Carbon::now())
-                          ->orderBy('from_date_time', $order)
-                          ->paginate(50);
+                          ->orderBy($orderBy, $order)
+                          ->paginate($count);
       }
       
       return response()->json( $results )->cookie(
