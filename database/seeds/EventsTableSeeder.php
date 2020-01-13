@@ -12,7 +12,35 @@ class EventsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('events')->insert([  
+        DB::table('events')->insert([ 
+            [
+                'id' => 26,
+                'name' => 'ジャパン アミューズメント エキスポ2020',
+                'performer' => '一般社団法人日本アミューズメント産業協会（JAIA）',
+                'prefecture' => '千葉',
+                'place' => '幕張メッセ',
+                'hashtag' => '#JAEPO2020',
+                'from_date_time' => '2020-02-08 10:00:00',
+                'to_date_time' => '2020-02-08 17:00:00',
+                'url' => 'http://www.jaepo.jp/top.html',
+                'uuid' => 'ce78e212-99cf-48ce-bfb1-0c4657e54daa',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id' => 25,
+                'name' => 'ふるさと祭り東京2020',
+                'performer' => 'ふるさと祭り東京実行委員会（フジテレビジョン、文化放送、東京ドーム）',
+                'prefecture' => '東京',
+                'place' => '東京ドーム',
+                'hashtag' => '#ふるさと祭り #ふるさと祭り東京 #東京ドーム',
+                'from_date_time' => '2020-01-10 10:00:00',
+                'to_date_time' => '2020-01-19 18:00:00',
+                'url' => 'https://www.tokyo-dome.co.jp/furusato/',
+                'uuid' => '018a53ac-be86-4ad4-945a-8b13afcf630c',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
             [
                 'id' => 24,
                 'name' => '日向坂46 全国アリーナツアー',
