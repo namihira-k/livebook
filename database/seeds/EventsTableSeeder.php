@@ -12,7 +12,49 @@ class EventsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('events')->insert([ 
+        DB::table('events')->insert([
+            [
+                'id' => 29,
+                'name' => 'ひきこもりたちでもフェスがしたい！～世界征服Ⅱ＠東京ドーム～',
+                'performer' => 'まふまふ など',
+                'prefecture' => '東京',
+                'place' => '東京ドーム',
+                'hashtag' => '#まふワン #まふまふ東京ドーム #まふワンチケット',
+                'from_date_time' => '2020-03-26 16:00:00',
+                'to_date_time' => '2020-03-26 19:00:00',
+                'url' => 'https://hikikomoridemo.jp',
+                'uuid' => '937dd5e3-0edd-4047-b849-4350d3490320',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id' => 28,
+                'name' => 'ひきこもりでもLIVEがしたい！～すーぱーまふまふわーるど2020＠東京ドーム～',
+                'performer' => 'まふまふ',
+                'prefecture' => '東京',
+                'place' => '東京ドーム',
+                'hashtag' => '#まふワン #まふまふ東京ドーム #まふワンチケット',
+                'from_date_time' => '2020-03-25 18:00:00',
+                'to_date_time' => '2020-03-25 21:00:00',
+                'url' => 'https://hikikomoridemo.jp',
+                'uuid' => 'b2104830-0c48-44b3-acc9-1bbbfa872cac',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id' => 27,
+                'name' => '乃木坂46のオールナイトニッポン presents 乃木坂46 2期生ライブ',
+                'performer' => '乃木坂46',
+                'prefecture' => '東京',
+                'place' => '国立代々木競技場 第一体育館',
+                'hashtag' => '#乃木坂46 #乃木坂46ANN #2期生ライブ',
+                'from_date_time' => '2020-03-07 18:00:00',
+                'to_date_time' => '2020-03-07 21:00:00',
+                'url' => 'http://www.nogizaka46.com',
+                'uuid' => '66f37504-f9c3-4fa9-a9a5-e5e6adf9f86d',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
             [
                 'id' => 26,
                 'name' => 'ジャパン アミューズメント エキスポ2020',
