@@ -12,11 +12,11 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-8">
+    <div class="col-md-8">
       <h5><i class="fa fa-music mr-1"></i>近々開催するライブ</h5>
       <div id="id-event-list" class="mt-3"></div>
     </div>
-    <div class="col-4">
+    <div class="col-md-4">
       <h6><i class="fa fa-comment mr-1"></i>投稿コメント</h6>
       <div id="id-comment-list" class="mt-3"></div>
     </div>
