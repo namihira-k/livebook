@@ -48,6 +48,8 @@
   <script src="{{ asset('js/ads.js') }}"></script>
   <script src="{{ asset('js/share-form.js') }}"></script>
 
+  <script src="{{ asset('js/ranking-event.js') }}"></script>
+
   <script src="{{ asset('js/event-request.js') }}"></script>
 
   <script src="{{ asset('js/comment-list.js') }}"></script>

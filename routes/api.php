@@ -17,6 +17,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/ranking', 'Api\RankingApiController@get');
+
 Route::get('/places', 'Api\PlaceApiController@get');
 
 Route::get('/events', 'Api\EventApiController@get');

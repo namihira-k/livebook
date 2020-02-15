@@ -17,6 +17,8 @@
       <div id="id-event-list" class="mt-3"></div>
     </div>
     <div class="col-md-4">
+      <h6><i class="fa fa-star mr-1"></i>ランキング（コメント数）</h6>
+      <div id="id-ranking-event" class="my-3"></div>
       <h6><i class="fa fa-comment mr-1"></i>投稿コメント</h6>
       <div id="id-comment-list" class="mt-3"></div>
     </div>

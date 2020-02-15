@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -37893,7 +37893,7 @@ if (document.getElementById('id-event-comment-section')) {
 
 /***/ }),
 
-/***/ 12:
+/***/ 13:
 /*!**************************************************************!*\
   !*** multi ./resources/js/components/EventCommentSection.js ***!
   \**************************************************************/

@@ -23,6 +23,8 @@ mix.react('resources/js/components/Footer.js', 'public/js/footer.js');
 mix.react('resources/js/components/Ads.js', 'public/js/ads.js');
 mix.react('resources/js/components/ShareForm.js', 'public/js/share-form.js');
 
+mix.react('resources/js/components/RankingEvent.js', 'public/js/ranking-event.js');
+
 mix.react('resources/js/components/CommentList.js', 'public/js/comment-list.js');
 
 mix.react('resources/js/components/EventList.js', 'public/js/event-list.js');
