@@ -26,6 +26,9 @@
     gtag('config', 'UA-33863076-3');
   </script>
 
+  <!-- Google Ads -->
+  <script data-ad-client="ca-pub-1908478661707708" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 </head>
 
 <body>
@@ -63,8 +66,10 @@
 
   @yield('script')
 
+  <!--
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  -->
 </body>
 
 </html>
