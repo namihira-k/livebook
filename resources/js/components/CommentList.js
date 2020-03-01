@@ -25,7 +25,8 @@ export default class CommentList extends Component {
             return (
               <div className="card mb-3" key={ comment.uuid }>
                 <div className="card-body">
-                  <h6 className="card-subtitle mb-2 text-muted"><small>{ comment.username } > </small><a className="btn btn-link" href={ this.infoPath(comment.event) }><small>{ comment.event.name }</small></a></h6>
+                  <h6 className="card-title  text-center"><a className="btn btn-link" href={ this.infoPath(comment.event) }><small>{ comment.event.name }</small></a></h6>
+                  <h6 className="card-subtitle text-muted mb-2"><small>{ comment.username } > </small></h6>
                   <p className="card-text">{ comment.comment }</p>
                 </div>
               </div>
