@@ -28703,11 +28703,13 @@ var CommentList = /*#__PURE__*/function (_Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "card-body"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
-          className: "card-subtitle mb-2 text-muted"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, comment.username, " > "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          className: "card-title  text-center"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           className: "btn btn-link",
           href: _this2.infoPath(comment.event)
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, comment.event.name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, comment.event.name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
+          className: "card-subtitle text-muted mb-2"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, comment.username, " > ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "card-text"
         }, comment.comment)));
       }));
