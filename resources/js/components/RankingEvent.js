@@ -29,7 +29,7 @@ export default class RankingEvent extends Component {
                   {
                     this.state.events.map(event => {
                       return (
-                        <li><a className="btn btn-link" href={ this.infoPath(event) }><small>{ event.name }</small></a>({ event.count_comment })</li>
+                        <li key={ event.uuid }><a className="btn btn-link" href={ this.infoPath(event) }><small>{ event.name }</small></a>({ event.count_comment })</li>
                       )
                     })
                   }
