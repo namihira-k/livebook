@@ -96957,7 +96957,7 @@ var EventList = /*#__PURE__*/function (_Component) {
       }, "Loading...")), this.state.events.map(function (event) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "card mb-3",
-          key: event.name
+          key: event.uuid
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "card-body"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {

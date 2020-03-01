@@ -26,7 +26,7 @@ export default class EventList extends Component {
         {
           this.state.events.map(event => {
             return (
-              <div className="card mb-3" key={ event.name }>
+              <div className="card mb-3" key={ event.uuid }>
                 <div className="card-body">
                   <h5 className="card-title">{ event.name }</h5>
 

@@ -28703,7 +28703,9 @@ var RankingEvent = /*#__PURE__*/function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, this.state.events.map(function (event) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: event.uuid
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           className: "btn btn-link",
           href: _this2.infoPath(event)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, event.name)), "(", event.count_comment, ")");
