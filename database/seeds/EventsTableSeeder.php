@@ -14,8 +14,22 @@ class EventsTableSeeder extends Seeder
     {
         DB::table('events')->insert([
             [
+                'id' => 31,
+                'name' => '【延期】アラフェス2020',
+                'performer' => '嵐',
+                'prefecture' => '東京',
+                'place' => '国立競技場',
+                'hashtag' => '#嵐 #アラフェス',
+                'from_date_time' => '2020-05-15 18:00:00',
+                'to_date_time' => '2020-05-16 21:00:00',
+                'url' => 'https://www.johnnys-net.jp/page?id=consta&artist=10#220',
+                'uuid' => 'c63cc685-a28b-449b-a545-5ced293d3cca',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
                 'id' => 30,
-                'name' => '日向坂46 全国アリーナツアー',
+                'name' => '【延期】日向坂46 全国アリーナツアー',
                 'performer' => '日向坂46',
                 'prefecture' => '神奈川',
                 'place' => 'ぴあアリーナMM',
@@ -29,7 +43,7 @@ class EventsTableSeeder extends Seeder
             ],
             [
                 'id' => 29,
-                'name' => 'ひきこもりたちでもフェスがしたい！～世界征服Ⅱ＠東京ドーム～',
+                'name' => '【中止】ひきこもりたちでもフェスがしたい！～世界征服Ⅱ＠東京ドーム～',
                 'performer' => 'まふまふ など',
                 'prefecture' => '東京',
                 'place' => '東京ドーム',
@@ -43,7 +57,7 @@ class EventsTableSeeder extends Seeder
             ],
             [
                 'id' => 28,
-                'name' => 'ひきこもりでもLIVEがしたい！～すーぱーまふまふわーるど2020＠東京ドーム～',
+                'name' => '【中止】ひきこもりでもLIVEがしたい！～すーぱーまふまふわーるど2020＠東京ドーム～',
                 'performer' => 'まふまふ',
                 'prefecture' => '東京',
                 'place' => '東京ドーム',
