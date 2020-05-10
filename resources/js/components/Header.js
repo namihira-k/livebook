@@ -24,7 +24,7 @@ export default class Header extends Component {
         </button>
 
         <div className={"collapse navbar-collapse " + show}>
-          <ul className="navbar-nav">
+          <ul className="navbar-nav mr-auto">
             <li className="nav-item">
               <a className="nav-link" href={ process.env.MIX_APP_BASE_PATH +"/" }>Home</a>
             </li>
@@ -35,6 +35,7 @@ export default class Header extends Component {
               <a className="nav-link" href={ process.env.MIX_APP_BASE_PATH +"/web/eventrequest" }>掲載を依頼する</a>
             </li>
           </ul>
+          <span class="navbar-text text-white ">ユーザー登録なしで投稿できます</span>
         </div>
 
       </nav>
