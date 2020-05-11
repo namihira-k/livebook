@@ -19,12 +19,17 @@ export default class Header extends Component {
       <nav className="navbar navbar-expand-md navbar-dark bg-dark">
         <a className="navbar-brand" href={ process.env.MIX_APP_BASE_PATH +"/" }>Live Share</a>
 
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item">
+            <span className="navbar-text text-white"><small>- ユーザー登録なしで投稿できます</small></span>
+          </li>
+        </ul>
+
         <button className="navbar-toggler" type="button" onClick={ this.showMenu }>
           <span className="navbar-toggler-icon"></span>
         </button>
-
         <div className={"collapse navbar-collapse " + show}>
-          <ul className="navbar-nav mr-auto">
+          <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <a className="nav-link" href={ process.env.MIX_APP_BASE_PATH +"/" }>Home</a>
             </li>
@@ -35,7 +40,6 @@ export default class Header extends Component {
               <a className="nav-link" href={ process.env.MIX_APP_BASE_PATH +"/web/eventrequest" }>掲載を依頼する</a>
             </li>
           </ul>
-          <span class="navbar-text text-white ">ユーザー登録なしで投稿できます</span>
         </div>
 
       </nav>
