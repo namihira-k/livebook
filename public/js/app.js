@@ -97467,7 +97467,13 @@ var Header = /*#__PURE__*/function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "navbar-brand",
         href: "" + "/"
-      }, "Live Share"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "Live Share"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "navbar-nav mr-auto"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "nav-item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "navbar-text text-white"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, "- \u30E6\u30FC\u30B6\u30FC\u767B\u9332\u306A\u3057\u3067\u6295\u7A3F\u3067\u304D\u307E\u3059")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "navbar-toggler",
         type: "button",
         onClick: this.showMenu
@@ -97476,7 +97482,7 @@ var Header = /*#__PURE__*/function (_Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "collapse navbar-collapse " + show
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "navbar-nav mr-auto"
+        className: "navbar-nav ml-auto"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "nav-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -97492,9 +97498,7 @@ var Header = /*#__PURE__*/function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "nav-link",
         href: "" + "/web/eventrequest"
-      }, "\u63B2\u8F09\u3092\u4F9D\u983C\u3059\u308B"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        "class": "navbar-text text-white "
-      }, "\u30E6\u30FC\u30B6\u30FC\u767B\u9332\u306A\u3057\u3067\u6295\u7A3F\u3067\u304D\u307E\u3059")));
+      }, "\u63B2\u8F09\u3092\u4F9D\u983C\u3059\u308B")))));
     }
   }, {
     key: "showMenu",
