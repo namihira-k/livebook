@@ -61,7 +61,7 @@ class EventsTableSeeder extends Seeder
                 'performer' => '嵐',
                 'prefecture' => '東京',
                 'place' => '国立競技場',
-                'hashtag' => '#嵐 #アラフェス',
+                'hashtag' => '#嵐 #ARASHI #アラフェス',
                 'from_date_time' => '2020-05-15 18:00:00',
                 'to_date_time' => '2020-05-16 21:00:00',
                 'url' => 'https://www.johnnys-net.jp/page?id=consta&artist=10#220',
