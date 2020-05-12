@@ -27,7 +27,7 @@
   </script>
 
   <!-- Google Ads -->
-  <script data-ad-client="ca-pub-1908478661707708" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 </head>
 
@@ -66,10 +66,9 @@
 
   @yield('script')
 
-  <!--
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- Google Ads -->
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  -->
+
 </body>
 
 </html>
