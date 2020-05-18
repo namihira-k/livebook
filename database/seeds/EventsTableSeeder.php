@@ -14,6 +14,20 @@ class EventsTableSeeder extends Seeder
     {
         DB::table('events')->insert([
             [
+                'id' => 35,
+                'name' => '乃木坂46時間TV 「はなれてたって、ぼくらはいっしょ！」',
+                'performer' => '乃木坂46',
+                'prefecture' => 'オンライン配信',
+                'place' => 'ABEMA',
+                'hashtag' => '#乃木坂46 #乃木坂46時間TV #46時間TV',
+                'from_date_time' => '2020-06-19 19:00:00',
+                'to_date_time' => '2020-06-21 17:00:00',
+                'url' => 'http://www.nogizaka46.com/news/2020/05/46tv-4.php',
+                'uuid' => '70706798-5458-4fa4-952f-6e89ed5ea6c9',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
                 'id' => 34,
                 'name' => 'NEWS LIVE TOUR 2020 STORY',
                 'performer' => 'NEWS',
