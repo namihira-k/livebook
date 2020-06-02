@@ -29,7 +29,7 @@ class EventsTableSeeder extends Seeder
             ],
             [
                 'id' => 34,
-                'name' => 'NEWS LIVE TOUR 2020 STORY',
+                'name' => '【中止】NEWS LIVE TOUR 2020 STORY',
                 'performer' => 'NEWS',
                 'prefecture' => '東京',
                 'place' => '東京ドーム',
@@ -43,7 +43,7 @@ class EventsTableSeeder extends Seeder
             ],
             [
                 'id' => 33,
-                'name' => '亀と山Ｐ ドームツアー 2020',
+                'name' => '【中止】亀と山Ｐ ドームツアー 2020',
                 'performer' => '亀梨和也 山下智久',
                 'prefecture' => '東京',
                 'place' => '東京ドーム',
