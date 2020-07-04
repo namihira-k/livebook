@@ -1,13 +1,30 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+
+
 import axios from 'axios';
 import reactStringReplace from "react-string-replace";
 
 import EventCommentRating from './EventCommentRating';
 
-export default class EventComment extends Component {
 
-  constructor(props) {
+interface Props {
+  comment?: any,
+}
+
+interface State {
+  comment: any,
+  new_comment: any,
+  child_comments: Array<any>,
+  is_show_response: boolean,
+  is_processing: boolean,
+  style: any,
+}
+
+
+export default class EventComment extends React.Component<Props, State> {
+
+  constructor(props: any) {
     super(props);
     this.state = {
       comment: props.comment,
@@ -43,7 +60,7 @@ export default class EventComment extends Component {
     const style = {
       text: {
         whiteSpace: 'pre-line'
-      },
+      } as React.CSSProperties,
       progress: {
         height: '2px'
       }
@@ -100,7 +117,7 @@ export default class EventComment extends Component {
             )}
 
             { !this.state.is_processing && !this.state.is_show_response && (
-                <button type="button" className="btn btn-primary btn-sm" onClick={this.showResponseForm}>> 返信する...</button>
+                <button type="button" className="btn btn-primary btn-sm" onClick={this.showResponseForm}>＞ 返信する...</button>
             )}
           </div>
 
@@ -113,7 +130,7 @@ export default class EventComment extends Component {
     this._fetch();
   }
 
-  changeUsername(event) {
+  changeUsername(event: any) {
     var tmp = this.state.new_comment;
     tmp.username = event.target.value;
     this.setState({
@@ -121,7 +138,7 @@ export default class EventComment extends Component {
     });
   }
 
-  changeComment(event) {
+  changeComment(event: any) {
     var tmp = this.state.new_comment;
     tmp.comment = event.target.value;
     this.setState({
@@ -135,7 +152,7 @@ export default class EventComment extends Component {
     });
   }
 
-  post(event) {
+  post(event: any) {
     event.preventDefault();
     this.moveProgress('100%');
     this.setState({
@@ -154,7 +171,7 @@ export default class EventComment extends Component {
           })
   }
 
-  moveProgress(percent) {
+  moveProgress(percent: any) {
     this.setState({
       style: {
         progress: {

@@ -1,18 +1,28 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+
 import axios from 'axios';
 
-export default class EventRequest extends Component {
+
+interface Props {
+}
+
+interface State {
+  request: any,
+  events: any[],
+  is_done: boolean,
+}
+
+
+export default class EventRequest extends React.Component<Props, State> {
   
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       request: {
         url: '',
       },
-
       events: [],
-
       is_done: false,
     }
 
@@ -37,7 +47,7 @@ export default class EventRequest extends Component {
               <button type="submit" className="btn btn-primary" disabled={this.state.is_done}>依頼する</button>
 
               { this.state.is_done && (
-                <p class="text-success mt-3">ありがとうございます！確認したのち掲載します！</p>
+                <p className="text-success mt-3">ありがとうございます！確認したのち掲載します！</p>
               )}
             </form>
           </div>
@@ -77,13 +87,13 @@ export default class EventRequest extends Component {
     });
   }
 
-  changeUrl(event) {
+  changeUrl(event: any) {
     var tmp = this.state.request;
     tmp.url = event.target.value;
     this.setState({request: tmp});
   }
 
-  post(event) {
+  post(event: any) {
     event.preventDefault();
 
     this.setState({

@@ -1,9 +1,24 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import axios from 'axios';
 
-export default class EventCommentForm extends Component {
 
-  constructor(props) {
+interface Props {
+  event_uuid: string,
+  callAfterPost: () => any,
+}
+
+interface State {
+  new_comment: any,
+  is_processing: boolean,
+  style: any,
+  image: any,
+}
+
+export default class EventCommentForm extends React.Component<Props, State> {
+
+  private refInputFile = React.createRef<HTMLInputElement>();
+
+  constructor(props: any) {
     super(props);
     this.state = {
       new_comment: {
@@ -13,6 +28,7 @@ export default class EventCommentForm extends Component {
         comment: '',
       },
 
+      image: '',
       is_processing: false,
 
       style: {
@@ -21,8 +37,6 @@ export default class EventCommentForm extends Component {
         }
       }
     };
-
-    this.refInputFile = React.createRef();
 
     this.changeUsername = this.changeUsername.bind(this);
     this.changeSeat = this.changeSeat.bind(this);
@@ -52,7 +66,7 @@ export default class EventCommentForm extends Component {
             </div>
           </div>
           <div className="form-group border-primary">
-            <textarea id="id-comment" className="form-control border-primary w-75" value={this.state.new_comment.comment} onChange={this.changeComment} placeholder="コメント（入力必須）"　rows="5" required />
+            <textarea id="id-comment" className="form-control border-primary w-75" value={this.state.new_comment.comment} onChange={this.changeComment} placeholder="コメント（入力必須）"　rows={5} required />
           </div>
           <div className="form-group mb-3">
             <label htmlFor="id-image">画像（入力自由）：</label><input id="id-image" type="file" onChange={ this.changeImage } ref={this.refInputFile}/>
@@ -67,42 +81,42 @@ export default class EventCommentForm extends Component {
     );
   }
 
-  changeUsername(event) {
+  changeUsername(event: any) {
     var tmp = this.state.new_comment;
     tmp.username = event.target.value;
     this.setState({new_comment : tmp});
   }
 
-  changeSeat(event) {
+  changeSeat(event: any) {
     var tmp = this.state.new_comment;
     tmp.seat = event.target.value;
     this.setState({new_comment : tmp});
   }
 
-  changeComment(event) {
+  changeComment(event: any) {
     var tmp = this.state.new_comment;
     tmp.comment = event.target.value;
     this.setState({new_comment : tmp});
   }
 
-  changeImage(e) {
+  changeImage(e: any) {
     let files = e.target.files || e.dataTransfer.files;
     if (!files.length)
       return;
     this.createImage(files[0]);
   }
 
-  createImage(file) {
+  createImage(file: any) {
     let reader = new FileReader();
     reader.onload = (e) => {
       this.setState({
-        image: e.target.result
+        image: e.target !== null ? e.target.result : null
       })
     };
     reader.readAsDataURL(file);
   }
 
-  post(event) {
+  post(event: any) {
     event.preventDefault();
     this._moveProgress('50%');
     this.setState({
@@ -118,7 +132,8 @@ export default class EventCommentForm extends Component {
                       comment_uuid: res.data.uuid,
                     })
                     .then(() => {
-                      this.refInputFile.current.value = '';
+                      if (this.refInputFile && this.refInputFile.current)
+                        this.refInputFile.current.value = '';
                       this._clear();
                       this._moveProgress('0%');
                       this.setState({
@@ -137,7 +152,7 @@ export default class EventCommentForm extends Component {
           })
   }
 
-  _moveProgress(percent) {
+  _moveProgress(percent: any) {
     this.setState({
       style: {
         progress: {

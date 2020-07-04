@@ -1,19 +1,27 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import queryString from 'query-string';
 
 import EventCommentForm from './EventCommentForm';
 import EventCommentList from './EventCommentList';
 
-export default class EventCommentSection extends Component {
+interface Props {
+  qs: any,
+}
 
-  constructor() {
-    super();
-    this.state = {
-      list: null,
-    };
+interface State {
+  listObj: any,
+}
 
+export default class EventCommentSection extends React.Component<Props, State> {
+
+  listComp: React.RefObject<EventCommentList>;
+
+  constructor(props: any) {
+    super(props);
+    this.listComp = React.createRef();
     this.updateList = this.updateList.bind(this);
   }
 
@@ -25,14 +33,16 @@ export default class EventCommentSection extends Component {
           <EventCommentForm event_uuid={event_uuid} callAfterPost={this.updateList}/>
         </div>
         <div className="mt-3">
-          <EventCommentList event_uuid={event_uuid} ref={instance => { this.state.list = instance; }}/>
+          <EventCommentList event_uuid={event_uuid} ref={this.listComp} />
         </div>
       </div>
     )
   }
 
   updateList() {
-    this.state.list.update();
+    if (this.listComp && this.listComp.current) {
+      this.listComp.current.update();
+    }
   }
 
 }
@@ -47,5 +57,3 @@ if (document.getElementById('id-event-comment-section')) {
       document.getElementById('id-event-comment-section')
     );
 }
-
-

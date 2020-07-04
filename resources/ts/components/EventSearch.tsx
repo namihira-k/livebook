@@ -1,15 +1,23 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+
 
 import EventList from './EventList';
 
-export default class EventSearch extends Component {
+interface Props {
+}
 
-  constructor() {
-    super();
+interface State {
+  places: any[],
+  selected_place: string,
+}
+
+export default class EventSearch extends React.Component<Props, State> {
+
+  constructor(props: any) {
+    super(props);
     this.state = {
       places: [],
-
       selected_place: '',
     }
 
@@ -23,7 +31,7 @@ export default class EventSearch extends Component {
           <div className="form-group">
             <label htmlFor="id-place">場所を選ぶ</label>
             <select className="custom-select" id="id-place" onChange={(event) => { this.changePlace(event)}}>
-              <option defaultValue>...</option>
+              <option defaultValue='true'>...</option>
               {
                 this.state.places.map(p => {
                   return (
@@ -55,7 +63,7 @@ export default class EventSearch extends Component {
                             })
   }
 
-  renderEventList(p){
+  renderEventList(p: any){
     return (
       <div key={ p.place }>
         <h5><i className="fa fa-map-marker mr-1"></i>{ p.place }</h5>
@@ -80,7 +88,7 @@ export default class EventSearch extends Component {
     });
   }
 
-  changePlace(event) {
+  changePlace(event: any) {
     this.setState({
       selected_place: event.target.value,
     });

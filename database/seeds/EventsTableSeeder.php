@@ -14,6 +14,20 @@ class EventsTableSeeder extends Seeder
     {
         DB::table('events')->insert([
             [
+                'id' => 36,
+                'name' => '【延期】BTS MAP OF THE SOUL TOUR',
+                'performer' => 'BTS',
+                'prefecture' => '東京',
+                'place' => '東京ドーム',
+                'hashtag' => '#BTS',
+                'from_date_time' => '2020-09-01 18:00:00',
+                'to_date_time' => '2020-09-02 21:00:00',
+                'url' => 'https://bts-official.jp/index.php',
+                'uuid' => 'c4824b47-ccb7-4fd6-a47c-d94d5e9817d6',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
                 'id' => 35,
                 'name' => '乃木坂46時間TV 「はなれてたって、ぼくらはいっしょ！」',
                 'performer' => '乃木坂46',

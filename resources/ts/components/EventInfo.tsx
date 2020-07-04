@@ -1,15 +1,26 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+
+
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import queryString from 'query-string';
 import moment from 'moment';
 
 import ShareForm from './ShareForm';
 
-export default class EventInfo extends Component {
 
-  constructor() {
-    super();
+interface Props {
+  qs: any,
+}
+
+interface State {
+  events: Array<any>,
+}
+
+export default class EventInfo extends React.Component<Props, State> {
+
+  constructor(props: any) {
+    super(props);
     this.state = {
       events: [],
     };
@@ -78,7 +89,7 @@ export default class EventInfo extends Component {
     });
   }
 
-  displayDateTime(str) {
+  displayDateTime(str: any) {
     var m = moment(str);
     m.locale('ja')
     return m.format('LL') + " (" + m.format('ddd') + ") "

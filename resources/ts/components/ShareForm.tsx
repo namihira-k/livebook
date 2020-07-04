@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 
 import {
   FacebookShareButton,
@@ -7,10 +7,20 @@ import {
   TwitterIcon,
 } from 'react-share';
 
+interface Props {
+  path: string,
+  msg: string,
+}
 
-export default class ShareForm extends Component {
+interface State {
+  path: string,
+  msg: string,
+}
 
-  constructor(props) {
+
+export default class ShareForm extends React.Component<Props, State> {
+
+  constructor(props: any) {
     super(props);
     this.state = {
       path: props.path,

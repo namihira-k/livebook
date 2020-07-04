@@ -1,12 +1,22 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+
 import axios from 'axios';
 
-export default class Test extends Component {
+
+interface Props {
+}
+
+interface State {
+  image: string | ArrayBuffer | null
+}
+
+export default class Test extends React.Component<Props, State> {
   
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state ={
+      image: '',
     }
 
     this.onFormSubmit = this.onFormSubmit.bind(this)
@@ -24,34 +34,34 @@ export default class Test extends Component {
     );
   }
 
-  onChange(e) {
+  onChange(e: any) {
     let files = e.target.files || e.dataTransfer.files;
     if (!files.length)
       return;
     this.createImage(files[0]);
   }
 
-  createImage(file) {
+  createImage(file: any) {
     let reader = new FileReader();
     reader.onload = (e) => {
       this.setState({
-        image: e.target.result
+        image: e.target !== null ? e.target.result : null
       })
     };
     reader.readAsDataURL(file);
   }
 
-  onFormSubmit(e){
+  onFormSubmit(e: any){
     e.preventDefault() 
     this.fileUpload(this.state.image);
   }
 
-  fileUpload(image){
+  fileUpload(image: any){
     return axios.post(process.env.MIX_APP_BASE_PATH + '/api/files', {
                   file: this.state.image,
                   comment_uuid: '1234567890',
                 })
-                .then(response => console.log(response))
+                .then((response: any) => console.log(response))
   }
 
 }
