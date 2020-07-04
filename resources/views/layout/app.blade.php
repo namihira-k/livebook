@@ -8,7 +8,7 @@
   <title>Live Share</title>
 
   <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/vnd.microsoft.icon">
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <link href="{{ mix('css/app.css') }}" rel="stylesheet">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
 
   <meta name="twitter:card" content="summary" />
@@ -37,37 +37,26 @@
   @yield('content')
   
   <div class="container">
-    <div id="id-ads" class="mt-3"></div>
+    <!-- <div id="id-ads" class="mt-3"></div> -->
+
+    <div>
+      <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-1908478661707708"
+            data-ad-slot="5869471877"
+            data-ad-format="auto"
+            data-full-width-responsive="true">
+      </ins>
+    </div>
   </div>
 
   <div id="id-footer"></div>
 
-  <script src="{{ asset('js/test.js') }}"></script>
-
-  <script src="{{ asset('js/clock.js') }}"></script>
-
-  <script src="{{ asset('js/header.js') }}"></script>
-  <script src="{{ asset('js/footer.js') }}"></script>
-  <script src="{{ asset('js/ads.js') }}"></script>
-  <script src="{{ asset('js/share-form.js') }}"></script>
-
-  <script src="{{ asset('js/ranking-event.js') }}"></script>
-
-  <script src="{{ asset('js/event-request.js') }}"></script>
-
-  <script src="{{ asset('js/comment-list.js') }}"></script>
-
-  <script src="{{ asset('js/event-info.js') }}"></script>
-  <script src="{{ asset('js/event-comment-section.js') }}"></script>
-  <script src="{{ asset('js/event-comment-form.js') }}"></script>
-  <script src="{{ asset('js/event-comment-list.js') }}"></script>
-  <script src="{{ asset('js/event-comment.js') }}"></script>
-  <script src="{{ asset('js/event-comment-rating.js') }}"></script>
-
+  <script src="{{ mix('js/app.js') }}"></script>
   @yield('script')
 
   <!-- Google Ads -->
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>  
 
 </body>
 

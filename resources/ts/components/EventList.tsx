@@ -1,10 +1,21 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+
 import moment from 'moment';
 
-export default class EventList extends Component {
+interface Props {
+  place?: string,
+}
 
-  constructor(props) {
+interface State {
+  events: Array<any>,
+  place: string,
+  is_processing: boolean,
+}
+
+export default class EventList extends React.Component<Props, State> {
+
+  constructor(props: any) {
     super(props);
     this.state = {
       events: [],
@@ -76,11 +87,11 @@ export default class EventList extends Component {
     });
   }
 
-  infoPath(event) {
+  infoPath(event: any) {
     return process.env.MIX_APP_BASE_PATH + '/web/eventinfo' + '?uuid=' + event.uuid;
   }
 
-  displayDateTime(str) {
+  displayDateTime(str: any) {
     var m = moment(str);
     m.locale('ja')
     return m.format('LL') + " (" + m.format('ddd') + ") "

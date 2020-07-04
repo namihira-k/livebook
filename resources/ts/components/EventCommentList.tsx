@@ -1,12 +1,21 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import axios from 'axios';
+import * as React from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import EventComment from './EventComment';
 
-export default class EventCommentList extends Component {
+interface Props {
+  event_uuid: string,
+}
 
-  constructor(props) {
+interface State {
+  event_uuid: string,
+  comments: Array<any>,
+  is_processing: boolean,
+  has_more_comments: boolean
+}
+
+export default class EventCommentList extends React.Component<Props, State> {
+
+  constructor(props: any) {
     super(props);
     this.state = {
       event_uuid: props.event_uuid,
@@ -73,7 +82,7 @@ export default class EventCommentList extends Component {
     });
   }
 
-  fetchPaging(page) {
+  fetchPaging(page: any) {
     fetch(process.env.MIX_APP_BASE_PATH + '/api/comments' + '?order=desc' + '&page=' + page + '&event_uuid=' + this.state.event_uuid)
     .then(response => {
       return response.json();

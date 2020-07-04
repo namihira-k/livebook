@@ -1,10 +1,18 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 
-export default class RankingEvent extends Component {
+interface Props {
+}
 
-  constructor() {
-    super();
+interface State {
+  events: any[],
+  is_processing: boolean,
+}
+
+export default class RankingEvent extends React.Component<Props, State> {
+
+  constructor(props: any) {
+    super(props);
     this.state = {
       events: [],
 
@@ -64,7 +72,7 @@ export default class RankingEvent extends Component {
     });
   }
 
-  infoPath(event) {
+  infoPath(event: any) {
     return process.env.MIX_APP_BASE_PATH + '/web/eventinfo' + '?uuid=' + event.uuid;
   }
 

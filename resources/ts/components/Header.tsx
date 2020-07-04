@@ -1,12 +1,19 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 
-export default class Header extends Component {
+interface Props {
+}
 
-  constructor() {
-    super();
+interface State {
+  show_menu: boolean,
+}
+
+export default class Header extends React.Component<Props, State>  {
+
+  constructor(props: any) {
+    super(props);
     this.state = {
-      show_menu: false
+      show_menu: false,
     };
 
     this.showMenu = this.showMenu.bind(this);

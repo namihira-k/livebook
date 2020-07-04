@@ -1,10 +1,18 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+
 import axios from 'axios';
 
-export default class EventCommentRating extends Component {
+interface Props {
+  comment: any,
+}
 
-  constructor(props) {
+interface State {
+  comment: any,
+}
+
+export default class EventCommentRating extends React.Component<Props, State> {
+
+  constructor(props: any) {
     super(props);
     this.state = {
       comment: this.props.comment,
@@ -32,7 +40,7 @@ export default class EventCommentRating extends Component {
     });
   }
 
-  post(label) {
+  post(label: string) {
     axios.post(process.env.MIX_APP_BASE_PATH + '/api/ratings', 
             {
               comment_uuid: this.state.comment.uuid,

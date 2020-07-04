@@ -1,10 +1,19 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 
-export default class CommentList extends Component {
 
-  constructor() {
-    super();
+interface Props {
+}
+
+interface State {
+  comments: Array<any>,
+  is_processing: Boolean
+}
+
+export default class CommentList extends React.Component<Props, State> {
+
+  constructor(rops: any) {
+    super(rops);
     this.state = {
       comments: [],
 
@@ -26,7 +35,7 @@ export default class CommentList extends Component {
               <div className="card mb-3" key={ comment.uuid }>
                 <div className="card-body">
                   <h6 className="card-title  text-center"><a className="btn btn-link" href={ this.infoPath(comment.event) }><small>{ comment.event.name }</small></a></h6>
-                  <h6 className="card-subtitle text-muted mb-2"><small>{ comment.username } > </small></h6>
+                  <h6 className="card-subtitle text-muted mb-2"><small>{ comment.username } : </small></h6>
                   <p className="card-text">{ comment.comment }</p>
                 </div>
               </div>
@@ -58,7 +67,7 @@ export default class CommentList extends Component {
     });
   }
 
-  infoPath(event) {
+  infoPath(event: any) {
     return process.env.MIX_APP_BASE_PATH + '/web/eventinfo' + '?uuid=' + event.uuid;
   }
 

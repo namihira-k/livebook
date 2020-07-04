@@ -7,7 +7,3 @@
   <div id="id-event-search" class="mt-3"></div>
 </div>
 @endsection
-
-@section('script')
-<script src="{{ asset('js/event-search.js') }}"></script>
-@endsection

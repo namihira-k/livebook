@@ -1,17 +1,19 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 
-export default class Ads extends Component {
+interface Props {
+}
+
+interface State {
+}
+
+export default class Ads extends React.Component<Props, State> {
   
   render() {
-    const style = {
-      display: 'block'
-    }  
-
     return (
       <div>
         <ins className="adsbygoogle"
-              style={style}
+              style={{ "display": "block" }}
               data-ad-client="ca-pub-1908478661707708"
               data-ad-slot="5869471877"
               data-ad-format="auto"
@@ -20,7 +22,9 @@ export default class Ads extends Component {
       </div>
     );
   }
+
 }
+
 
 if (document.getElementById('id-ads')) {
     ReactDOM.render(<Ads />, document.getElementById('id-ads'));

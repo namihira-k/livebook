@@ -25,7 +25,3 @@
   </div>
 </div>
 @endsection
-
-@section('script')
-<script src="{{ asset('js/event-list.js') }}"></script>
-@endsection

@@ -1,9 +1,17 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 
 import Clock from './Clock';
 
-export default class Footer extends Component {
+
+interface Props {
+}
+
+interface State {
+}
+
+
+export default class Footer extends React.Component<Props, State> {
   
   render() {
     const style = {
