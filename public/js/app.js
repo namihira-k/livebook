@@ -60964,7 +60964,7 @@ class EventComment extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
                     m,
                     react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("i", { className: "fa fa-external-link ml-1" }))))),
                 this.state.comment.image_path && (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null,
-                    react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("img", { className: "img-fluid", src: "http://static.namimono.com/dav/publish/60a0177e-ba0b-44ad-b8ee-5ab3468a14ed" + "/" + this.state.comment.image_path }))),
+                    react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("img", { className: "img-fluid", src: "http://static.namimono.com/dav/publish/0308490b-7e7b-4dd0-af38-a0b5da2e7109" + "/" + this.state.comment.image_path }))),
                 react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_EventCommentRating__WEBPACK_IMPORTED_MODULE_4__["default"], { comment: this.state.comment, key: this.state.comment.id }),
                 react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", { className: "ml-5" },
                     this.state.child_comments.map(comment => {
@@ -61339,10 +61339,7 @@ class EventCommentRating extends react__WEBPACK_IMPORTED_MODULE_0__["Component"]
         return (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", null,
             react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("button", { type: "button", className: "btn btn-light", onClick: this.post.bind(this, 'good') },
                 react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("i", { className: "fa fa-thumbs-o-up mr-1" }),
-                react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", null, this.state.comment.rating.good)),
-            react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("button", { type: "button", className: "btn btn-light", onClick: this.post.bind(this, 'bad') },
-                react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("i", { className: "fa fa-thumbs-o-down mr-1" }),
-                react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", null, this.state.comment.rating.bad))));
+                react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", null, this.state.comment.rating.good))));
     }
     _fetch() {
         fetch("" + '/api/comments' + '?uuid=' + this.state.comment.uuid)
