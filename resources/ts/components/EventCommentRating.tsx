@@ -23,7 +23,6 @@ export default class EventCommentRating extends React.Component<Props, State> {
     return (
       <span>
         <button type="button" className="btn btn-light" onClick={this.post.bind(this, 'good')}><i className="fa fa-thumbs-o-up mr-1"></i><span>{ this.state.comment.rating.good }</span></button>
-        <button type="button" className="btn btn-light" onClick={this.post.bind(this, 'bad')}><i className="fa fa-thumbs-o-down mr-1"></i><span>{ this.state.comment.rating.bad }</span></button>
       </span>
     );
   }
