@@ -11,7 +11,7 @@ export default class Ads extends React.Component<Props, State> {
   
   render() {
     return (
-      <div className="mt-1">
+      <div>
         <ins className="adsbygoogle"
               style={{ "display": "block" }}
               data-ad-client="ca-pub-1908478661707708"

@@ -36,7 +36,7 @@
 
   @yield('content')
   
-  <div class="container">
+  <div class="container mt-3">
     <!-- <div id="id-ads" class="mt-3"></div> -->
 
     <div>
