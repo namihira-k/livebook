@@ -60753,7 +60753,7 @@ __webpack_require__.r(__webpack_exports__);
 
 class Ads extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     render() {
-        return (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null,
+        return (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", { className: "mt-1" },
             react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("ins", { className: "adsbygoogle", style: { "display": "block" }, "data-ad-client": "ca-pub-1908478661707708", "data-ad-slot": "5869471877", "data-ad-format": "auto", "data-full-width-responsive": "true" })));
     }
 }
