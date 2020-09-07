@@ -40,7 +40,7 @@ class Kernel extends ConsoleKernel
                                         env('TWITTER_CLIENT_ID_ACCESS_TOKEN_SECRET'));
 
             $event = new Event;
-            $result = $event::where('to_date_time', '>=', Carbon::now()->subDays(1))
+            $result = $event::where('to_date_time', '>=', Carbon::now()->subDays(5))
                             ->inRandomOrder()
                             ->first();
 
@@ -51,7 +51,7 @@ class Kernel extends ConsoleKernel
             }
 
             $tweet = $result->name . PHP_EOL . 
-                    'の準備をしよう！状況を共有しよう！' . PHP_EOL . 
+                    'の状況や感想を共有しよう！' . PHP_EOL . 
                     $limit . PHP_EOL .
                     $result->hashtag . PHP_EOL . 
                     'https://liveshare.namimono.com/web/eventinfo?uuid=' . $result->uuid;
