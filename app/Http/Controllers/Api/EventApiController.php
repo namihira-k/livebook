@@ -29,7 +29,7 @@ class EventApiController extends Controller
                           ->orderBy($orderBy, $order)
                           ->paginate($count);
       } else {
-        $results = $event::where('to_date_time', '>=', Carbon::now())
+        $results = $event::where('to_date_time', '>=', Carbon::now()->subDays(5))
                           ->orderBy($orderBy, $order)
                           ->paginate($count);
       }
