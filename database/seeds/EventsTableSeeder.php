@@ -19,7 +19,7 @@ class EventsTableSeeder extends Seeder
                 'performer' => '欅坂46',
                 'prefecture' => 'オンライン配信',
                 'place' => 'オンライン配信',
-                'hashtag' => '#欅坂46 ',
+                'hashtag' => '#欅坂46 #ラストライブ',
                 'from_date_time' => '2020-10-12 18:00:00',
                 'to_date_time' => '2020-10-13 21:00:00',
                 'url' => 'https://www.keyakizaka46.com/s/k46o/',
