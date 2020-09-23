@@ -14,6 +14,20 @@ class EventsTableSeeder extends Seeder
     {
         DB::table('events')->insert([
             [
+                'id' => 52,
+                'name' => '欅坂46 THE LAST LIVE',
+                'performer' => '欅坂46',
+                'prefecture' => 'オンライン配信',
+                'place' => 'オンライン配信',
+                'hashtag' => '#欅坂46 ',
+                'from_date_time' => '2020-10-12 18:00:00',
+                'to_date_time' => '2020-10-13 21:00:00',
+                'url' => 'https://www.keyakizaka46.com/s/k46o/',
+                'uuid' => '0e46638c-2f98-4638-9eaa-3a0bf9131ceb',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
                 'id' => 51,
                 'name' => 'aiko Love Like Rock 〜別枠ちゃんvol.2〜',
                 'performer' => 'aiko',
