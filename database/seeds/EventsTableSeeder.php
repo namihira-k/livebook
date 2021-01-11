@@ -14,6 +14,20 @@ class EventsTableSeeder extends Seeder
     {
         DB::table('events')->insert([
             [
+                'id' => 55,
+                'name' => 'Little Glee Monster Arena Tour 2021 Dearest',
+                'performer' => 'Little Glee Monster',
+                'prefecture' => '東京',
+                'place' => '日本武道館',
+                'hashtag' => '#LittleGleeMonster #Dearest',
+                'from_date_time' => '2021-01-27 17:30:00',
+                'to_date_time' => '2021-03-26 21:00:00',
+                'url' => 'https://www.lgm-tour.com/ArenaTour2021/',
+                'uuid' => '87a88f20-3115-4a00-854d-1ef8a4c9d6aa',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
                 'id' => 54,
                 'name' => 'THE YELLOW MONKEY 30th Anniversary LIVE',
                 'performer' => 'THE YELLOW MONKEY',
