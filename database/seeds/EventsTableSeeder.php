@@ -14,6 +14,20 @@ class EventsTableSeeder extends Seeder
     {
         DB::table('events')->insert([
             [
+                'id' => 58,
+                'name' => '10 BABYMETAL BUDOKAN',
+                'performer' => 'BABYMETAL',
+                'prefecture' => '東京',
+                'place' => '武道館',
+                'hashtag' => '#BABYMETAL #BABYMETAL_BUDOKAN',
+                'from_date_time' => '2021-01-19 17:00:00',
+                'to_date_time' => '2021-04-15 19:00:00',
+                'url' => 'https://www.babymetal.com/10babymetalbudokan/',
+                'uuid' => 'e784d377-859b-4dfa-914b-a8fed75cffb3',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
                 'id' => 57,
                 'name' => 'YOASOBI 1st LIVE 『KEEP OUT THEATER』',
                 'performer' => 'YOASOBI',
@@ -33,7 +47,7 @@ class EventsTableSeeder extends Seeder
                 'performer' => '乃木坂46',
                 'prefecture' => 'オンライン配信',
                 'place' => 'オンライン配信',
-                'hashtag' => '#乃木坂46 #8thYearBirthdayLive #8thバスラ',
+                'hashtag' => '#乃木坂46 #9thYearBirthdayLive #9thバスラ',
                 'from_date_time' => '2021-02-22 18:00:00',
                 'to_date_time' => '2021-02-23 21:00:00',
                 'url' => 'http://www.nogizaka46.com',
