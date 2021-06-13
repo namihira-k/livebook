@@ -14,6 +14,20 @@ class EventsTableSeeder extends Seeder
     {
         DB::table('events')->insert([
             [
+                'id' => 67,
+                'name' => '乃木坂46 真夏の全国ツアー2021',
+                'performer' => '乃木坂46',
+                'prefecture' => '全国ツアー',
+                'place' => '全国ツアー',
+                'hashtag' => '#乃木坂46 #真夏の全国ツアー2021',
+                'from_date_time' => '2021-07-14 17:00:00',
+                'to_date_time' => '2021-09-09 21:00:00',
+                'url' => 'https://www.nogizaka46.com',
+                'uuid' => '0a9b2a4b-f308-4d7c-9881-b7c5c5343980',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
                 'id' => 66,
                 'name' => 'EXILE TRIBE LIVE TOUR 2021 - RISING SUN TO THE WORLD',
                 'performer' => 'EXILE TRIBE',
