@@ -33,7 +33,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "minimist": "^1.2.5",
+        "minimist": "^1.2.6",
         "moment": "^2.29.0",
         "node-forge": "^0.10.0",
         "node-notifier": "^9.0.0",
